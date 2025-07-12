@@ -18,66 +18,90 @@
   </style>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <!-- Основные стили -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-[#1A2A2A] text-white font-sans">
-  <!-- Прелоадер (позже) -->
-
+<body class="bg-[#181A1B] text-[#F6F7F9] font-sans">
   <!-- Header -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-[#1A2A2A]/70 backdrop-blur-md h-20 flex items-center px-4 justify-between">
-  <!-- Логотип -->
-  <div class="text-2xl font-bold text-[#D4AF37] font-montserrat drop-shadow-lg select-none">
-    Li
-  </div>
-  <!-- Меню (десктоп) -->
-  <nav class="hidden md:flex space-x-6">
-    <a href="#" class="font-montserrat text-lg text-white hover:bg-gradient-to-r hover:from-[#A8B5A2] hover:to-[#B3CDE0] hover:text-[#1A2A2A] px-4 py-2 rounded transition duration-200">Главная</a>
-    <a href="#" class="font-montserrat text-lg text-white hover:bg-gradient-to-r hover:from-[#A8B5A2] hover:to-[#B3CDE0] hover:text-[#1A2A2A] px-4 py-2 rounded transition duration-200">Услуги</a>
-    <a href="#" class="font-montserrat text-lg text-white hover:bg-gradient-to-r hover:from-[#A8B5A2] hover:to-[#B3CDE0] hover:text-[#1A2A2A] px-4 py-2 rounded transition duration-200">Цены</a>
-    <a href="#" class="font-montserrat text-lg text-white hover:bg-gradient-to-r hover:from-[#A8B5A2] hover:to-[#B3CDE0] hover:text-[#1A2A2A] px-4 py-2 rounded transition duration-200">Отзывы</a>
-    <a href="#" class="font-montserrat text-lg text-white hover:bg-gradient-to-r hover:from-[#A8B5A2] hover:to-[#B3CDE0] hover:text-[#1A2A2A] px-4 py-2 rounded transition duration-200">Контакты</a>
-  </nav>
-  <!-- Бургер-иконка (мобильный) -->
-  <button class="md:hidden flex flex-col justify-center items-center w-10 h-10 group" aria-label="Открыть меню">
-    <span class="block w-8 h-0.5 bg-white mb-1.5 transition-all duration-300"></span>
-    <span class="block w-6 h-0.5 bg-white mb-1.5 transition-all duration-300"></span>
-    <span class="block w-4 h-0.5 bg-white transition-all duration-300"></span>
-  </button>
-  <!-- Мобильное меню-оверлей -->
-  <div id="mobileMenu" class="fixed top-0 right-0 w-full h-full bg-[#1A2A2A]/80 backdrop-blur-lg z-50 flex flex-col items-center justify-center space-y-8 transition-transform duration-300 translate-x-full md:hidden">
-    <a href="#" class="font-montserrat text-2xl text-[#D4AF37] hover:text-[#B3CDE0] transition">Главная</a>
-    <a href="#" class="font-montserrat text-2xl text-[#D4AF37] hover:text-[#B3CDE0] transition">Услуги</a>
-    <a href="#" class="font-montserrat text-2xl text-[#D4AF37] hover:text-[#B3CDE0] transition">Цены</a>
-    <a href="#" class="font-montserrat text-2xl text-[#D4AF37] hover:text-[#B3CDE0] transition">Отзывы</a>
-    <a href="#" class="font-montserrat text-2xl text-[#D4AF37] hover:text-[#B3CDE0] transition">Контакты</a>
-  </div>
-</header>
+  <header class="fixed top-0 left-0 w-full z-50 bg-[#181A1B]/80 backdrop-blur-md h-20 flex items-center px-4 justify-between">
+    <!-- Логотип -->
+    <div class="text-2xl font-bold text-[#BFA181] font-montserrat drop-shadow-lg select-none">
+      Li
+    </div>
+    <!-- Меню (десктоп) -->
+    <nav class="hidden md:flex space-x-6">
+      <a href="#" class="font-montserrat text-lg text-[#F6F7F9] hover:text-[#BFA181] px-4 py-2 rounded transition duration-200">Главная</a>
+      <a href="#" class="font-montserrat text-lg text-[#F6F7F9] hover:text-[#BFA181] px-4 py-2 rounded transition duration-200">Услуги</a>
+      <a href="#" class="font-montserrat text-lg text-[#F6F7F9] hover:text-[#BFA181] px-4 py-2 rounded transition duration-200">Цены</a>
+      <a href="#" class="font-montserrat text-lg text-[#F6F7F9] hover:text-[#BFA181] px-4 py-2 rounded transition duration-200">Отзывы</a>
+      <a href="#" class="font-montserrat text-lg text-[#F6F7F9] hover:text-[#BFA181] px-4 py-2 rounded transition duration-200">Контакты</a>
+    </nav>
+    <!-- Бургер-иконка (мобильный) -->
+    <button class="md:hidden flex flex-col justify-center items-center w-10 h-10 group" aria-label="Открыть меню">
+      <span class="block w-8 h-0.5 bg-[#F6F7F9] mb-1.5 transition-all duration-300"></span>
+      <span class="block w-6 h-0.5 bg-[#F6F7F9] mb-1.5 transition-all duration-300"></span>
+      <span class="block w-4 h-0.5 bg-[#F6F7F9] transition-all duration-300"></span>
+    </button>
+    <!-- Мобильное меню-оверлей -->
+    <div id="mobileMenu" class="fixed top-0 right-0 w-full h-full bg-white/10 backdrop-blur-lg z-50 flex flex-col items-center justify-center space-y-8 transition-transform duration-300 translate-x-full md:hidden">
+      <a href="#" class="font-montserrat text-2xl text-[#BFA181] hover:text-[#A8B5A2] transition">Главная</a>
+      <a href="#" class="font-montserrat text-2xl text-[#BFA181] hover:text-[#A8B5A2] transition">Услуги</a>
+      <a href="#" class="font-montserrat text-2xl text-[#BFA181] hover:text-[#A8B5A2] transition">Цены</a>
+      <a href="#" class="font-montserrat text-2xl text-[#BFA181] hover:text-[#A8B5A2] transition">Отзывы</a>
+      <a href="#" class="font-montserrat text-2xl text-[#BFA181] hover:text-[#A8B5A2] transition">Контакты</a>
+    </div>
+  </header>
 
-  <!-- Hero-секция -->
-  <section id="hero" class="min-h-screen flex flex-col justify-center items-center pt-20 opacity-0 translate-y-8 transition-all duration-1000">
-  <h1 class="text-4xl md:text-5xl font-montserrat font-bold text-[#D4AF37] text-center drop-shadow-lg mb-4">
-    Li-Студия массажного искусства
-  </h1>
-  <p class="text-lg md:text-xl italic text-white text-center mb-8">
-    Место, где каждая деталь продумана для вашего комфорта и релаксации
-  </p>
-  <button class="bg-[#D4AF37] text-white px-8 py-3 rounded-lg text-lg font-semibold transition-transform duration-200 hover:scale-110 hover:bg-gradient-to-r from-[#D4AF37] to-[#A8B5A2] shadow-lg">
-    Записаться
-  </button>
-</section>
+  <!-- Hero-секция с видео -->
+  <section id="hero" class="relative min-h-screen flex flex-col justify-center items-center pt-24 overflow-hidden">
+    <!-- Фоновое видео -->
+    <video id="hero-video" class="absolute inset-0 w-full h-full object-cover z-0" autoplay loop muted playsinline>
+      <source src="assets/video/relax.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+    <!-- Overlay для затемнения -->
+    <div class="absolute inset-0 bg-black/60 z-0"></div>
+    <!-- Контент hero -->
+    <div class="relative z-10 flex flex-col items-center">
+      <h1 class="text-4xl md:text-5xl font-montserrat font-bold text-[#BFA181] text-center mb-6 tracking-wide">
+        Li-Студия массажного искусства
+      </h1>
+      <p class="text-lg md:text-xl italic text-[#E9E4D5] text-center mb-10 max-w-xl">
+        Место, где каждая деталь продумана для вашего комфорта и релаксации
+      </p>
+      <button class="px-10 py-4 rounded-xl text-lg font-semibold shadow-lg bg-gradient-to-r from-[#BFA181] to-[#A8B5A2] text-[#181A1B] hover:from-[#A8B5A2] hover:to-[#BFA181] transition-all duration-200">
+        Записаться
+      </button>
+    </div>
+  </section>
 
-    <!-- Остальные секции добавим позже -->
+  <!-- Остальные секции добавим позже -->
 
   <script src="assets/js/main.js"></script>
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const hero = document.getElementById('hero');
-    setTimeout(() => {
-      hero.classList.remove('opacity-0', 'translate-y-8');
-      hero.classList.add('opacity-100', 'translate-y-0');
-    }, 200); // небольшая задержка для плавности
-  });
-</script>
+    // GSAP параллакс для видео
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to("#hero-video", {
+      y: 100,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: 0.5
+      }
+    });
+    // Плавное появление hero-секции
+    gsap.to("#hero .relative.z-10", {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "power2.out",
+      delay: 0.2
+    });
+  </script>
 </body>
 </html>
