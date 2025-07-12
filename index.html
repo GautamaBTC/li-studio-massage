@@ -55,20 +55,29 @@
 </header>
 
   <!-- Hero-секция -->
-  <section class="min-h-screen flex flex-col justify-center items-center pt-20">
-    <h1 class="text-4xl md:text-5xl font-montserrat font-bold text-[#D4AF37] text-center drop-shadow-lg mb-4">
-      Li-Студия массажного искусства
-    </h1>
-    <p class="text-lg md:text-xl italic text-white text-center mb-8">
-      Место, где каждая деталь продумана для вашего комфорта и релаксации
-    </p>
-    <button class="bg-[#D4AF37] text-white px-8 py-3 rounded-lg text-lg font-semibold transition-transform duration-200 hover:scale-110 hover:bg-gradient-to-r from-[#D4AF37] to-[#A8B5A2] shadow-lg">
-      Записаться
-    </button>
-  </section>
+  <section id="hero" class="min-h-screen flex flex-col justify-center items-center pt-20 opacity-0 translate-y-8 transition-all duration-1000">
+  <h1 class="text-4xl md:text-5xl font-montserrat font-bold text-[#D4AF37] text-center drop-shadow-lg mb-4">
+    Li-Студия массажного искусства
+  </h1>
+  <p class="text-lg md:text-xl italic text-white text-center mb-8">
+    Место, где каждая деталь продумана для вашего комфорта и релаксации
+  </p>
+  <button class="bg-[#D4AF37] text-white px-8 py-3 rounded-lg text-lg font-semibold transition-transform duration-200 hover:scale-110 hover:bg-gradient-to-r from-[#D4AF37] to-[#A8B5A2] shadow-lg">
+    Записаться
+  </button>
+</section>
 
     <!-- Остальные секции добавим позже -->
 
   <script src="assets/js/main.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hero = document.getElementById('hero');
+    setTimeout(() => {
+      hero.classList.remove('opacity-0', 'translate-y-8');
+      hero.classList.add('opacity-100', 'translate-y-0');
+    }, 200); // небольшая задержка для плавности
+  });
+</script>
 </body>
 </html>
