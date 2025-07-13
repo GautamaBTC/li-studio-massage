@@ -19,3 +19,70 @@
     "finalParagraph": "Погрузитесь в атмосферу полного релакса и почувствуйте гармонию тела и души."
   }
 ]
+[
+  {
+    "id": "cedar-barrel-lux",
+    "title": "Кедровая бочка «Люкс»",
+    "price": "1 200 ₽"
+  },
+  {
+    "id": "cedar-barrel-light",
+    "title": "Кедровая бочка «Лайт»",
+    "price": "500 ₽"
+  },
+  {
+    "id": "thai-face-massage",
+    "title": "Тайский массаж лица",
+    "price": "1 500 ₽"
+  },
+  {
+    "id": "eyelash-lamination",
+    "title": "Ламинирование + ботокс ресниц",
+    "price": "1 700 ₽"
+  },
+  {
+    "id": "algae-power",
+    "title": "«Сила Водорослей»",
+    "price": "2 000 ₽"
+  },
+  {
+    "id": "chocolate-bliss",
+    "title": "«Все будет в шоколаде»",
+    "price": "1 500 ₽"
+  },
+  {
+    "id": "exquisite-wine",
+    "title": "«Сама Изысканность»",
+    "price": "1 500 ₽"
+  },
+  {
+    "id": "berry-delicious",
+    "title": "«Ягодно-вкусная»",
+    "price": "1 500 ₽"
+  },
+  {
+    "id": "thai-oil-massage",
+    "title": "Тайский массаж на горячем масле",
+    "price": "1 700 ₽"
+  },
+  {
+    "id": "brazilian-butt",
+    "title": "Бразильская попка",
+    "price": "1 300 ₽"
+  },
+  {
+    "id": "modeling-massage",
+    "title": "Моделирующий массаж тела",
+    "price": "1 300 ₽"
+  },
+  {
+    "id": "stone-therapy",
+    "title": "Стоунтерапия",
+    "price": "1 500 ₽"
+  },
+  {
+    "id": "face-massage",
+    "title": "Массаж лица",
+    "price": "800 ₽"
+  }
+]
