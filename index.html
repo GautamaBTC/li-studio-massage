@@ -7,6 +7,7 @@
     <title>Li-Студия массажного искусства — Премиальный SPA в Сортавала</title>
     <meta name="description" content="Откройте для себя мир гармонии и релакса в Li-Студии. Профессиональный массаж, SPA-процедуры и забота о каждой детали для вашего тела и души.">
 
+    <!-- ==================== ИСПРАВЛЕННЫЙ И ОЧИЩЕННЫЙ HEAD ==================== -->
     <!-- Подключение шрифтов -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,15 +15,14 @@
 
     <!-- Подключение стилей -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Swiper.js для слайдера -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     
-    <!-- API Яндекс.Карт -->
+    <!-- API Яндекс.Карт (подключается до основных скриптов) -->
     <script src="https://api-maps.yandex.ru/2.1/?apikey=2c704256-39ca-4355-8a20-fe449f632a8b&lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
 
-    <!-- ==================== ШАПКА ==================== -->
+    <!-- ==================== ИСПРАВЛЕННАЯ ШАПКА ==================== -->
     <header class="header">
         <div class="container header__container">
             <a href="#" class="logo">Li</a>
@@ -33,7 +33,6 @@
                 <a href="#contacts" class="nav__link">Контакты</a>
             </nav>
             
-            <!-- ИСПРАВЛЕННАЯ СТРУКТУРА: ОДИН БЛОК ДЛЯ ДЕЙСТВИЙ -->
             <div class="header__actions">
                 <a href="https://wa.me/79215232545" target="_blank" class="btn header__btn">Записаться</a>
                 <button class="burger" aria-label="Открыть меню">
@@ -42,12 +41,10 @@
                     <span></span>
                 </button>
             </div>
-
         </div>
     </header>
 
     <main>
-        <!-- ==================== ГЕРО-СЕКЦИЯ ==================== -->
         <section class="hero">
             <div class="container hero__container">
                 <h1 class="hero__title">Искусство заботы о теле и душе</h1>
@@ -56,7 +53,6 @@
             </div>
         </section>
 
-        <!-- ==================== О НАС ==================== -->
         <section id="about" class="section">
             <div class="container about__container">
                 <div class="about__image-wrapper">
@@ -74,7 +70,6 @@
             </div>
         </section>
 
-        <!-- ==================== УСЛУГИ ==================== -->
         <section id="services" class="section services__section">
             <div class="container">
                 <h2 class="section__title text-center">Наши ритуалы красоты и здоровья</h2>
@@ -86,7 +81,6 @@
             </div>
         </section>
         
-        <!-- ==================== ОТЗЫВЫ ==================== -->
         <section id="reviews" class="section">
             <div class="container">
                 <h2 class="section__title text-center">Что говорят наши гости</h2>
@@ -97,7 +91,6 @@
             </div>
         </section>
 
-        <!-- ==================== КОНТАКТЫ ==================== -->
         <section id="contacts" class="section contacts__section">
             <div class="container contacts__container">
                 <div class="contacts__info">
@@ -116,7 +109,6 @@
         </section>
     </main>
 
-    <!-- ==================== ФУТЕР ==================== -->
     <footer class="footer">
         <div class="container footer__container">
             <a href="#" class="logo">Li</a>
@@ -128,7 +120,6 @@
         </div>
     </footer>
     
-    <!-- ==================== МОДАЛЬНОЕ ОКНО ==================== -->
     <div class="modal" id="service-modal">
         <div class="modal__overlay" data-close="true"></div>
         <div class="modal__content">
@@ -136,7 +127,7 @@
         </div>
     </div>
     
-    <!-- Подключение скриптов -->
+    <!-- ==================== ИСПРАВЛЕННЫЙ ПОРЯДОК СКРИПТОВ ==================== -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js" defer></script>
 </body>
