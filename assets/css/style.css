@@ -1,22 +1,42 @@
+/* Новая, более глубокая палитра */
 :root {
-    --primary-bg: #1A2A2A;
+    --base-bg: #111818;
+    --surface-bg: #192222;
     --accent-gold: #D4AF37;
-    --secondary-green: #A8B5A2;
-    --secondary-blue: #B3CDE0;
-    --main-text: #FFFFFF;
+    --text-primary: #E0E0E0; /* Для заголовков и важных текстов */
+    --text-secondary: #9FAAAA; /* Для второстепенного текста */
+    --border-color: rgba(255, 255, 255, 0.1); /* Полупрозрачная граница */
 }
 
+/* Применяем новый шрифт и базовые цвета */
 body {
-    background-color: var(--primary-bg);
-    color: var(--main-text);
-    font-family: 'Open Sans', sans-serif;
+    background-color: var(--base-bg);
+    color: var(--text-secondary); /* Весь текст по умолчанию второстепенный */
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400; /* Стандартная толщина */
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--accent-gold);
-}
-
+/* Плавная прокрутка */
 html {
     scroll-behavior: smooth;
+}
+
+/* Стиль для эффекта "Аврора" на фоне */
+.aurora-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(26, 42, 42, 0) 60%);
+    animation: pulse 15s infinite ease-in-out;
+    z-index: 0;
+}
+
+/* Анимация для "Авроры" */
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
