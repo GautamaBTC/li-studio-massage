@@ -17,19 +17,89 @@
 </head>
 <body class="bg-primary-bg text-main-text font-opensans">
 
-    <!-- ======================== ШАПКА (HEADER) ======================== -->
-    <header id="header">
-        <!-- Здесь будет логотип, меню-бургер и кнопка "Записаться" -->
+        <!-- ======================== ШАПКА (HEADER) ======================== -->
+    <!-- 
+        ЗАМЕТКА:
+        - `sticky top-0 z-50`: Делает шапку "липкой", она будет всегда видна при прокрутке.
+        - `w-full`: Ширина 100%.
+        - `p-4`: Внутренние отступы (padding).
+        - `flex justify-between items-center`: Магия Flexbox. Раскидывает элементы по краям и выравнивает по центру.
+        - `bg-primary-bg/70 backdrop-blur-sm`: Полупрозрачный фон с эффектом размытия (как в ТЗ).
+    -->
+    <header id="header" class="sticky top-0 z-50 w-full p-4 flex justify-between items-center bg-[#1A2A2A]/70 backdrop-blur-sm">
+        <!-- Логотип -->
+        <!-- 
+            ЗАМЕТКА:
+            - `font-montserrat`: Наш шрифт для заголовков.
+            - `text-3xl`: Размер текста (Tailwind).
+            - `font-bold`: Жирное начертание.
+            - `text-accent-gold`: Наш фирменный золотой цвет. Мы его не прописали в Tailwind, поэтому используем прямой HEX-код.
+            - `hover:scale-105 transition-transform`: Анимация увеличения при наведении.
+        -->
+        <a href="#" class="font-montserrat text-3xl font-bold text-[#D4AF37] hover:scale-105 transition-transform duration-300">
+            Li
+        </a>
+
+        <!-- Навигация для десктопа (пока скрыта на мобилках) -->
+        <nav class="hidden md:flex space-x-8">
+            <a href="#about" class="hover:text-[#D4AF37] transition-colors">О нас</a>
+            <a href="#services" class="hover:text-[#D4AF37] transition-colors">Услуги</a>
+            <a href="#reviews" class="hover:text-[#D4AF37] transition-colors">Отзывы</a>
+            <a href="#contacts" class="hover:text-[#D4AF37] transition-colors">Контакты</a>
+        </nav>
+
+        <!-- Меню-бургер для мобилок -->
+        <button class="md:hidden text-white text-3xl">
+            <!-- Здесь будет иконка бургера, добавим позже -->
+            &#9776;
+        </button>
     </header>
     <!-- ====================== КОНЕЦ ШАПКИ ======================== -->
 
+
     <main>
         <!-- ================= ГЕРО-СЕКЦИЯ (HERO) =================== -->
-        <section id="hero">
-            <!-- Здесь будет фоновое видео, заголовок и главная кнопка -->
+        <!-- 
+            ЗАМЕТКА:
+            - `relative`: Позиционирование, нужно чтобы разместить видео и текст друг над другом.
+            - `min-h-screen`: Минимальная высота - 100% высоты экрана.
+            - `flex items-center justify-center`: Выравнивает контент по центру.
+            - `text-center`: Выравнивает текст по центру.
+        -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center">
+            
+            <!-- ЗАГОТОВКА ПОД ФОНОВОЕ ВИДЕО -->
+            <!-- 
+                ЗАМЕТКА НА БУДУЩЕЕ: 
+                Сюда мы вставим тег <video>. Пока что для красоты просто сделаем темный фон.
+                `absolute inset-0`: Растягивает блок на всю секцию.
+                `w-full h-full object-cover`: Видео будет занимать все пространство, не искажаясь.
+                `z-0`: Отправляет видео на задний план.
+            -->
+            <div class="absolute inset-0 w-full h-full bg-black/50 z-0">
+                <!-- Видео будет здесь -->
+            </div>
+            
+            <!-- ГРАДИЕНТ-ОВЕРЛЕЙ -->
+            <!-- Этот блок лежит поверх видео, но под текстом, создавая эффект затемнения -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-[#1A2A2A]/90 z-10"></div>
+
+            <!-- Контентная часть (заголовок, слоган, кнопка) -->
+            <!-- `relative z-20`: Этот блок лежит поверх оверлея -->
+            <div class="relative z-20 px-4">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+                    Li-Студия массажного искусства
+                </h1>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                    Забота о теле и душе в атмосфере уюта и высокого сервиса
+                </p>
+                <a href="#services" class="inline-block px-8 py-4 rounded-lg bg-gradient-to-r from-[#D4AF37] to-[#A8B5A2] text-[#1A2A2A] font-bold shadow-lg transition-transform transform hover:scale-105 focus:outline-none">
+                    Посмотреть услуги
+                </a>
+            </div>
+
         </section>
         <!-- =============== КОНЕЦ ГЕРО-СЕКЦИИ ================== -->
-
         <!-- ... остальные секции ... -->
     </main>
 
