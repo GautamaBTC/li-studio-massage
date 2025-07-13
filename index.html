@@ -120,15 +120,46 @@
         </main>
     </div>
 
-    <!-- СКРИПТЫ ДЛЯ АНИМАЦИИ И ПЛАВНОЙ ПРОКРУТКИ -->
+       <!-- СКРИПТЫ ДЛЯ АНИМАЦИИ И ПЛАВНОЙ ПРОКРУТКИ -->
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script> <!-- ДОБАВИЛИ ЭТОТ СКРИПТ -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script>
+        // --- Активация плавной прокрутки "Lenis" ---
         const lenis = new Lenis()
+
+        // --- Интеграция Lenis с GSAP ScrollTrigger ---
+        lenis.on('scroll', ScrollTrigger.update)
+
+        gsap.ticker.add((time)=>{
+          lenis.raf(time * 1000)
+        })
+
+        gsap.ticker.lagSmoothing(0)
+        
+        // --- Активация Параллакс-эффекта ---
+        gsap.utils.toArray('.parallax-img').forEach(img => {
+            const speed = gsap.getProperty(img, 'dataset').speed || 1; // Получаем скорость из атрибута data-speed
+            const y = (img.offsetHeight - img.parentElement.offsetHeight) * speed;
+
+            gsap.fromTo(img, { y: -y }, {
+                y: y,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: img.parentElement,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1 // Плавность "втирания" эффекта
+                }
+            });
+        });
+
+        // --- Старый код для анимации Lenis ---
         function raf(time) {
           lenis.raf(time)
           requestAnimationFrame(raf)
         }
+
         requestAnimationFrame(raf)
     </script>
 </body>
