@@ -41,3 +41,6 @@ h1, h2, h3 {
     font-weight: 500;
     color: white;
 }
+.parallax-img {
+    will-change: transform; /* Подсказка браузеру для плавной анимации */
+}
