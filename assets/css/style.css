@@ -662,6 +662,9 @@ body.no-scroll {
 }
 
 
+/* ... здесь все ваши стили до медиазапросов ... */
+
+
 /* Планшеты (до 1024px) */
 @media (max-width: 1024px) {
     .about__container {
@@ -709,15 +712,12 @@ body.no-scroll {
         background-color: rgba(26, 42, 42, 0.95);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2.5rem;
-        
-        z-index: 1001; /* Ставим меню под бургер */
-
+        z-index: 1001;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
@@ -737,10 +737,7 @@ body.no-scroll {
         color: #fff;
     }
 
-    /* 
-     * ВОТ ОНО, ИСПРАВЛЕННОЕ ПРАВИЛО! 
-     * Оно стало более конкретным, чтобы не ломать другие кнопки.
-    */
+    /* Вот единственно верное правило */
     .header__actions .header__btn {
         display: none; 
     }
