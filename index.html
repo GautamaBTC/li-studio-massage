@@ -17,6 +17,14 @@
 
     <!-- Подключение скриптов с отложенной загрузкой -->
     <script src="assets/js/main.js" defer></script>
+        <!-- Подключение стилей -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Swiper.js для слайдера -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    
+    <!-- API Яндекс.Карт -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ВАШ_API_КЛЮЧ&lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
 
@@ -81,12 +89,55 @@
                 </div>
             </div>
         </section>
-        
+                <!-- ==================== ОТЗЫВЫ ==================== -->
+        <section id="reviews" class="section">
+            <div class="container">
+                <h2 class="section__title text-center">Что говорят наши гости</h2>
+                <!-- Контейнер для слайдера Swiper -->
+                <div class="swiper reviews__slider">
+                    <div class="swiper-wrapper" id="reviews-wrapper">
+                        <!-- Карточки отзывов будут вставлены сюда -->
+                    </div>
+                    <!-- Пагинация (точки) -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== КОНТАКТЫ ==================== -->
+        <section id="contacts" class="section contacts__section">
+            <div class="container contacts__container">
+                <div class="contacts__info">
+                    <h2 class="section__title">Свяжитесь с нами</h2>
+                    <p class="section__text">Мы всегда рады ответить на ваши вопросы и помочь с выбором процедуры. Запишитесь на ритуал релаксации уже сегодня.</p>
+                    <ul class="contacts__list">
+                        <li><strong>Адрес:</strong> Россия г. Сортавала, ул. Карельская, д. 11</li>
+                        <li><strong>Телефон:</strong> <a href="tel:+79215232545">+7 (921) 523-25-45</a></li>
+                        <li><strong>Мессенджеры:</strong> <a href="https://wa.me/79215232545" target="_blank">WhatsApp</a>, <a href="https://t.me/your_telegram" target="_blank">Telegram</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:info@li-studio.ru">info@li-studio.ru</a></li>
+                        <li><strong>Режим работы:</strong> Пн-Пт с 10:00 до 20:00</li>
+                    </ul>
+                </div>
+                <div class="contacts__map" id="map">
+                    <!-- Здесь будет интерактивная карта -->
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-        <!-- Подвал будет здесь -->
+        <!-- ==================== ФУТЕР ==================== -->
+        <footer class="footer">
+        <div class="container footer__container">
+            <a href="#" class="logo">Li</a>
+            <p class="footer__copy">&copy; 2023 Li-Студия. Все права защищены.</p>
+            <div class="footer__socials">
+                <!-- Замените # на реальные ссылки -->
+                <a href="https://m.vk.com/club219645206" target="_blank" aria-label="VKontakte">VK</a>
+                <a href="#" target="_blank" aria-label="Instagram">IG</a>
+            </div>
+        </div>
     </footer>
+    
         <!-- ==================== МОДАЛЬНОЕ ОКНО ==================== -->
     <div class="modal" id="service-modal">
         <div class="modal__overlay" data-close="true"></div>
@@ -95,6 +146,10 @@
             <button class="modal__close" data-close="true">&times;</button>
         </div>
     </div>
-
+    <!-- Подключение скриптов с отложенной загрузкой -->
+    <script src="assets/js/main.js" defer></script>
+    
+    <!-- Swiper.js для слайдера -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </body>
 </html>
