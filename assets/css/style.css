@@ -1,23 +1,25 @@
 /* =============================================================== */
-/*           КОНЦЕПЦИЯ 3.1: "ПРИЗРАЧНАЯ ЭЛЕГАНТНОСТЬ"             */
+/*              КОНЦЕПЦИЯ ФОНА: "ДЫХАНИЕ СВЕТА"                   */
 /* =============================================================== */
 
-/* 1. Наша утвержденная палитра */
+/* 1. Наша палитра */
 :root {
-    --bg-twilight: #12151C;    /* Фон: ночное небо */
-    --accent-gold: #D4AF37;    /* Акцент: пламя свечи */
-    --accent-rose: #E0B3B3;    /* Нежный акцент: лепестки розы */
-    --text-mist: #C8CDD5;      /* Текст: утренний туман */
-    --text-strong: #FFFFFF;    /* Яркий текст для заголовков */
+    --bg-twilight: #12151C;
+    --accent-gold: #D4AF37;
+    --accent-rose: #E0B3B3;
+    --accent-bronze: #B48F3A; /* Приглушенное золото для свечения */
+    --text-mist: #C8CDD5;
+    --text-strong: #FFFFFF;
 }
 
-/* 2. Базовые стили для всего сайта */
+/* 2. Базовые стили */
 body {
     background-color: var(--bg-twilight);
     color: var(--text-mist);
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     line-height: 1.7; 
+    overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
 }
 
 html {
@@ -28,7 +30,101 @@ html {
 .hero-title-gradient {
     background: linear-gradient(120deg, var(--text-strong) 60%, var(--text-mist));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* =============================================================== */
+/*                     СТИЛИ ДЛЯ "ЖИВОГО" ФОНА                     */
+/* =============================================================== */
+
+.background-container {
+    position: fixed; /* Фиксируем фон, чтобы он не скроллился */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Фон всегда на заднем плане */
+    overflow: hidden; /* Скрываем все, что выходит за пределы */
+}
+
+/* Слой 1: Текстура шума */
+.noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/noise.png'); /* Используем готовую текстуру */
+    opacity: 0.03; /* Делаем ее ОЧЕНЬ незаметной */
+    pointer-events: none; /* Слой не мешает кликать */
+}
+
+/* Слой 2: Контейнер для "Авроры" */
+.aurora {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(100px); /* Главная магия - размываем пятна до неузнаваемости */
+    mix-blend-mode: screen; /* Режим наложения, который делает цвета светлее */
+}
+
+.aurora__item {
+    position: absolute;
+    border-radius: 50%; /* Все пятна - круги */
+    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955); /* Плавная анимация */
+    animation-iteration-count: infinite; /* Бесконечная анимация */
+}
+
+/* Описываем каждое цветовое пятно отдельно */
+.aurora__item--1 {
+    width: 50vw;
+    height: 50vw;
+    background-color: rgba(224, 179, 179, 0.2); /* Нежно-розовый */
+    top: 10%;
+    left: 10%;
+    animation-name: aurora-1;
+    animation-duration: 20s;
+}
+
+.aurora__item--2 {
+    width: 40vw;
+    height: 40vw;
+    background-color: rgba(180, 143, 58, 0.15); /* Приглушенное золото */
+    top: 50%;
+    left: 60%;
+    animation-name: aurora-2;
+    animation-duration: 25s;
+}
+
+.aurora__item--3 {
+    width: 30vw;
+    height: 30vw;
+    background-color: rgba(69, 78, 99, 0.2); /* Холодный синий для контраста */
+    top: 70%;
+    left: 20%;
+    animation-name: aurora-3;
+    animation-duration: 18s;
+}
+
+/* Анимация для каждого пятна (движение по экрану) */
+@keyframes aurora-1 {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(40vw, 30vh); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes aurora-2 {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(-30vw, -40vh); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes aurora-3 {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(20vw, -20vh); }
+    100% { transform: translate(0, 0); }
 }
