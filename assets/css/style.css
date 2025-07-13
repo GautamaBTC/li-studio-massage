@@ -737,8 +737,12 @@ body.no-scroll {
         color: #fff;
     }
 
-    .header__btn {
-        display: none;
+    /* 
+     * ВОТ ОНО, ИСПРАВЛЕННОЕ ПРАВИЛО! 
+     * Оно стало более конкретным, чтобы не ломать другие кнопки.
+    */
+    .header__actions .header__btn {
+        display: none; 
     }
 
     .hero__title {
