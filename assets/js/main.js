@@ -42,23 +42,24 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.addEventListener('click', function () {
       const card = btn.closest('.service-card');
       const content = card.querySelector('.service-content');
-      const icon = card.querySelector('.service-icon');
+      const icon = card.querySelector('.service-icon svg');
       const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
 
       // Закрыть все остальные
       document.querySelectorAll('.service-content').forEach((el) => {
         if (el !== content) {
           el.style.maxHeight = null;
-          el.parentElement.querySelector('.service-icon').style.transform = "rotate(0deg)";
+          const otherIcon = el.parentElement.querySelector('.service-icon svg');
+          if (otherIcon) otherIcon.style.transform = "rotate(0deg)";
         }
       });
 
       if (!isOpen) {
         content.style.maxHeight = content.scrollHeight + "px";
-        icon.style.transform = "rotate(45deg)";
+        if (icon) icon.style.transform = "rotate(45deg)";
       } else {
         content.style.maxHeight = null;
-        icon.style.transform = "rotate(0deg)";
+        if (icon) icon.style.transform = "rotate(0deg)";
       }
     });
   });
