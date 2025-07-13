@@ -1,10 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // --- НАЧАЛО ИЗМЕНЕНИЙ ---
+    
+    // Получаем элементы DOM
     const servicesGrid = document.getElementById('services-grid');
     const modal = document.getElementById('service-modal');
-    const modalContent = modal.querySelector('.modal__content');
     
-    let servicesData = []; // Сохраним загруженные данные здесь
+    // Проверяем, существуют ли все необходимые элементы на странице.
+    // Если нет, выходим из функции, чтобы избежать ошибок.
+    if (!servicesGrid || !modal) {
+        console.warn("Элементы для услуг или модального окна не найдены на странице.");
+        return; 
+    }
+
+    const modalContent = modal.querySelector('.modal__content');
+    let servicesData = []; // Хранилище для данных из JSON
+
+    // --- КОНЕЦ ИЗМЕНЕНИЙ ---
 
     // Функция для открытия модального окна
     function openModal() {
@@ -25,18 +37,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             
             servicesData = await response.json(); // Сохраняем данные в переменную
-
             renderServiceCards(servicesData);
 
         } catch (error) {
             console.error("Не удалось загрузить данные об услугах:", error);
-            if(servicesGrid) servicesGrid.innerHTML = '<p>Не удалось загрузить услуги. Попробуйте обновить страницу.</p>';
+            servicesGrid.innerHTML = '<p>Не удалось загрузить услуги. Попробуйте обновить страницу.</p>';
         }
     }
 
     // Функция для отрисовки карточек услуг
     function renderServiceCards(services) {
-        if (!servicesGrid) return;
         servicesGrid.innerHTML = ''; 
 
         services.forEach((service, index) => {
@@ -86,29 +96,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // === ОБРАБОТЧИКИ СОБЫТИЙ ===
 
     // Загружаем услуги (с имитацией задержки для показа скелетона)
-    if (servicesGrid) {
-        setTimeout(loadServices, 1500);
-    }
+    setTimeout(loadServices, 1500);
     
     // Делегирование событий: слушаем клики на всей сетке услуг
-    if (servicesGrid) {
-        servicesGrid.addEventListener('click', (event) => {
-            const card = event.target.closest('.service-card');
-            if (card) {
-                const serviceIndex = card.dataset.index;
-                showServiceDetails(serviceIndex);
-            }
-        });
-    }
+    servicesGrid.addEventListener('click', (event) => {
+        const card = event.target.closest('.service-card');
+        if (card) {
+            const serviceIndex = card.dataset.index;
+            showServiceDetails(serviceIndex);
+        }
+    });
 
     // Слушаем клики на всем модальном окне для закрытия
-    if (modal) {
-        modal.addEventListener('click', (event) => {
-            if (event.target.dataset.close) {
-                closeModal();
-            }
-        });
-    }
+    modal.addEventListener('click', (event) => {
+        if (event.target.dataset.close) {
+            closeModal();
+        }
+    });
     
     // Закрытие модального окна по клавише Escape
     window.addEventListener('keydown', (event) => {
