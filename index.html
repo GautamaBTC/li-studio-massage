@@ -1,386 +1,43 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Li-Студия массажного искусства – Релакс в Сортавала</title>
-  <meta name="description" content="Оазис гармонии и релаксации в Сортавала. Массаж, обёртывания, уход с 10:00 до 20:00.">
-  <meta name="keywords" content="массаж, спа, релакс, Сортавала">
-  <!-- Google Fonts: Montserrat и Open Sans -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Open Sans', Arial, sans-serif;
-    }
-    .font-montserrat {
-      font-family: 'Montserrat', Arial, sans-serif;
-    }
-  </style>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- GSAP CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <!-- Основные стили -->
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Li-Студия массажного искусства — Премиальный массаж и SPA в Сортавале</title>
+    <meta name="description" content="Погрузитесь в атмосферу уюта и заботы. Профессиональный массаж, SPA-процедуры и косметология в Li-Студии.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- ВАЖНО: Проверь путь к файлу! -->
+    <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="bg-[#181A1B] text-[#F6F7F9] font-sans relative">
+<body class="bg-primary-bg text-main-text font-opensans">
 
-  <!-- Фоновое видео (fixed) -->
-  <video id="hero-video" class="fixed top-0 left-0 w-full h-full object-cover z-0" autoplay loop muted playsinline>
-    <source src="assets/video/relax.mp4" type="video/mp4">
-    Ваш браузер не поддерживает видео.
-  </video>
-  <!-- Overlay для затемнения (fixed) -->
-  <div class="fixed top-0 left-0 w-full h-full bg-black/60 z-0"></div>
+    <!-- ======================== ШАПКА (HEADER) ======================== -->
+    <header id="header">
+        <!-- Здесь будет логотип, меню-бургер и кнопка "Записаться" -->
+    </header>
+    <!-- ====================== КОНЕЦ ШАПКИ ======================== -->
 
-  <!-- Header -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-[#181A1B]/80 backdrop-blur-md h-20 flex items-center px-4 justify-between">
-    <!-- Логотип -->
-    <div class="text-2xl font-bold text-[#BFA181] font-montserrat drop-shadow-lg select-none">
-      Li
-    </div>
-    <!-- Меню (десктоп) -->
-    <nav class="hidden md:flex space-x-6">
-      <a href="#" class="font-montserrat text-lg text-[#F6F7F9] hover:text-[#BFA181] px-4 py-2 rounded transition duration-200">Главная</a>
-      <a href="#about" class="font-montserrat text-lg text-[#F6F7F9] hover:text-[#BFA181] px-4 py-2 rounded transition duration-200">О нас</a>
-      <a href="#services" class="font-montserrat text-lg text-[#F6F7F9] hover:text-[#BFA181] px-4 py-2 rounded transition duration-200">Услуги</a>
-      <a href="#" class="font-montserrat text-lg text-[#F6F7F9] hover:text-[#BFA181] px-4 py-2 rounded transition duration-200">Цены</a>
-      <a href="#" class="font-montserrat text-lg text-[#F6F7F9] hover:text-[#BFA181] px-4 py-2 rounded transition duration-200">Отзывы</a>
-      <a href="#" class="font-montserrat text-lg text-[#F6F7F9] hover:text-[#BFA181] px-4 py-2 rounded transition duration-200">Контакты</a>
-    </nav>
-    <!-- Бургер-иконка (мобильный) -->
-    <button class="md:hidden flex flex-col justify-center items-center w-10 h-10 group" aria-label="Открыть меню">
-      <span class="block w-8 h-0.5 bg-[#F6F7F9] mb-1.5 transition-all duration-300"></span>
-      <span class="block w-6 h-0.5 bg-[#F6F7F9] mb-1.5 transition-all duration-300"></span>
-      <span class="block w-4 h-0.5 bg-[#F6F7F9] transition-all duration-300"></span>
-    </button>
-    <!-- Мобильное меню-оверлей -->
-    <div id="mobileMenu" class="fixed top-0 right-0 w-full h-full bg-white/10 backdrop-blur-lg z-50 flex flex-col items-center justify-center space-y-8 transition-transform duration-300 translate-x-full md:hidden">
-      <a href="#" class="font-montserrat text-2xl text-[#BFA181] hover:text-[#A8B5A2] transition">Главная</a>
-      <a href="#about" class="font-montserrat text-2xl text-[#BFA181] hover:text-[#A8B5A2] transition">О нас</a>
-      <a href="#services" class="font-montserrat text-2xl text-[#BFA181] hover:text-[#A8B5A2] transition">Услуги</a>
-      <a href="#" class="font-montserrat text-2xl text-[#BFA181] hover:text-[#A8B5A2] transition">Цены</a>
-      <a href="#" class="font-montserrat text-2xl text-[#BFA181] hover:text-[#A8B5A2] transition">Отзывы</a>
-      <a href="#" class="font-montserrat text-2xl text-[#BFA181] hover:text-[#A8B5A2] transition">Контакты</a>
-    </div>
-  </header>
+    <main>
+        <!-- ================= ГЕРО-СЕКЦИЯ (HERO) =================== -->
+        <section id="hero">
+            <!-- Здесь будет фоновое видео, заголовок и главная кнопка -->
+        </section>
+        <!-- =============== КОНЕЦ ГЕРО-СЕКЦИИ ================== -->
 
-  <!-- Hero-секция -->
-  <section id="hero" class="relative min-h-screen flex flex-col justify-center items-center pt-24 overflow-hidden z-10">
-    <div class="relative z-10 flex flex-col items-center">
-      <h1 class="text-4xl md:text-5xl font-montserrat font-bold text-[#BFA181] text-center mb-6 tracking-wide">
-        Li-Студия массажного искусства
-      </h1>
-      <p class="text-lg md:text-xl italic text-[#E9E4D5] text-center mb-10 max-w-xl">
-        Место, где каждая деталь продумана для вашего комфорта и релаксации
-      </p>
-      <button class="px-10 py-4 rounded-xl text-lg font-semibold shadow-lg bg-gradient-to-r from-[#BFA181] to-[#A8B5A2] text-[#181A1B] hover:from-[#A8B5A2] hover:to-[#BFA181] transition-all duration-200">
-        Записаться
-      </button>
-    </div>
-  </section>
+        <!-- ... остальные секции ... -->
+    </main>
 
-  <!-- О нас -->
-  <section id="about" class="relative py-16 flex flex-col md:flex-row items-center justify-center max-w-5xl mx-auto z-10">
-    <!-- Фото массажистки -->
-    <div class="w-64 h-80 rounded-2xl overflow-hidden shadow-xl border-4 border-[#BFA181] bg-white/10 backdrop-blur-md mb-8 md:mb-0 md:mr-12 flex-shrink-0 about-photo opacity-0 translate-y-8">
-      <img src="assets/images/owner.webp" alt="Лилия Воронцова — владелица и массажистка студии Li" class="w-full h-full object-cover" />
-    </div>
-    <!-- Текст -->
-    <div class="max-w-xl about-text opacity-0 translate-y-8">
-      <h2 class="text-3xl font-montserrat font-bold text-[#BFA181] mb-4">О студии и мастере</h2>
-      <p class="text-lg text-[#F6F7F9] mb-4">
-        Меня зовут <span class="font-bold text-[#BFA181]">Лилия Воронцова</span>. Я — основатель и единственный мастер Li-Студии массажного искусства.<br><br>
-        Для меня массаж — это не просто работа, а искусство заботы о теле и душе. Я создаю атмосферу уюта, доверия и гармонии, чтобы каждый гость почувствовал себя особенным.<br><br>
-        В каждом сеансе я вкладываю опыт, знания и душу, чтобы вы уходили обновлёнными, расслабленными и счастливыми.
-      </p>
-      <blockquote class="italic text-[#A8B5A2] border-l-4 border-[#BFA181] pl-4">
-        "Ваш путь к гармонии начинается здесь"
-      </blockquote>
-    </div>
-  </section>
+    <!-- ====================== ПОДВАЛ (FOOTER) ====================== -->
+    <footer id="footer">
+        <!-- Здесь будут контакты, копирайт и иконки соцсетей -->
+    </footer>
+    <!-- ==================== КОНЕЦ ПОДВАЛА ====================== -->
 
-  <!-- Услуги -->
-  <section id="services" class="relative py-16 px-2 md:px-4 max-w-5xl mx-auto z-10 opacity-0 translate-y-8">
-    <h2 class="text-2xl md:text-3xl font-montserrat font-bold text-[#BFA181] mb-8 text-center">Наши услуги</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-      <!-- 1 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="Кедровая бочка Базовая" data-price="500 ₽" data-desc="Погружение в атмосферу кедровой бочки с лёгкими ароматами леса, созданное для мягкого очищения кожи и мгновенного расслабления. Идеально для тех, кто ищет уединение и лёгкое обновление в ритме повседневности.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">Кедровая бочка Базовая</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">500 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 2 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="Кедровая бочка Стандарт" data-price="1200 ₽" data-desc="Гармоничный сеанс в кедровой бочке, наполненной природными ароматами, который дарит глубокое восстановление. Эта процедура снимает напряжение, улучшает кровообращение и оставляет ощущение лёгкости, словно после прогулки по хвойному бору.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">Кедровая бочка Стандарт</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">1200 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 3 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="Кедровая бочка Люкс" data-price="1200 ₽" data-desc="Роскошный ритуал, сочетающий парение в кедровой бочке с скрабированием тела, лёгким массажем с кремом и завершающей чайной церемонией. Этот комплекс нормализует кровоток, избавляет от усталости и стресса, очищает организм на клеточном уровне, уменьшает целлюлит и дарит антивозрастной эффект.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">Кедровая бочка Люкс</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">1200 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 4 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="Тайский массаж лица" data-price="1500 ₽" data-desc="Экзотическое путешествие в мир тайских традиций, где лёгкие движения мастеров разглаживают морщины, снимают напряжение и пробуждают природную красоту кожи. Идеально для тех, кто стремится к молодости и внутреннему покою.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">Тайский массаж лица</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">1500 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 5 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="Ламинирование + ботокс ресниц" data-price="1700 ₽" data-desc="Преображение взгляда с помощью профессионального ухода: ламинирование придаёт ресницам объём и изгиб, а ботокс питает их изнутри, создавая эффект роскошных, здоровых ресниц на недели вперёд.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">Ламинирование + ботокс ресниц</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">1700 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 6 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="&quot;Сила Водорослей&quot;" data-price="2000 ₽" data-desc="Нежное обёртывание с морскими водорослями, которое словно уносит вас к океанскому берегу. Эта процедура детоксицирует, глубоко увлажняет и питает кожу, оставляя её гладкой и сияющей, как после спа-отпуска.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">"Сила Водорослей"</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">2000 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 7 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="&quot;Все будет в шоколаде&quot;" data-price="1500 ₽" data-desc="Индульгенция для тела и души — шоколадное обёртывание с богатым ароматом какао. Оно увлажняет кожу, снимает стресс и окутывает вас чувством роскоши, словно вы в шоколадной сказке.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">"Все будет в шоколаде"</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">1500 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 8 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="&quot;Сама Изысканность&quot;" data-price="1500 ₽" data-desc="Уникальный массаж, созданный специально для вас, с индивидуальным подходом и мастерскими техниками. Это путешествие в мир глубокого расслабления, где каждая минута наполнена заботой и гармонией.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">"Сама Изысканность"</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">1500 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 9 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="&quot;Ягодно-вкусная&quot;" data-price="1500 ₽" data-desc="Нежное обёртывание с ягодными экстрактами, которое словно угощает кожу витаминным коктейлем. Антиоксиданты дарят мягкость, тонус и естественное сияние, пробуждая вашу природную красоту.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">"Ягодно-вкусная"</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">1500 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 10 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="Тайский расслабляющий массаж тела на горячем" data-price="1700 ₽" data-desc="Горячий тайский массаж с ароматными маслами — это танец рук мастера, который снимает напряжение, улучшает кровообращение и переносит вас в тропическую атмосферу релакса.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">Тайский расслабляющий массаж тела на горячем</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">1700 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 11 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="Бразильская попка" data-price="1300 ₽" data-desc="Специальный массаж, разработанный для моделирования и укрепления ягодиц. С его помощью вы обретёте уверенность благодаря улучшению тонуса и идеальной форме.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">Бразильская попка</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">1300 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 12 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="Моделирующий антицеллюлитный массаж" data-price="1300 ₽" data-desc="Интенсивная процедура с техниками моделирования, которая борется с целлюлитом и корректирует силуэт, возвращая коже гладкость и подтянутость.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">Моделирующий антицеллюлитный массаж</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">1300 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 13 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="Стоун-терапия" data-price="1500 ₽" data-desc="Магия горячих камней, которая расслабляет мышцы, снимает напряжение и восстанавливает внутреннюю энергию. Этот массаж — настоящая медитация для тела и души.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">Стоун-терапия</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">1500 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-      <!-- 14 -->
-      <div class="service-card bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-[#BFA181] overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer p-4" data-title="Массаж лица" data-price="800 ₽" data-desc="Нежный классический массаж, который питает кожу, снимает отёки и возвращает ей свежий, здоровый вид. Идеален для ежедневного ухода и расслабления.">
-        <div class="flex items-center justify-between">
-          <span class="font-montserrat text-base md:text-xl text-[#F6F7F9] text-left flex-1">Массаж лица</span>
-          <span class="flex items-center ml-2 md:ml-4">
-            <span class="font-montserrat text-base md:text-lg text-[#BFA181] mr-1 md:mr-2">800 ₽</span>
-            <span class="service-icon block w-6 h-6 text-[#BFA181] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-            </span>
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Остальные секции добавим позже -->
-
-  <!-- Модальное окно -->
-  <div id="modal" class="fixed inset-0 bg-black/80 hidden flex items-center justify-center z-50 overflow-auto">
-    <div class="modal-inner bg-[#181A1B]/90 backdrop-blur-md rounded-2xl shadow-2xl p-6 max-w-lg w-full mx-4 relative text-[#F6F7F9]">
-      <button id="modal-close" class="absolute top-2 right-2 text-[#BFA181] hover:text-[#A8B5A2] transition">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-          <line x1="18" y1="6" x2="6" y2="18"/>
-          <line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
-      <h3 id="modal-title" class="text-2xl font-montserrat font-bold text-[#BFA181] mb-2"></h3>
-      <p id="modal-price" class="text-lg text-[#A8B5A2] mb-4"></p>
-      <p id="modal-desc" class="text-[#E9E4D5]"></p>
-    </div>
-  </div>
-
-  <script src="assets/js/main.js"></script>
-  <script>
-    // Плавное появление hero-секции
-    gsap.to("#hero .relative.z-10", {
-      opacity: 1,
-      y: 0,
-      duration: 1.2,
-      ease: "power2.out",
-      delay: 0.2
-    });
-
-    // Анимация появления секции "О нас"
-    gsap.to(".about-photo", {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: "#about",
-        start: "top 80%",
-      }
-    });
-    gsap.to(".about-text", {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      delay: 0.2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: "#about",
-        start: "top 80%",
-      }
-    });
-
-    // Анимация появления секции "Услуги"
-    gsap.to("#services", {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: "#services",
-        start: "top 80%",
-      }
-    });
-  </script>
-  <script src="assets/js/main.js"></script>
 </body>
 </html>
