@@ -128,29 +128,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-        function initMap() {
-        // Убедимся, что ymaps и DOM готовы
+            function initMap() {
         ymaps.ready(function () {
+            // --- НАЧАЛО ИЗМЕНЕНИЙ ---
+
+            // 1. Задаем координаты в отдельную переменную для удобства
+            const coords = [61.702171, 30.688579];
+
             var myMap = new ymaps.Map('map', {
-                // --- НАЧАЛО ИЗМЕНЕНИЙ ---
-                center: [61.702171, 30.688579], // Точные координаты для ул. Карельская, 11
-                // --- КОНЕЦ ИЗМЕНЕНИЙ ---
-                zoom: 17 // Можно немного увеличить зум для точности
+                center: coords, // Используем переменную для центрирования
+                zoom: 17
             });
 
-            var myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+            // 2. Создаем метку, передавая ей ТЕ ЖЕ САМЫЕ координаты
+            var myPlacemark = new ymaps.Placemark(coords, { 
                 hintContent: 'Li-Студия массажного искусства',
-                balloonContent: 'ул. Карельская, д. 11'
+                balloonContent: 'г. Сортавала, ул. Карельская, д. 11' // Можно указать полный адрес
             }, {
-                // Опции.
                 iconLayout: 'default#image',
                 iconImageHref: 'https://img.icons8.com/ios-filled/50/8A9A5B/spa-flower.png', 
                 iconImageSize: [40, 40],
                 iconImageOffset: [-20, -40]
             });
 
+            // --- КОНЕЦ ИЗМЕНЕНИЙ ---
+
             myMap.geoObjects.add(myPlacemark);
-            // Добавим отключение скролла карты колесиком мыши
             myMap.behaviors.disable('scrollZoom');
         });
     }
