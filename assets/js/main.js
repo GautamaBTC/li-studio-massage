@@ -1,74 +1,46 @@
-// Открытие/закрытие мобильного меню
-document.addEventListener('DOMContentLoaded', function () {
-  const burger = document.querySelector('header button');
+// Открытие модального окна по индексу
+function openModal(idx) {
+  document.getElementById('modal-' + idx).classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+}
+
+// Закрытие модального окна по индексу
+function closeModal(idx) {
+  document.getElementById('modal-' + idx).classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+}
+
+// Закрытие по overlay и Esc
+document.addEventListener('DOMContentLoaded', () => {
+  for (let i = 0; i < 13; i++) {
+    const modal = document.getElementById('modal-' + i);
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal(i);
+      });
+    }
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      for (let i = 0; i < 13; i++) closeModal(i);
+    }
+  });
+
+  // Мобильное меню
+  const burger = document.getElementById('burger');
   const mobileMenu = document.getElementById('mobileMenu');
-  let menuOpen = false;
-
   if (burger && mobileMenu) {
-    burger.addEventListener('click', function () {
-      menuOpen = !menuOpen;
-      if (menuOpen) {
-        mobileMenu.classList.remove('translate-x-full');
-        mobileMenu.classList.add('translate-x-0');
-        // Анимация бургера в крестик
-        burger.children[0].classList.add('rotate-45', 'translate-y-2');
-        burger.children[1].classList.add('opacity-0');
-        burger.children[2].classList.add('-rotate-45', '-translate-y-2');
-      } else {
-        mobileMenu.classList.add('translate-x-full');
-        mobileMenu.classList.remove('translate-x-0');
-        // Возврат бургера
-        burger.children[0].classList.remove('rotate-45', 'translate-y-2');
-        burger.children[1].classList.remove('opacity-0');
-        burger.children[2].classList.remove('-rotate-45', '-translate-y-2');
-      }
+    burger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      burger.classList.toggle('open');
+      document.body.classList.toggle('overflow-hidden');
     });
-
-    // Закрытие меню по клику на ссылку
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        menuOpen = false;
-        mobileMenu.classList.add('translate-x-full');
-        mobileMenu.classList.remove('translate-x-0');
-        burger.children[0].classList.remove('rotate-45', 'translate-y-2');
-        burger.children[1].classList.remove('opacity-0');
-        burger.children[2].classList.remove('-rotate-45', '-translate-y-2');
+        mobileMenu.classList.add('hidden');
+        burger.classList.remove('open');
+        document.body.classList.remove('overflow-hidden');
       });
-    });
-  }
-
-  // Модальное окно для услуг
-  const modal = document.getElementById('modal');
-  const modalTitle = document.getElementById('modal-title');
-  const modalPrice = document.getElementById('modal-price');
-  const modalDesc = document.getElementById('modal-desc');
-  const modalClose = document.getElementById('modal-close');
-
-  document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('click', () => {
-      modalTitle.textContent = card.dataset.title;
-      modalPrice.textContent = card.dataset.price;
-      modalDesc.textContent = card.dataset.desc;
-      modal.classList.remove('hidden');
-      gsap.fromTo(modal.querySelector('.modal-inner'), 
-        { opacity: 0, scale: 0.9 }, 
-        { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(1.7)' }
-      );
-    });
-  });
-
-  modalClose.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  function closeModal() {
-    gsap.to(modal.querySelector('.modal-inner'), {
-      opacity: 0,
-      scale: 0.9,
-      duration: 0.3,
-      ease: 'power2.in',
-      onComplete: () => modal.classList.add('hidden')
     });
   }
 });
