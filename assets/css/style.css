@@ -606,7 +606,12 @@ body {
     color: #fff;
     transform: scale(1.1);
 }
-/* === ЭТАП 12: АДАПТИВНОСТЬ И МОБИЛЬНОЕ МЕНЮ === */
+/* === ЭТАП 12: АДАПТИВНОСТЬ И МОБИЛЬНОЕ МЕНЮ (ИСПРАВЛЕННАЯ ВЕРСИЯ) === */
+
+/* Этот класс будет добавляться к <body>, чтобы запретить прокрутку */
+body.no-scroll {
+    overflow: hidden;
+}
 
 .header__actions {
     display: flex;
@@ -622,7 +627,7 @@ body {
     border: none;
     background: transparent;
     cursor: pointer;
-    z-index: 1001; /* Будет поверх всего */
+    z-index: 1002; /* Будет поверх меню */
 }
 
 .burger span {
@@ -633,6 +638,10 @@ body {
     position: absolute;
     left: 0;
     transition: all 0.3s ease;
+}
+
+.burger.active span {
+    background-color: #fff; /* Делаем крестик белым на темном фоне меню */
 }
 
 .burger span:nth-child(1) { top: 0; }
@@ -656,7 +665,7 @@ body {
 /* Планшеты (до 1024px) */
 @media (max-width: 1024px) {
     .about__container {
-        grid-template-columns: 1fr; /* В одну колонку */
+        grid-template-columns: 1fr;
         text-align: center;
     }
     .about__image-wrapper {
@@ -688,17 +697,16 @@ body {
 /* Мобильные устройства (до 768px) */
 @media (max-width: 768px) {
     .burger {
-        display: block; /* Показываем бургер */
+        display: block;
     }
 
     .nav {
-        /* Мобильное меню */
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(26, 42, 42, 0.95); /* Почти непрозрачный фон */
+        background-color: rgba(26, 42, 42, 0.95);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
 
@@ -707,8 +715,9 @@ body {
         justify-content: center;
         align-items: center;
         gap: 2.5rem;
+        
+        z-index: 1001; /* Ставим меню под бургер */
 
-        /* Скрываем по умолчанию */
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
@@ -725,25 +734,22 @@ body {
     
     .nav__link {
         font-size: 1.5rem;
-        color: #fff; /* Белый текст в мобильном меню */
+        color: #fff;
     }
 
     .header__btn {
-        display: none; /* Скрываем кнопку "Записаться" в шапке */
+        display: none;
     }
 
     .hero__title {
         font-size: 2.5rem;
     }
-
     .hero__subtitle {
         font-size: 1.1rem;
     }
-
     .section__title {
         font-size: 2rem;
     }
-    
     .footer__container {
         flex-direction: column;
         gap: 1.5rem;
