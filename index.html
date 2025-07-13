@@ -43,9 +43,44 @@
             </div>
         </section>
 
-        <!-- Остальные секции будут здесь -->
-        <section id="about" style="height: 100vh; background: #e0e0e0;"></section>
-        <section id="services" style="height: 100vh; background: #cccccc;"></section>
+                <!-- ==================== О НАС ==================== -->
+        <section id="about" class="section">
+            <div class="container about__container">
+                <div class="about__image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1599387738217-352520937873?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Интерьер студии с массажным столом" class="about__image" loading="lazy">
+                    <!-- SVG иконка для декора. Позже можно заменить на вашу уникальную line-art. -->
+                    <svg class="about__decoration" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 10,90 Q 50,10 90,90 T 10,90" stroke="var(--color-accent)" fill="none" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="about__content">
+                    <h2 class="section__title">Пространство гармонии</h2>
+                    <p class="section__text">
+                        Li-Студия массажного искусства — это место, где забота о теле и душе становится искусством. Мы создали атмосферу уюта, приватности и гармонии, чтобы каждый гость мог полностью расслабиться, восстановить силы и почувствовать себя особенным.
+                    </p>
+                    <p class="section__text">
+                        В нашей команде — только опытные мастера, владеющие современными и традиционными техниками массажа и спа. Мы используем натуральные средства и индивидуальный подход к каждому клиенту.
+                    </p>
+                    <blockquote class="about__quote">
+                        “Забота о себе — это не роскошь, а необходимое условие для счастливой и гармоничной жизни.”
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== УСЛУГИ ==================== -->
+        <section id="services" class="section services__section">
+            <div class="container">
+                <h2 class="section__title text-center">Наши ритуалы красоты и здоровья</h2>
+                <div id="services-grid" class="services__grid">
+                    <!-- Карточки услуг будут вставлены сюда с помощью JavaScript -->
+                    <!-- Skeleton-заглушка для имитации загрузки -->
+                    <div class="service-card-skeleton"></div>
+                    <div class="service-card-skeleton"></div>
+                    <div class="service-card-skeleton"></div>
+                </div>
+            </div>
+        </section>
         
     </main>
 
