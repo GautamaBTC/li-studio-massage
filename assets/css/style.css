@@ -479,3 +479,130 @@ body {
     text-align: center;
     margin-top: 2rem;
 }
+/* === ЭТАП 9: СТИЛИЗАЦИЯ СЕКЦИИ "ОТЗЫВЫ" (REVIEWS) === */
+.reviews__slider {
+    padding-bottom: 3rem; /* Место для пагинации */
+}
+
+.review-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(176, 176, 176, 0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    height: auto; /* Чтобы карточки были одинаковой высоты */
+}
+
+.review-card__text {
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+/* Декоративные кавычки */
+.review-card__text::before {
+    content: '“';
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 5rem;
+    color: var(--color-accent);
+    opacity: 0.2;
+    position: absolute;
+    left: -0.5rem;
+    top: -1.5rem;
+}
+
+.review-card__author {
+    font-family: var(--font-headers);
+    font-weight: 600;
+    text-align: right;
+    color: var(--color-secondary);
+}
+
+/* Стилизация пагинации Swiper */
+.swiper-pagination-bullet {
+    background-color: var(--color-border);
+    opacity: 0.8;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--color-accent);
+}
+
+/* === ЭТАП 10: СТИЛИЗАЦИЯ СЕКЦИИ "КОНТАКТЫ" (CONTACTS) === */
+.contacts__section {
+    background-color: #fff;
+}
+
+.contacts__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.contacts__list {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.contacts__list li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.contacts__list a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contacts__list a:hover {
+    color: var(--color-secondary);
+}
+
+.contacts__map {
+    width: 100%;
+    height: 400px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden; /* Чтобы скругленные углы работали */
+    background-color: #e0e0e0; /* Фон-заглушка, если карта не загрузится */
+}
+
+/* === ЭТАП 11: СТИЛИЗАЦИЯ ПОДВАЛА (FOOTER) === */
+.footer {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    padding: 2.5rem 0;
+    margin-top: 3rem;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__copy {
+    opacity: 0.7;
+}
+
+.footer__socials {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer__socials a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-family: var(--font-headers);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__socials a:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
