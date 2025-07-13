@@ -1,18 +1,14 @@
 /* =============================================================== */
-/*              КОНЦЕПЦИЯ "СВЕЧЕНИЕ В СУМЕРКАХ"                   */
+/*           КОНЦЕПЦИЯ 3.1: "ПРИЗРАЧНАЯ ЭЛЕГАНТНОСТЬ"             */
 /* =============================================================== */
 
-/* 1. Новая палитра: Теплый свет и глубокая тень */
+/* 1. Наша утвержденная палитра */
 :root {
     --bg-twilight: #12151C;    /* Фон: ночное небо */
-    --bg-stone: #242831;       /* Подложка: теплый камень */
     --accent-gold: #D4AF37;    /* Акцент: пламя свечи */
     --accent-rose: #E0B3B3;    /* Нежный акцент: лепестки розы */
     --text-mist: #C8CDD5;      /* Текст: утренний туман */
     --text-strong: #FFFFFF;    /* Яркий текст для заголовков */
-    
-    /* Цвет для "свечения" при наведении */
-    --glow-color: rgba(224, 179, 179, 0.1); /* Полупрозрачный розовый */
 }
 
 /* 2. Базовые стили для всего сайта */
@@ -20,43 +16,19 @@ body {
     background-color: var(--bg-twilight);
     color: var(--text-mist);
     font-family: 'Manrope', sans-serif;
-    font-weight: 400; /* Стандартная толщина */
-    line-height: 1.7; /* Увеличиваем межстрочное расстояние для "воздуха" */
+    font-weight: 400;
+    line-height: 1.7; 
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-/* 3. Особый стиль для главного заголовка */
+/* 3. Стиль для градиентного заголовка */
 .hero-title-gradient {
-    /* Делаем текст прозрачным и заливаем его градиентом */
     background: linear-gradient(120deg, var(--text-strong) 60%, var(--text-mist));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
-}
-
-/* 4. Стиль для кнопки с "блеском" при наведении */
-.shiny-button {
-    position: relative;
-    overflow: hidden; /* Важно для эффекта */
-}
-
-.shiny-button::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 40%);
-    transform: rotate(45deg);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.shiny-button:hover::after {
-    opacity: 1;
 }
