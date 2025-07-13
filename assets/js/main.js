@@ -1,10 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- ЭЛЕМЕНТЫ DOM ---
+    const burger = document.querySelector('.burger');
+    const navMenu = document.querySelector('.nav');
     const servicesGrid = document.getElementById('services-grid');
     const modal = document.getElementById('service-modal');
     const reviewsWrapper = document.getElementById('reviews-wrapper');
 
+    // --- ЛОГИКА МОБИЛЬНОГО МЕНЮ ---
+    if (burger && navMenu) {
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('no-scroll'); // Блокируем скролл при открытом меню
+        });
+
+        // Закрываем меню при клике на ссылку
+        navMenu.querySelectorAll('.nav__link').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+    }
+    
+    // Остальной код остается без изменений, но я привожу его для полноты
     if (!servicesGrid || !modal) {
         console.warn("Элементы для услуг или модального окна не найдены.");
     }
@@ -12,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalContent = modal ? modal.querySelector('.modal__content') : null;
     let servicesData = []; 
 
-    // --- ФУНКЦИИ МОДАЛЬНОГО ОКНА ---
     function openModal() {
         if (!modal) return;
         modal.classList.add('open');
@@ -25,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'auto';
     }
     
-    // --- ЗАГРУЗКА И ОТРИСОВКА УСЛУГ ---
     async function loadAndRenderServices() {
         if (!servicesGrid) return;
         try {
@@ -77,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
         openModal();
     }
 
-    // --- ЗАГРУЗКА И ОТРИСОВКА ОТЗЫВОВ ---
     async function loadAndRenderReviews() {
         if (!reviewsWrapper) return;
         try {
@@ -98,7 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 reviewsWrapper.appendChild(slide);
             });
             
-            // Инициализация Swiper ПОСЛЕ добавления слайдов
             initReviewsSlider();
 
         } catch(error) {
@@ -107,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // --- ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА И КАРТЫ ---
     function initReviewsSlider() {
         new Swiper('.reviews__slider', {
             loop: true,
@@ -128,38 +144,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-            function initMap() {
+    function initMap() {
         ymaps.ready(function () {
-            // --- НАЧАЛО ИЗМЕНЕНИЙ ---
-
-            // 1. Задаем координаты в отдельную переменную для удобства
             const coords = [61.702171, 30.688579];
-
             var myMap = new ymaps.Map('map', {
-                center: coords, // Используем переменную для центрирования
+                center: coords,
                 zoom: 17
             });
-
-            // 2. Создаем метку, передавая ей ТЕ ЖЕ САМЫЕ координаты
             var myPlacemark = new ymaps.Placemark(coords, { 
                 hintContent: 'Li-Студия массажного искусства',
-                balloonContent: 'г. Сортавала, ул. Карельская, д. 11' // Можно указать полный адрес
+                balloonContent: 'г. Сортавала, ул. Карельская, д. 11'
             }, {
                 iconLayout: 'default#image',
                 iconImageHref: 'https://img.icons8.com/ios-filled/50/8A9A5B/spa-flower.png', 
                 iconImageSize: [40, 40],
                 iconImageOffset: [-20, -40]
             });
-
-            // --- КОНЕЦ ИЗМЕНЕНИЙ ---
-
             myMap.geoObjects.add(myPlacemark);
             myMap.behaviors.disable('scrollZoom');
         });
     }
 
-    // === ОБРАБОТЧИКИ СОБЫТИЙ И ВЫЗОВЫ ФУНКЦИЙ ===
-    setTimeout(loadAndRenderServices, 1000); // Уменьшим задержку
+    setTimeout(loadAndRenderServices, 1000);
     loadAndRenderReviews();
     
     if (document.getElementById('map')) {
