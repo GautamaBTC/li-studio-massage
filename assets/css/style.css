@@ -347,3 +347,135 @@ body {
         left: 100%;
     }
 }
+/* === ЭТАП 8: СТИЛИЗАЦИЯ МОДАЛЬНОГО ОКНА (MODAL) === */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Скрываем окно по умолчанию, делая его невидимым и некликабельным */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Класс "open" будет добавляться через JS для показа окна */
+.modal.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 42, 42, 0.7); /* Наш фирменный Deep Teal */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.modal__content {
+    position: relative;
+    background-color: var(--color-bg);
+    border-radius: var(--border-radius-md);
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh; /* Ограничиваем высоту, чтобы окно не вылезало за экран */
+    overflow-y: auto; /* Добавляем скролл, если контента много */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+
+    /* Анимация появления */
+    transform: translateY(50px) scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.modal.open .modal__content {
+    transform: translateY(0) scale(1);
+}
+
+.modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: var(--color-border);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.modal__close:hover {
+    color: var(--color-text);
+    transform: rotate(90deg);
+}
+
+/* Стили для контента внутри модального окна */
+.modal-service__title {
+    font-family: var(--font-headers);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.modal-service__price {
+    font-family: var(--font-headers);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+}
+
+.modal-service__subtitle {
+    font-family: var(--font-headers);
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-secondary);
+}
+
+.modal-service__list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.modal-service__list li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+/* Красивая кастомная галочка для списков */
+.modal-service__list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.modal-service__features {
+    font-style: italic;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.modal-service__final {
+    font-weight: 600;
+    text-align: center;
+    margin-top: 2rem;
+}
