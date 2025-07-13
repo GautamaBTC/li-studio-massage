@@ -1,1 +1,221 @@
 
+body {
+  margin: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  background: #1A2A2A;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(26,42,42,0.85);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #D4AF37;
+  text-shadow: 0 2px 8px rgba(212,175,55,0.3);
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.logo:hover { transform: scale(1.08); }
+
+.main-nav ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.main-nav a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.main-nav a:hover { color: #D4AF37; }
+
+.btn-appointment {
+  background: linear-gradient(90deg, #D4AF37 0%, #B3CDE0 100%);
+  color: #1A2A2A;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  margin-left: 32px;
+  box-shadow: 0 4px 12px rgba(212,175,55,0.15);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.btn-appointment:hover {
+  box-shadow: 0 8px 24px rgba(212,175,55,0.25);
+  transform: scale(1.04);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 24px;
+}
+.burger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #D4AF37;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Мобильное меню */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26,42,42,0.95);
+  backdrop-filter: blur(16px);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-menu-overlay nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mobile-menu-overlay a {
+  font-size: 28px;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  transition: color 0.2s;
+}
+.mobile-menu-overlay a:hover { color: #D4AF37; }
+
+/* Переключатель темы */
+.theme-toggle {
+  background: none;
+  border: none;
+  margin-left: 16px;
+  cursor: pointer;
+  color: #D4AF37;
+  font-size: 24px;
+}
+
+/* Геро-секция */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.hero-bg img,
+.hero-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,42,42,0.7) 0%, rgba(26,42,42,0.2) 100%);
+  z-index: 2;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  margin-bottom: 24px;
+}
+.hero-slogan {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  color: #A8B5A2;
+  margin-bottom: 40px;
+}
+.hero-btn {
+  margin-top: 16px;
+  font-size: 20px;
+  padding: 16px 48px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #D4AF37 0%, #B3CDE0 100%);
+  color: #1A2A2A;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 4px 12px rgba(212,175,55,0.15);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.hero-btn:hover {
+  box-shadow: 0 8px 24px rgba(212,175,55,0.25);
+  transform: scale(1.04);
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .header-inner { height: 56px; }
+  .main-nav ul { gap: 20px; }
+  .btn-appointment { padding: 10px 20px; font-size: 16px; }
+  .hero h1 { font-size: 32px; }
+  .hero-slogan { font-size: 18px; }
+  .hero-btn { font-size: 16px; padding: 12px 32px; }
+}
+@media (max-width: 768px) {
+  .main-nav { display: none; }
+  .burger { display: flex; }
+  .btn-appointment { display: none; }
+  .header-inner { padding: 0 12px; }
+  .hero h1 { font-size: 24px; }
+  .hero-slogan { font-size: 15px; }
+  .hero-btn { font-size: 14px; padding: 10px 20px; }
+}
