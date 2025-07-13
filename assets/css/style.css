@@ -1,46 +1,209 @@
-/* =============================================================== */
-/*              КОНЦЕПЦИЯ 4.0: "ЦИФРОВОЙ ДЗЕН"                    */
-/* =============================================================== */
+/* === ЭТАП 1: ГЛОБАЛЬНЫЕ СТИЛИ И ПЕРЕМЕННЫЕ === */
 
-/* 1. Новая палитра: натуральные, теплые оттенки */
+/* 
+ * Создаем переменные для нашей палитры "Природная Гармония".
+ * Это супер-удобно: если мы захотим поменять цвет,
+ * мы сделаем это в одном месте, и он изменится везде.
+*/
 :root {
-    --bg-dark: #12151C;
-    --text-light: #E2E2E2; /* Не чисто белый, а мягкий */
-    --accent-terracotta: #B59A84; /* Наш новый теплый акцент */
+    --color-bg: #F4F4F2;          /* Фон: Светлый Камень */
+    --color-bg-dark: #1A2A2A;      /* Фон темной темы: Глубокий Тиловый */
+    --color-text: #2F4F4F;        /* Текст: Темный Сланец */
+    --color-text-light: #C0C0C0;  /* Текст на темном фоне: Серебро */
+    --color-accent: #8A9A5B;       /* Акцент: Шалфей */
+    --color-secondary: #C89D7C;    /* Вторичный акцент: Глина */
+    --color-border: #B0B0B0;      /* Границы: Холодный Серый */
+    
+    --font-main: 'Open Sans', sans-serif;
+    --font-headers: 'Montserrat', sans-serif;
+    
+    --border-radius-sm: 5px;
+    --border-radius-md: 10px;
 }
 
-/* 2. Подключаем и настраиваем шрифты */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+/* 
+ * Базовый сброс стилей и настройка box-sizing.
+ * Чтобы все браузеры отображали элементы одинаково.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 
+ * Плавная прокрутка по якорям (когда кликаем по меню).
+ * Тот самый "премиальный" digital-опыт в деталях.
+*/
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    font-family: 'Inter', sans-serif; /* Основной шрифт */
-    font-weight: 400;
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-text);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-/* Слой с текстурой "зерна" поверх всего */
-body::before {
-    content: '';
-    position: fixed;
+/* Универсальный класс-контейнер для центровки контента */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
+/* === ЭТАП 2: СТИЛИЗАЦИЯ ШАПКИ (HEADER) === */
+
+.header {
+    position: sticky; /* Липкая шапка, всегда на виду */
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('https://www.transparenttextures.com/patterns/noise.png');
-    opacity: 0.04;
-    z-index: -1; /* Помещаем под контент */
-    pointer-events: none;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Тот самый эффект "запотевшего стекла" */
+    background-color: rgba(244, 244, 242, 0.8); /* Полупрозрачный фон */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Для Safari */
+    border-bottom: 1px solid rgba(176, 176, 176, 0.2);
 }
 
-/* Настраиваем шрифт для заголовков */
-h1, h2, h3 {
-    font-family: 'Lora', serif; /* Элегантный шрифт с засечками */
-    font-weight: 500;
-    color: white;
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.parallax-img {
-    will-change: transform; /* Подсказка браузеру для плавной анимации */
+
+.logo {
+    font-family: var(--font-headers);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-secondary); /* Используем "глиняный" для лого */
+    text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav {
+    display: flex;
+    gap: 2rem; /* Расстояние между ссылками */
+}
+
+.nav__link {
+    font-family: var(--font-headers);
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+    color: var(--color-accent); /* При наведении - цвет шалфея */
+}
+
+/* Анимированное подчеркивание при наведении */
+.nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.nav__link:hover::after {
+    transform: scaleX(1);
+}
+
+/* === ЭТАП 3: СТИЛИЗАЦИЯ КНОПОК (BUTTON) === */
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    font-family: var(--font-headers);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* Кнопка в шапке (менее заметная) */
+.header__btn {
+    background-color: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.header__btn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    transform: scale(1.05);
+}
+
+/* Главная кнопка (основной призыв к действию) */
+.btn--primary {
+    background-color: var(--color-accent);
+    color: #fff; /* Чистый белый для лучшего контраста */
+    font-size: 1.1rem;
+}
+
+.btn--primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(138, 154, 91, 0.5);
+}
+
+
+/* === ЭТАП 4: СТИЛИЗАЦИЯ ПЕРВОГО ЭКРАНА (HERO) === */
+
+.hero {
+    min-height: 100vh; /* Высота на весь экран */
+    background-image: linear-gradient(rgba(26, 42, 42, 0.5), rgba(26, 42, 42, 0.5)), url('https://images.unsplash.com/photo-1544161515-cfd656dba18e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Эффект параллакса! */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero__container {
+    max-width: 800px;
+}
+
+.hero__title {
+    font-family: var(--font-headers);
+    font-size: 3.5rem; /* 56px */
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 400;
+    margin-bottom: 2rem;
+    opacity: 0.9;
 }
