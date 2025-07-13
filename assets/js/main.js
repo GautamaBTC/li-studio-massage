@@ -37,30 +37,38 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Аккордеон для услуг
-  document.querySelectorAll('.service-toggle').forEach((btn) => {
-    btn.addEventListener('click', function () {
-      const card = btn.closest('.service-card');
-      const content = card.querySelector('.service-content');
-      const icon = card.querySelector('.service-icon svg');
-      const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
+  // Модальное окно для услуг
+  const modal = document.getElementById('modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalPrice = document.getElementById('modal-price');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalClose = document.getElementById('modal-close');
 
-      // Закрыть все остальные
-      document.querySelectorAll('.service-content').forEach((el) => {
-        if (el !== content) {
-          el.style.maxHeight = null;
-          const otherIcon = el.parentElement.querySelector('.service-icon svg');
-          if (otherIcon) otherIcon.style.transform = "rotate(0deg)";
-        }
-      });
-
-      if (!isOpen) {
-        content.style.maxHeight = content.scrollHeight + "px";
-        if (icon) icon.style.transform = "rotate(45deg)";
-      } else {
-        content.style.maxHeight = null;
-        if (icon) icon.style.transform = "rotate(0deg)";
-      }
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => {
+      modalTitle.textContent = card.dataset.title;
+      modalPrice.textContent = card.dataset.price;
+      modalDesc.textContent = card.dataset.desc;
+      modal.classList.remove('hidden');
+      gsap.fromTo(modal.querySelector('.modal-inner'), 
+        { opacity: 0, scale: 0.9 }, 
+        { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(1.7)' }
+      );
     });
   });
+
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  function closeModal() {
+    gsap.to(modal.querySelector('.modal-inner'), {
+      opacity: 0,
+      scale: 0.9,
+      duration: 0.3,
+      ease: 'power2.in',
+      onComplete: () => modal.classList.add('hidden')
+    });
+  }
 });
