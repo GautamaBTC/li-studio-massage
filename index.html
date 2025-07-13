@@ -19,20 +19,39 @@
     <script src="assets/js/main.js" defer></script>
 </head>
 <body>
-    <header>
-        <!-- Шапка будет здесь -->
+
+    <header class="header">
+        <div class="container header__container">
+            <a href="#" class="logo">Li</a>
+            <nav class="nav">
+                <a href="#about" class="nav__link">О нас</a>
+                <a href="#services" class="nav__link">Услуги</a>
+                <a href="#reviews" class="nav__link">Отзывы</a>
+                <a href="#contacts" class="nav__link">Контакты</a>
+            </nav>
+            <a href="https://wa.me/79215232545" target="_blank" class="btn header__btn">Записаться</a>
+            <!-- Меню-бургер для мобильной версии добавим позже -->
+        </div>
     </header>
 
     <main>
         <section class="hero">
-            <h1>Li-Студия: Искусство заботы о себе</h1>
+            <div class="container hero__container">
+                <h1 class="hero__title">Искусство заботы о теле и душе</h1>
+                <p class="hero__subtitle">Премиальный массаж и SPA в атмосфере полной гармонии</p>
+                <a href="#services" class="btn btn--primary">Выбрать ритуал</a>
+            </div>
         </section>
 
         <!-- Остальные секции будут здесь -->
+        <section id="about" style="height: 100vh; background: #e0e0e0;"></section>
+        <section id="services" style="height: 100vh; background: #cccccc;"></section>
+        
     </main>
 
-    <footer>
+    <footer class="footer">
         <!-- Подвал будет здесь -->
     </footer>
+
 </body>
 </html>
