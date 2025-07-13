@@ -128,12 +128,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function initMap() {
+        function initMap() {
         // Убедимся, что ymaps и DOM готовы
         ymaps.ready(function () {
             var myMap = new ymaps.Map('map', {
-                center: [61.769805, 30.702965], // Координаты: Сортавала, Карельская, 11
-                zoom: 16
+                // --- НАЧАЛО ИЗМЕНЕНИЙ ---
+                center: [61.702171, 30.688579], // Точные координаты для ул. Карельская, 11
+                // --- КОНЕЦ ИЗМЕНЕНИЙ ---
+                zoom: 17 // Можно немного увеличить зум для точности
             });
 
             var myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
@@ -141,18 +143,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 balloonContent: 'ул. Карельская, д. 11'
             }, {
                 // Опции.
-                // Необходимо указать данный тип макета.
                 iconLayout: 'default#image',
-                // Своё изображение иконки метки.
-                iconImageHref: 'https://img.icons8.com/ios-filled/50/8A9A5B/spa-flower.png', // Иконка в нашем фирменном цвете
-                // Размеры метки.
+                iconImageHref: 'https://img.icons8.com/ios-filled/50/8A9A5B/spa-flower.png', 
                 iconImageSize: [40, 40],
-                // Смещение левого верхнего угла иконки относительно
-                // её "ножки" (точки привязки).
                 iconImageOffset: [-20, -40]
             });
 
             myMap.geoObjects.add(myPlacemark);
+            // Добавим отключение скролла карты колесиком мыши
+            myMap.behaviors.disable('scrollZoom');
         });
     }
 
