@@ -1,42 +1,62 @@
-/* Новая, более глубокая палитра */
+/* =============================================================== */
+/*              КОНЦЕПЦИЯ "СВЕЧЕНИЕ В СУМЕРКАХ"                   */
+/* =============================================================== */
+
+/* 1. Новая палитра: Теплый свет и глубокая тень */
 :root {
-    --base-bg: #111818;
-    --surface-bg: #192222;
-    --accent-gold: #D4AF37;
-    --text-primary: #E0E0E0; /* Для заголовков и важных текстов */
-    --text-secondary: #9FAAAA; /* Для второстепенного текста */
-    --border-color: rgba(255, 255, 255, 0.1); /* Полупрозрачная граница */
+    --bg-twilight: #12151C;    /* Фон: ночное небо */
+    --bg-stone: #242831;       /* Подложка: теплый камень */
+    --accent-gold: #D4AF37;    /* Акцент: пламя свечи */
+    --accent-rose: #E0B3B3;    /* Нежный акцент: лепестки розы */
+    --text-mist: #C8CDD5;      /* Текст: утренний туман */
+    --text-strong: #FFFFFF;    /* Яркий текст для заголовков */
+    
+    /* Цвет для "свечения" при наведении */
+    --glow-color: rgba(224, 179, 179, 0.1); /* Полупрозрачный розовый */
 }
 
-/* Применяем новый шрифт и базовые цвета */
+/* 2. Базовые стили для всего сайта */
 body {
-    background-color: var(--base-bg);
-    color: var(--text-secondary); /* Весь текст по умолчанию второстепенный */
+    background-color: var(--bg-twilight);
+    color: var(--text-mist);
     font-family: 'Manrope', sans-serif;
     font-weight: 400; /* Стандартная толщина */
+    line-height: 1.7; /* Увеличиваем межстрочное расстояние для "воздуха" */
 }
 
-/* Плавная прокрутка */
 html {
     scroll-behavior: smooth;
 }
 
-/* Стиль для эффекта "Аврора" на фоне */
-.aurora-bg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(26, 42, 42, 0) 60%);
-    animation: pulse 15s infinite ease-in-out;
-    z-index: 0;
+/* 3. Особый стиль для главного заголовка */
+.hero-title-gradient {
+    /* Делаем текст прозрачным и заливаем его градиентом */
+    background: linear-gradient(120deg, var(--text-strong) 60%, var(--text-mist));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 
-/* Анимация для "Авроры" */
-@keyframes pulse {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.7; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+/* 4. Стиль для кнопки с "блеском" при наведении */
+.shiny-button {
+    position: relative;
+    overflow: hidden; /* Важно для эффекта */
+}
+
+.shiny-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 40%);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.shiny-button:hover::after {
+    opacity: 1;
 }
