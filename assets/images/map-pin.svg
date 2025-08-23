@@ -1,0 +1,8 @@
+<svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="#8A9A5B">
+  <!-- капля-пин -->
+  <path d="M50 0 C25 0 25 25 50 100 C75 25 75 0 50 0 Z" fill="#8A9A5B" transform="scale(0.9) translate(5.5, -5)"/>
+  <!-- цветок лотоса внутри -->
+  <path d="M50 35 C 40 45, 40 55, 50 65 C 60 55, 60 45, 50 35 M50 35 C 45 40, 42 50, 50 55 C 58 50, 55 40, 50 35" fill="#FFFFFF"/>
+  <path d="M50 25 C 35 35, 35 50, 45 60 C 50 55, 50 45, 50 25" fill="#FFFFFF"/>
+  <path d="M50 25 C 65 35, 65 50, 55 60 C 50 55, 50 45, 50 25" fill="#FFFFFF"/>
+</svg>
