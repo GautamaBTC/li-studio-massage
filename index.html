@@ -30,6 +30,28 @@
 
     <!-- API Яндекс.Карт (подключается до основных скриптов) -->
     <script src="https://api-maps.yandex.ru/2.1/?apikey=2c704256-39ca-4355-8a20-fe449f632a8b&lang=ru_RU" type="text/javascript"></script>
+
+    <!-- Schema.org for Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "name": "Li-Студия массажного искусства",
+      "description": "Профессиональный массаж и SPA-ритуалы в Сортавала. Откройте для себя мир гармонии и релакса.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Карельская, д. 11",
+        "addressLocality": "Сортавала",
+        "addressCountry": "RU"
+      },
+      "telephone": "+79215232545",
+      "email": "info@li-studio.ru",
+      "openingHours": "Mo-Fr 10:00-20:00",
+      "priceRange": "$$",
+      "image": "assets/images/owner.webp",
+      "url": "https://example.com"
+    }
+    </script>
 </head>
 <body>
 
@@ -44,6 +66,7 @@
             </nav>
 
             <div class="header__actions">
+                <button id="theme-switcher" aria-label="Переключить тему"></button>
                 <a href="https://wa.me/79215232545" target="_blank" class="btn header__btn">Записаться</a>
                 <button class="burger" aria-label="Открыть меню" aria-expanded="false">
                     <span></span>
@@ -63,7 +86,7 @@
             </div>
         </section>
 
-        <section id="about" class="section">
+        <section id="about" class="section fade-in">
             <div class="container">
                 <h2 class="section__title text-center">Ваше пространство гармонии</h2>
                 <div class="about__content">
@@ -72,7 +95,7 @@
             </div>
         </section>
 
-        <section id="services" class="section services__section">
+        <section id="services" class="section services__section fade-in">
             <div class="container">
                 <h2 class="section__title text-center">Наши ритуалы</h2>
                 <div id="services-container">
@@ -81,7 +104,16 @@
             </div>
         </section>
 
-        <section id="contacts" class="section contacts__section">
+        <section id="reviews" class="section fade-in">
+             <div class="container">
+                <h2 class="section__title text-center">Что говорят наши гости</h2>
+                <div id="reviews-container">
+                    <!-- Reviews will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts" class="section contacts__section fade-in">
             <div class="container contacts__container">
                 <div class="contacts__info">
                     <h2 class="section__title">Свяжитесь с нами</h2>
