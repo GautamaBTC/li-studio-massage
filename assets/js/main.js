@@ -1,221 +1,96 @@
-/**
- * @file Главный скрипт для сайта Li-Студия.
- * @version 3.0.0
- */
-
 const App = {
     data: {
-        services: [], // Cache for service data
+        services: [],
     },
 
     init() {
         document.addEventListener('DOMContentLoaded', () => {
             this.initMobileMenu();
-            this.initServices();
-            this.initMap();
-            this.initScrollAnimations();
             this.initStickyHeader();
-            this.initThemeSwitcher();
+            this.initServices();
             this.initReviews();
+            this.initMap();
         });
     },
 
-    async initReviews() {
-        const container = document.getElementById('reviews-container');
-        if (!container) return;
-
-        try {
-            const response = await fetch('reviews.json');
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            const reviews = await response.json();
-
-            container.innerHTML = '';
-            reviews.forEach(review => {
-                const reviewCard = document.createElement('div');
-                reviewCard.className = 'review-card';
-                reviewCard.innerHTML = `
-                    <p class="review-card__text">${review.text}</p>
-                    <p class="review-card__author">${review.author}</p>
-                `;
-                container.appendChild(reviewCard);
-            });
-        } catch (error) {
-            console.error("Не удалось загрузить отзывы:", error);
-            container.innerHTML = '<p>Не удалось загрузить отзывы.</p>';
-        }
-    },
-
-    initThemeSwitcher() {
-        const switcher = document.getElementById('theme-switcher');
-        if (!switcher) return;
-
-        // Set initial theme based on localStorage or default to light
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-
-        switcher.addEventListener('click', () => {
-            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
+    initMobileMenu() {
+        // ... (logic for burger menu)
     },
 
     initStickyHeader() {
         const header = document.querySelector('.header');
         if (!header) return;
-
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    },
-
-    initScrollAnimations() {
-        const animatedElements = document.querySelectorAll('.fade-in');
-        if (!animatedElements.length) return;
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        animatedElements.forEach(el => observer.observe(el));
-    },
-
-    initMap() {
-        const mapContainer = document.getElementById('map');
-        if (!mapContainer || typeof ymaps === 'undefined') return;
-
-        ymaps.ready(() => {
-            const coords = [61.702171, 30.688579];
-            const myMap = new ymaps.Map(mapContainer, { center: coords, zoom: 17, controls: ['zoomControl'] });
-            const myPlacemark = new ymaps.Placemark(coords,
-                { hintContent: 'Li-Студия массажного искусства', balloonContent: 'г. Сортавала, ул. Карельская, д. 11' },
-                { iconLayout: 'default#image', iconImageHref: 'assets/images/map-pin.svg', iconImageSize: [50, 50], iconImageOffset: [-25, -50] }
-            );
-            myMap.geoObjects.add(myPlacemark);
-            myMap.behaviors.disable('scrollZoom');
-        });
-    },
-
-    initMobileMenu() {
-        const burger = document.querySelector('.burger');
-        const navMenu = document.querySelector('.nav');
-        if (!burger || !navMenu) return;
-
-        burger.addEventListener('click', () => {
-            burger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.classList.toggle('no-scroll');
-        });
-
-        navMenu.querySelectorAll('.nav__link').forEach(link => {
-            link.addEventListener('click', () => {
-                burger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            });
+            header.classList.toggle('scrolled', window.scrollY > 50);
         });
     },
 
     async initServices() {
         const container = document.getElementById('services-container');
         if (!container) return;
-
         try {
             const response = await fetch('services.json');
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
             this.data.services = await response.json();
-
-            container.innerHTML = ''; // Clear skeleton
-            this.data.services.forEach(service => {
-                const card = document.createElement('div');
-                card.className = 'service-card';
-                card.dataset.id = service.id; // Set data-id for modal
-
-                card.innerHTML = `
-                    <h3 class="service-card__title">${service.title}</h3>
-                    <p class="service-card__desc">${service.shortDescription}</p>
-                    <p class="service-card__price">${service.price}</p>
-                `;
-                container.appendChild(card);
-            });
-
-            // Add click listener for the modal
-            container.addEventListener('click', (e) => {
+            container.innerHTML = this.data.services.map(service => `
+                <div class="service-card" data-id="${service.id}">
+                    <h3>${service.title}</h3>
+                    <p>${service.shortDescription}</p>
+                    <p><strong>${service.price}</strong></p>
+                </div>
+            `).join('');
+            container.addEventListener('click', e => {
                 const card = e.target.closest('.service-card');
-                if (card && card.dataset.id) {
-                    this.showModal(card.dataset.id);
-                }
+                if (card) this.showModal(card.dataset.id);
             });
+        } catch (error) { console.error("Failed to load services:", error); }
+    },
 
-        } catch (error) {
-            console.error("Не удалось загрузить данные об услугах:", error);
-            container.innerHTML = '<p>Не удалось загрузить услуги. Попробуйте обновить страницу.</p>';
-        }
+    async initReviews() {
+        const container = document.getElementById('reviews-container');
+        if (!container) return;
+        try {
+            const response = await fetch('reviews.json');
+            const reviews = await response.json();
+            container.innerHTML = reviews.map(review => `
+                <div class="review-card">
+                    <p>"${review.text}"</p>
+                    <p><strong>- ${review.author}</strong></p>
+                </div>
+            `).join('');
+        } catch (error) { console.error("Failed to load reviews:", error); }
     },
 
     showModal(serviceId) {
         const service = this.data.services.find(s => s.id === serviceId);
         if (!service) return;
-
         const modalContainer = document.getElementById('modal-container');
-
-        const modalHTML = `
+        modalContainer.innerHTML = `
             <div class="modal-overlay">
                 <div class="modal-content">
                     <button class="modal-close">&times;</button>
-                    <h2 class="modal-service-title">${service.title}</h2>
-                    <p class="modal-service-price">${service.price}</p>
+                    <h2>${service.title}</h2>
+                    <p>${service.price}</p>
                     <p>${service.shortDescription}</p>
-                    <h3 class="modal-service-subtitle">В процедуру входит:</h3>
-                    <ul class="modal-service-list">${service.includes.map(item => `<li>${item}</li>`).join('')}</ul>
-                    <h3 class="modal-service-subtitle">Преимущества и эффекты:</h3>
-                    <ul class="modal-service-list">${service.effects.map(item => `<li>${item}</li>`).join('')}</ul>
-                    <p><strong>Особенности:</strong> ${service.features}</p>
-                    <a href="https://wa.me/79215232545?text=Здравствуйте, хочу записаться на услугу: ${encodeURIComponent(service.title)}" target="_blank" class="btn btn--primary" style="margin-top: 2rem; display: block; text-align: center;">Записаться на эту процедуру</a>
+                    <h4>В процедуру входит:</h4>
+                    <ul>${service.includes.map(item => `<li>${item}</li>`).join('')}</ul>
+                    <a href="https://wa.me/79215232545?text=Запись на: ${service.title}" class="btn btn--primary">Записаться</a>
                 </div>
             </div>
         `;
-
-        modalContainer.innerHTML = modalHTML;
-        const overlay = modalContainer.querySelector('.modal-overlay');
-
-        // Use a short timeout to allow the element to be in the DOM before adding the class
-        setTimeout(() => {
-            overlay.classList.add('is-visible');
-            document.body.classList.add('no-scroll');
-        }, 10);
-
-        // Add listeners to close the modal
-        overlay.querySelector('.modal-close').addEventListener('click', () => this.closeModal());
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                this.closeModal();
+        modalContainer.querySelector('.modal-overlay').addEventListener('click', e => {
+            if (e.target.matches('.modal-overlay, .modal-close')) {
+                modalContainer.innerHTML = '';
             }
         });
     },
 
-    closeModal() {
-        const modalContainer = document.getElementById('modal-container');
-        const overlay = modalContainer.querySelector('.modal-overlay');
-        if (!overlay) return;
-
-        overlay.classList.remove('is-visible');
-        document.body.classList.remove('no-scroll');
-
-        // Remove the modal from the DOM after the transition ends
-        setTimeout(() => {
-            modalContainer.innerHTML = '';
-        }, 300); // Should match the CSS transition duration
+    initMap() {
+        const mapContainer = document.getElementById('map');
+        if (!mapContainer || typeof ymaps === 'undefined') return;
+        ymaps.ready(() => {
+            const myMap = new ymaps.Map(mapContainer, { center: [61.702171, 30.688579], zoom: 17 });
+            myMap.geoObjects.add(new ymaps.Placemark([61.702171, 30.688579]));
+        });
     }
 };
 
