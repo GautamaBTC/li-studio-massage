@@ -13,7 +13,80 @@ const App = {
             this.initMobileMenu();
             this.initServices();
             this.initMap();
+            this.initScrollAnimations();
+            this.initStickyHeader();
+            this.initThemeSwitcher();
+            this.initReviews();
         });
+    },
+
+    async initReviews() {
+        const container = document.getElementById('reviews-container');
+        if (!container) return;
+
+        try {
+            const response = await fetch('reviews.json');
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            const reviews = await response.json();
+
+            container.innerHTML = '';
+            reviews.forEach(review => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card';
+                reviewCard.innerHTML = `
+                    <p class="review-card__text">${review.text}</p>
+                    <p class="review-card__author">${review.author}</p>
+                `;
+                container.appendChild(reviewCard);
+            });
+        } catch (error) {
+            console.error("Не удалось загрузить отзывы:", error);
+            container.innerHTML = '<p>Не удалось загрузить отзывы.</p>';
+        }
+    },
+
+    initThemeSwitcher() {
+        const switcher = document.getElementById('theme-switcher');
+        if (!switcher) return;
+
+        // Set initial theme based on localStorage or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        switcher.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    },
+
+    initStickyHeader() {
+        const header = document.querySelector('.header');
+        if (!header) return;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    },
+
+    initScrollAnimations() {
+        const animatedElements = document.querySelectorAll('.fade-in');
+        if (!animatedElements.length) return;
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animatedElements.forEach(el => observer.observe(el));
     },
 
     initMap() {
@@ -108,6 +181,7 @@ const App = {
                     <h3 class="modal-service-subtitle">Преимущества и эффекты:</h3>
                     <ul class="modal-service-list">${service.effects.map(item => `<li>${item}</li>`).join('')}</ul>
                     <p><strong>Особенности:</strong> ${service.features}</p>
+                    <a href="https://wa.me/79215232545?text=Здравствуйте, хочу записаться на услугу: ${encodeURIComponent(service.title)}" target="_blank" class="btn btn--primary" style="margin-top: 2rem; display: block; text-align: center;">Записаться на эту процедуру</a>
                 </div>
             </div>
         `;

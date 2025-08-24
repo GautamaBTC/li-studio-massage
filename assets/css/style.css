@@ -20,8 +20,8 @@
 
 :root {
     /* Палитра "Элегантная Природа" */
-    --color-bg: #F8F6F2;              /* Фон: Теплый лен */
-    --color-bg-dark: #2C3E3E;          /* Фон темной темы: Глубокий мох */
+    --color-bg: #F8F6F2;
+    --color-bg-dark: #2C3E3E;
     --color-text: #4A4A4A;            /* Текст: Мягкий графит */
     --color-text-light: #E0E0E0;      /* Текст на темном фоне: Лунный камень */
     --color-accent: #82957A;           /* Акцент: Приглушенный эвкалипт */
@@ -64,18 +64,25 @@ body {
 /* === ЭТАП 2: СТИЛИЗАЦИЯ ШАПКИ (HEADER) (ВЕРСИЯ 2.0) === */
 
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     padding: 1rem 0;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
 
-    background-color: rgba(248, 246, 242, 0.85); /* Полупрозрачный фон под новый цвет */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(209, 207, 201, 0.5); /* Новая граница */
+.header.scrolled {
+    background-color: rgba(248, 246, 242, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 0.5rem 0;
+}
+
+main {
+    padding-top: 80px; /* Offset for fixed header */
 }
 
 .header__container {
@@ -478,13 +485,16 @@ body {
     margin-top: 2.5rem;
 }
 
-/* === ЭТАП 9: СТИЛИЗАЦИЯ СЕКЦИИ "ОТЗЫВЫ" (REVIEWS) (ВЕРСИЯ 2.0) === */
-.reviews__slider {
-    padding-bottom: 4rem;
+/* === ЭТАП 9: СТИЛИЗАЦИЯ СЕКЦИИ "ОТЗЫВЫ" (REVIEWS) === */
+#reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
 .review-card {
-    background-color: transparent; /* Убираем фон, чтобы слился с секцией */
+    background-color: var(--color-bg);
     padding: 2rem;
     border-radius: 0;
     border: none;
@@ -821,6 +831,87 @@ body {
 /* === ЭТАП 13: АНИМАЦИИ ПОЯВЛЕНИЯ (FADE-IN) === */
 .fade-in {
     opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Theme Switcher */
+#theme-switcher {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+#theme-switcher::before, #theme-switcher::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+
+#theme-switcher::before { /* Sun */
+    width: 18px;
+    height: 18px;
+    background: var(--color-secondary);
+}
+
+#theme-switcher::after { /* Moon */
+    width: 12px;
+    height: 12px;
+    background: var(--color-bg);
+    transform: translate(-50%, 150%);
+}
+
+[data-theme="dark"] #theme-switcher::before {
+    transform: translate(-50%, -150%);
+}
+
+[data-theme="dark"] #theme-switcher::after {
+    transform: translate(-50%, -50%);
+}
+
+
+[data-theme="dark"] {
+    --color-bg: #2C3E3E;
+    --color-text: #E0E0E0;
+    --color-border: rgba(224, 224, 224, 0.2);
+}
+
+[data-theme="dark"] .services__section {
+    background-color: #3a4c4c;
+    border-color: rgba(224, 224, 224, 0.1);
+}
+
+[data-theme="dark"] .service-card {
+    background-color: #2C3E3E;
+    color: #E0E0E0;
+}
+
+[data-theme="dark"] .service-card__title {
+    color: #fff;
+}
+
+[data-theme="dark"] .contacts__section {
+    background-color: #3a4c4c;
+    border-color: rgba(224, 224, 224, 0.1);
+}
+
+/* === ЭТАП 14: ГАЛЕРЕЯ И ЛАЙТБОКС === */
+.gallery__grid {
+    display: grid;
     transform: translateY(30px);
     transition: opacity 0.8s cubic-bezier(0.17, 0.55, 0.55, 1), transform 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
 }
