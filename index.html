@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Li-Студия массажного искусства</title>
     <meta name="description" content="Откройте для себя мир гармонии и релакса в Li-Студии.">
-    <!-- Favicons, etc. would go here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://api-maps.yandex.ru/2.1/?apikey=2c704256-39ca-4355-8a20-fe449f632a8b&lang=ru_RU" type="text/javascript"></script>
 </head>
@@ -20,6 +22,7 @@
                 <a href="#contacts" class="nav__link">Контакты</a>
             </nav>
             <div class="header__actions">
+                <button id="theme-switcher" class="theme-switcher" aria-label="Переключить тему"></button>
                 <a href="https://wa.me/79215232545" target="_blank" class="btn header__btn">Записаться</a>
                 <button class="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
             </div>
@@ -37,21 +40,21 @@
 
         <section id="about" class="section">
             <div class="container">
-                <h2 class="section__title">Ваше пространство гармонии</h2>
-                <p class="section__text">Li-Студия — это не просто массаж. Это ваше личное пространство для восстановления в самом сердце Сортавала. Мы верим, что забота о себе — это искусство, и создали место, где каждая деталь работает на вашу гармонию.</p>
+                <h2 class="section__title text-center">Ваше пространство гармонии</h2>
+                <p class="section__text text-center" style="max-width: 800px; margin: 0 auto;">Li-Студия — это не просто массаж. Это ваше личное пространство для восстановления в самом сердце Сортавала. Мы верим, что забота о себе — это искусство, и создали место, где каждая деталь работает на вашу гармонию.</p>
             </div>
         </section>
 
         <section id="services" class="section services__section">
             <div class="container">
-                <h2 class="section__title">Наши ритуалы</h2>
+                <h2 class="section__title text-center">Наши ритуалы</h2>
                 <div id="services-container" class="services-grid"></div>
             </div>
         </section>
 
         <section id="reviews" class="section">
             <div class="container">
-                <h2 class="section__title">Что говорят наши гости</h2>
+                <h2 class="section__title text-center">Что говорят наши гости</h2>
                 <div id="reviews-container" class="reviews-grid"></div>
             </div>
         </section>
@@ -73,6 +76,7 @@
 
     <footer class="footer">
         <div class="container footer__container">
+             <a href="#" class="logo">Li</a>
             <p>&copy; 2025 Li-Студия. Все права защищены.</p>
         </div>
     </footer>
