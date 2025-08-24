@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Li-Студия массажного искусства — Премиальный SPA в Сортавала</title>
+    <meta name="description" content="Откройте для себя мир гармонии и релакса в Li-Студии. Профессиональный массаж, SPA-процедуры и забота о каждой детали для вашего тела и души.">
+
+    <!-- SEO & Social Meta Tags -->
+    <meta property="og:title" content="Li-Студия массажного искусства — Премиальный SPA в Сортавала">
+    <meta property="og:description" content="Откройте для себя мир гармонии и релакса в Li-Студии. Профессиональный массаж, SPA-процедуры и забота о каждой детали для вашего тела и души.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/owner.webp">
+    <meta property="og:url" content="https://example.com"> <!-- Заменить на реальный домен -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Li-Студия массажного искусства — Премиальный SPA в Сортавала">
+    <meta name="twitter:description" content="Откройте для себя мир гармонии и релакса в Li-Студии. Профессиональный массаж, SPA-процедуры и забота о каждой детали для вашего тела и души.">
+    <meta name="twitter:image" content="assets/images/owner.webp">
+
+    <!-- ==================== ИСПРАВЛЕННЫЙ И ОЧИЩЕННЫЙ HEAD ==================== -->
+    <!-- Подключение шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
+    <!-- API Яндекс.Карт (подключается до основных скриптов) -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=2c704256-39ca-4355-8a20-fe449f632a8b&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+
+    <!-- ==================== ИСПРАВЛЕННАЯ ШАПКА ==================== -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="#" class="logo">Li</a>
+            <nav class="nav">
+                <a href="#about" class="nav__link">О нас</a>
+                <a href="#services" class="nav__link">Услуги</a>
+                <a href="#reviews" class="nav__link">Отзывы</a>
+                <a href="#contacts" class="nav__link">Контакты</a>
+            </nav>
+
+            <div class="header__actions">
+                <a href="https://wa.me/79215232545" target="_blank" class="btn header__btn">Записаться</a>
+                <button class="burger" aria-label="Открыть меню" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <video playsinline autoplay muted loop id="hero-video">
+                <source src="assets/video/relax.mp4" type="video/mp4">
+                Ваш браузер не поддерживает фоновое видео.
+            </video>
+            <div class="container hero__container">
+                <h1 class="hero__title">Искусство заботы о теле и душе</h1>
+                <p class="hero__subtitle">Премиальный массаж и SPA в атмосфере полной гармонии</p>
+                <a href="#services" class="btn btn--primary">Выбрать ритуал</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container about__container">
+                <div class="about__image-wrapper fade-in">
+                    <img src="assets/images/owner.webp" alt="Лия, основательница студии" class="about__image" loading="lazy">
+                    <svg class="about__decoration" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 10,90 Q 50,10 90,90 T 10,90" stroke="var(--color-accent)" fill="none" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="about__content fade-in">
+                    <h2 class="section__title">Пространство гармонии</h2>
+                    <p class="section__text">Li-Студия массажного искусства — это место, где забота о теле и душе становится искусством. Мы создали атмосферу уюта, приватности и гармонии, чтобы каждый гость мог полностью расслабиться, восстановить силы и почувствовать себя особенным.</p>
+                    <p class="section__text">В нашей команде — только опытные мастера, владеющие современными и традиционными техниками массажа и спа. Мы используем натуральные средства и индивидуальный подход к каждому клиенту.</p>
+                    <blockquote class="about__quote">
+                        “Забота о себе — это не роскошь, а необходимое условие для счастливой и гармоничной жизни.”
+                        <cite>— Лия, основательница студии</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section services__section">
+            <div class="container">
+                <h2 class="section__title text-center fade-in">Наши ритуалы красоты и здоровья</h2>
+                <div id="services-grid" class="services__grid">
+                    <!-- Карточки услуг будут анимированы через JS после загрузки -->
+                    <div class="service-card-skeleton"></div>
+                    <div class="service-card-skeleton"></div>
+                    <div class.="service-card-skeleton"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="section">
+            <div class="container">
+                <h2 class="section__title text-center fade-in">Что говорят наши гости</h2>
+                <div class="swiper reviews__slider fade-in">
+                    <div class="swiper-wrapper" id="reviews-wrapper"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section">
+            <div class="container">
+                <h2 class="section__title text-center fade-in">Атмосфера нашей студии</h2>
+                <div class="gallery__grid fade-in">
+                    <div class="gallery__item">
+                        <img src="assets/images/owner.webp" alt="Интерьер студии 1" loading="lazy">
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/images/owner.webp" alt="Интерьер студии 2" loading="lazy" style="filter: grayscale(80%);">
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/images/owner.webp" alt="Детали интерьера" loading="lazy" style="filter: sepia(50%);">
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/images/owner.webp" alt="Зона отдыха" loading="lazy" style="filter: blur(2px);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts" class="section contacts__section">
+            <div class="container contacts__container">
+                <div class="contacts__info fade-in">
+                    <h2 class="section__title">Свяжитесь с нами</h2>
+                    <p class="section__text">Мы всегда рады ответить на ваши вопросы и помочь с выбором процедуры. Запишитесь на ритуал релаксации уже сегодня.</p>
+                    <ul class="contacts__list">
+                        <li><strong>Адрес:</strong> Россия г. Сортавала, ул. Карельская, д. 11</li>
+                        <li><strong>Телефон:</strong> <a href="tel:+79215232545">+7 (921) 523-25-45</a></li>
+                        <li><strong>Мессенджеры:</strong> <a href="https://wa.me/79215232545" target="_blank">WhatsApp</a><!-- , <a href="https://t.me/your_telegram" target="_blank">Telegram</a> --></li>
+                        <li><strong>Email:</strong> <a href="mailto:info@li-studio.ru">info@li-studio.ru</a></li>
+                        <li><strong>Режим работы:</strong> Пн-Пт с 10:00 до 20:00</li>
+                    </ul>
+                </div>
+                <div class="contacts__map fade-in" id="map"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <a href="#" class="logo">Li</a>
+            <p class="footer__copy">&copy; 2025 Li-Студия. Все права защищены.</p>
+            <div class="footer__socials">
+                <a href="https://m.vk.com/club219645206" target="_blank" aria-label="VKontakte">VK</a>
+                <!-- <a href="#" target="_blank" aria-label="Instagram">IG</a> -->
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="service-modal">
+        <div class="modal__overlay" data-close="true"></div>
+        <div class="modal__content">
+            <button class="modal__close" data-close="true">&times;</button>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal for Gallery -->
+    <div class="lightbox" id="gallery-lightbox">
+        <div class="lightbox__overlay"></div>
+        <div class="lightbox__content">
+            <img src="" alt="Увеличенное изображение галереи" class="lightbox__image">
+            <button class="lightbox__close">&times;</button>
+        </div>
+    </div>
+
+    <!-- ==================== ИСПРАВЛЕННЫЙ ПОРЯДОК СКРИПТОВ ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>
