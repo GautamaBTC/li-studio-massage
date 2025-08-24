@@ -1,813 +1,380 @@
-/* === ЭТАП 1: ГЛОБАЛЬНЫЕ СТИЛИ И ПЕРЕМЕННЫЕ (ВЕРСИЯ 2.0) === */
+/* Digital Oasis - Styles */
 
+/* Base and Typography */
 :root {
-    /* Палитра "Элегантная Природа" */
-    --color-bg: #F8F6F2;              /* Фон: Теплый лен */
-    --color-bg-dark: #2C3E3E;          /* Фон темной темы: Глубокий мох */
-    --color-text: #4A4A4A;            /* Текст: Мягкий графит */
-    --color-text-light: #E0E0E0;      /* Текст на темном фоне: Лунный камень */
-    --color-accent: #82957A;           /* Акцент: Приглушенный эвкалипт */
-    --color-secondary: #C8A27C;        /* Вторичный акцент: Золотистая охра */
-    --color-border: #D1CFC9;          /* Границы: Речной камень */
-    
-    /* Шрифты "Изысканная Классика" */
-    --font-main: 'Lato', sans-serif;
-    --font-headers: 'Cormorant Garamond', serif;
-    
-    --border-radius-sm: 5px;
-    --border-radius-md: 10px;
+    --font-header: 'Marck Script', cursive;
+    --font-body: 'Lato', sans-serif;
+
+    /* Dark Theme (Default) */
+    --color-text: #E0E0E0;
+    --color-bg: #0a0a0a;
+    --color-border: rgba(224, 224, 224, 0.2);
+    --color-gradient-1: hsla(180, 50%, 80%, 0.1);
+    --color-gradient-2: hsla(280, 50%, 80%, 0.1);
 }
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
+[data-theme="light"] {
+    --color-text: #2c3e50;
+    --color-bg: #f8f9fa;
+    --color-border: rgba(44, 62, 80, 0.2);
+    --color-gradient-1: hsla(190, 50%, 70%, 0.15);
+    --color-gradient-2: hsla(30, 50%, 80%, 0.15);
 }
 
 body {
-    font-family: var(--font-main);
     background-color: var(--color-bg);
     color: var(--color-text);
-    line-height: 1.7; /* Увеличим для лучшей читаемости Lato */
-    -webkit-font-smoothing: antialiased; /* Делаем текст более гладким */
-    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-body);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    margin: 0;
+    overflow-x: hidden;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* === ЭТАП 2: СТИЛИЗАЦИЯ ШАПКИ (HEADER) (ВЕРСИЯ 2.0) === */
-
-.header {
-    position: sticky;
+/* Living Background */
+body::before {
+    content: '';
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
-    padding: 1rem 0;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    
-    background-color: rgba(248, 246, 242, 0.85); /* Полупрозрачный фон под новый цвет */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(209, 207, 201, 0.5); /* Новая граница */
+    height: 100%;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 15% 25%, var(--color-gradient-1), transparent 35%),
+        radial-gradient(circle at 85% 75%, var(--color-gradient-2), transparent 35%);
+    animation: living-background 45s infinite linear;
+    transition: background 0.5s ease;
 }
 
-.header__container {
+@keyframes living-background {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* General Layout */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    min-height: 100vh;
+    padding: 100px 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.logo {
-    font-family: var(--font-headers);
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--color-secondary);
-    text-decoration: none;
-    letter-spacing: 2px; /* Добавляем "воздуха" */
-    transition: transform 0.3s ease, color 0.3s ease;
+/* Typography as Art */
+h1, h2 {
+    font-family: var(--font-header);
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
 }
 
-.logo:hover {
-    color: var(--color-accent);
-    transform: scale(1.03);
+h1 {
+    font-size: clamp(3rem, 15vw, 12rem);
+    line-height: 0.9;
 }
 
-.nav {
-    display: flex;
-    gap: 2.5rem; /* Немного увеличим расстояние */
+h2 {
+    font-size: clamp(2.5rem, 12vw, 10rem);
+    margin-bottom: 4rem;
 }
 
-.nav__link {
-    font-family: var(--font-headers);
-    font-size: 1.1rem; /* Увеличим шрифт для нового хедера */
-    font-weight: 600;
-    color: var(--color-text);
-    text-decoration: none;
-    position: relative;
-    padding-bottom: 5px;
-    transition: color 0.3s ease;
-}
 
-.nav__link:hover {
-    color: var(--color-accent);
-}
-
-.nav__link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
+/* Header & Logo */
+#header {
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 1px; /* Сделаем линию тоньше и изящнее */
-    background-color: var(--color-accent);
-    transform: scaleX(0);
-    transform-origin: center; /* Анимация из центра */
+    padding: 20px;
+    z-index: 1000;
+}
+
+.logo-container {
+    width: 80px;
+    height: 80px;
+}
+
+#logo-compass {
+    width: 100%;
+    height: 100%;
+    color: var(--color-text);
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
+/* Services Accordion */
+.services-accordion {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.service-item {
+    border-bottom: 1px solid rgba(224, 224, 224, 0.2);
+}
+
+.service-header {
+    display: flex;
+    align-items: center;
+    padding: 2rem 1rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.service-pattern {
+    width: 40px;
+    height: 40px;
+    margin-right: 1.5rem;
+    /* Placeholder style */
+    border: 1px dashed rgba(224, 224, 224, 0.5);
+}
+
+.service-title {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.service-price {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.service-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s cubic-bezier(0.19, 1, 0.22, 1),
+                padding 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.service-content-inner {
+    padding: 0 1rem 0rem 5.5rem; /* 40px + 1.5rem margin */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.service-content-inner h4 {
+    margin-top: 1rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+}
+
+.service-content-inner ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Open State */
+.service-item.is-open .service-content {
+    max-height: 500px; /* Adjust as needed */
+}
+
+.service-item.is-open .service-content-inner {
+    opacity: 1;
+    transform: translateY(0);
+    padding-bottom: 2rem;
+}
+
+
+/* Theme Switcher */
+#theme-switcher {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#theme-switcher .sun, #theme-switcher .moon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.nav__link:hover::after {
-    transform: scaleX(1);
-}
-
-/* === ЭТАП 3: СТИЛИЗАЦИЯ КНОПОК (BUTTON) (ВЕРСИЯ 2.0) === */
-
-.btn {
-    display: inline-block;
-    padding: 0.8rem 1.8rem;
-    border-radius: var(--border-radius-md);
-    text-decoration: none;
-    font-family: var(--font-headers);
-    font-weight: 700; /* Более жирный шрифт для кнопок */
-    font-size: 1.1rem;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-}
-
-.header__btn {
-    background-color: transparent;
-    color: var(--color-accent);
-    border-color: var(--color-accent);
-}
-
-.header__btn:hover {
-    background-color: var(--color-accent);
-    color: var(--color-bg);
-    transform: scale(1.05);
-}
-
-.btn--primary {
-    background-color: var(--color-accent);
-    color: #fff;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 15px rgba(130, 149, 122, 0.3);
-}
-
-.btn--primary:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 25px rgba(130, 149, 122, 0.5);
-    background-color: #73856b; /* Чуть темнее при наведении */
-}
-
-/* === ЭТАП 4: СТИЛИЗАЦИЯ ПЕРВОГО ЭКРАНА (HERO) (ВЕРСИЯ 2.0) === */
-
-.hero {
-    position: relative; /* Нужно для позиционирования видео */
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    overflow: hidden; /* Скрываем все, что выходит за рамки */
-}
-
-#hero-video {
-    position: absolute;
+#theme-switcher .sun {
+    background-color: var(--color-text);
     top: 50%;
     left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -2;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%, -50%);
 }
 
-.hero::after { /* Оверлей для затемнения видео */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+#theme-switcher .moon {
+    background-color: var(--color-text);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+}
+
+[data-theme="light"] #theme-switcher .sun {
+    transform: translate(-50%, -100%);
+}
+
+[data-theme="light"] #theme-switcher .moon {
+    transform: translate(-50%, -50%);
+}
+
+
+/* Services Accordion */
+.services-accordion {
     width: 100%;
-    height: 100%;
-    background: rgba(44, 62, 62, 0.5);
-    z-index: -1;
-}
-
-.hero__container {
     max-width: 800px;
-    z-index: 1;
+    margin: 0 auto;
 }
 
-.hero__title {
-    font-family: var(--font-headers);
-    font-size: 4.5rem; /* Увеличим для вау-эффекта */
-    font-weight: 600;
-    line-height: 1.1;
-    text-shadow: 0 3px 8px rgba(0,0,0,0.5);
-    margin-bottom: 1rem;
-}
-
-.hero__subtitle {
-    font-family: var(--font-main);
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-bottom: 2.5rem;
-    opacity: 0.95;
-}
-
-/* === ЭТАП 5: ОБЩИЕ СТИЛИ ДЛЯ СЕКЦИЙ (ВЕРСИЯ 2.0) === */
-
-.section {
-    padding: 6rem 0;
-}
-
-.section__title {
-    font-family: var(--font-headers);
-    font-size: 3rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: var(--color-text);
-}
-
-.section__text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    max-width: 650px;
-}
-
-.text-center {
-    text-align: center;
-}
-
-/* === ЭТАП 6: СТИЛИЗАЦИЯ СЕКЦИИ "О НАС" (ABOUT) (ВЕРСИЯ 2.0) === */
-
-.about__container {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    align-items: center;
-    gap: 5rem;
-}
-
-.about__image-wrapper {
-    position: relative;
-}
-
-.about__image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-}
-
-.about__decoration {
-    position: absolute;
-    bottom: -25px;
-    right: -25px;
-    width: 120px;
-    height: 120px;
-    opacity: 0.5;
-    z-index: -1;
-    transform: rotate(45deg);
-    stroke: var(--color-accent) !important; /* Убедимся, что цвет применился */
-}
-
-.about__quote {
-    margin-top: 2.5rem;
-    padding-left: 2rem;
-    border-left: 2px solid var(--color-secondary);
-    font-family: var(--font-headers);
-    font-size: 1.3rem; /* Увеличим цитату */
-    font-style: italic;
-    font-weight: 600;
-    color: var(--color-text);
-    opacity: 0.85;
-}
-
-.about__quote cite {
-    display: block;
-    text-align: right;
-    margin-top: 1rem;
-    font-style: normal;
-    font-weight: 700;
-    color: var(--color-secondary);
-    font-size: 1.1rem;
-}
-
-/* === ЭТАП 7: СТИЛИЗАЦИЯ СЕКЦИИ "УСЛУГИ" (SERVICES) (ВЕРСИЯ 2.0) === */
-
-.services__section {
-    background-color: #fff;
-    border-top: 1px solid var(--color-border);
+.service-item {
     border-bottom: 1px solid var(--color-border);
+    transition: border-color 0.5s ease;
 }
 
-.services__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-    margin-top: 3rem;
-}
-
-.service-card {
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius-md);
-    padding: 2.5rem 2rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    cursor: pointer;
+.service-header {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1rem;
+    cursor: pointer;
+    position: relative;
 }
 
-.service-card:hover {
+.service-pattern {
+    width: 40px;
+    height: 40px;
+    margin-right: 1.5rem;
+    /* Placeholder style */
+    border: 1px dashed var(--color-border);
+    transition: border-color 0.5s ease;
+}
+
+.service-title {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.service-price {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.service-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s cubic-bezier(0.19, 1, 0.22, 1),
+                padding 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.service-content-inner {
+    padding: 0 1rem 0rem 5.5rem; /* 40px + 1.5rem margin */
+    opacity: 0;
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(74, 74, 74, 0.1);
-    border-color: var(--color-accent);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.service-card__title {
-    font-family: var(--font-headers);
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-}
-
-.service-card__price {
-    font-family: var(--font-headers);
-    font-size: 1.8rem;
+.service-content-inner h4 {
+    margin-top: 1rem;
+    font-family: var(--font-body);
     font-weight: 700;
-    color: var(--color-accent);
-    margin: auto 0 1.5rem 0;
 }
 
-.service-card__details-btn {
-    font-family: var(--font-headers);
-    font-weight: 700;
-    color: var(--color-secondary);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.service-card:hover .service-card__details-btn {
-    color: var(--color-accent);
-}
-
-
-/* Skeleton-заглушка (ВЕРСИЯ 2.0) */
-.service-card-skeleton {
-    background-color: #EAEAEA;
-    border-radius: var(--border-radius-md);
-    height: 320px;
-    position: relative;
-    overflow: hidden;
-}
-
-.service-card-skeleton::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 150%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    100% { left: 150%; }
-}
-
-/* === ЭТАП 8: СТИЛИЗАЦИЯ МОДАЛЬНОГО ОКНА (MODAL) (ВЕРСИЯ 2.0) === */
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-}
-
-.modal.open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.modal__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(44, 62, 62, 0.75); /* Глубже затемнение */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.modal__content {
-    position: relative;
-    background-color: var(--color-bg);
-    border-radius: var(--border-radius-md);
-    padding: 3rem;
-    width: 90%;
-    max-width: 700px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.25);
-    transform: translateY(30px) scale(0.95);
-    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.modal.open .modal__content {
-    transform: translateY(0) scale(1);
-}
-
-.modal__close {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    font-size: 2.5rem;
-    color: var(--color-border);
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.modal__close:hover {
-    color: var(--color-text);
-    transform: rotate(90deg) scale(1.1);
-}
-
-.modal-service__title {
-    font-family: var(--font-headers);
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.modal-service__price {
-    font-family: var(--font-headers);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    margin-bottom: 2rem;
-}
-
-.modal-service__subtitle {
-    font-family: var(--font-headers);
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: var(--color-secondary);
-    text-transform: uppercase; /* Делаем подзаголовки заметнее */
-    letter-spacing: 1px;
-}
-
-.modal-service__list {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 1.5rem;
-}
-
-.modal-service__list li {
-    padding-left: 2rem;
-    position: relative;
-    margin-bottom: 0.75rem;
-}
-
-.modal-service__list li::before {
-    content: '🌿';
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
-    font-size: 1.2rem;
-}
-
-.modal-service__features {
-    font-style: italic;
-    opacity: 0.9;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: #fff;
-    border-radius: var(--border-radius-sm);
-    border-left: 3px solid var(--color-accent);
-}
-
-.modal-service__final {
-    font-family: var(--font-headers);
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-align: center;
-    margin-top: 2.5rem;
-}
-
-/* === ЭТАП 9: СТИЛИЗАЦИЯ СЕКЦИИ "ОТЗЫВЫ" (REVIEWS) (ВЕРСИЯ 2.0) === */
-.reviews__slider {
-    padding-bottom: 4rem;
-}
-
-.review-card {
-    background-color: transparent; /* Убираем фон, чтобы слился с секцией */
-    padding: 2rem;
-    border-radius: 0;
-    border: none;
-    border-left: 3px solid var(--color-accent);
-    box-shadow: none;
-}
-
-.review-card__text {
-    font-size: 1.2rem;
-    font-style: italic;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    position: relative;
+.service-content-inner ul {
+    list-style-type: none;
     padding-left: 0;
 }
 
-.review-card__text::before {
-    content: '“';
-    font-family: var(--font-headers);
-    font-size: 6rem;
-    color: var(--color-accent);
-    opacity: 0.15;
-    position: absolute;
-    left: -1rem;
-    top: -2rem;
-    line-height: 1;
+/* Open State */
+.service-item.is-open .service-content {
+    max-height: 500px; /* Adjust as needed */
 }
 
-.review-card__author {
-    font-family: var(--font-headers);
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-align: right;
-    color: var(--color-secondary);
-}
-
-.swiper-pagination-bullet {
-    background-color: var(--color-border);
-    width: 12px;
-    height: 12px;
-    opacity: 1;
-    transition: background-color 0.3s ease;
-}
-
-.swiper-pagination-bullet-active {
-    background-color: var(--color-accent);
-}
-
-/* === ЭТАП 10: СТИЛИЗАЦИЯ СЕКЦИИ "КОНТАКТЫ" (CONTACTS) (ВЕРСИЯ 2.0) === */
-.contacts__section {
-    background-color: #fff;
-    border-top: 1px solid var(--color-border);
-}
-
-.contacts__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.contacts__list {
-    list-style: none;
-    padding: 0;
-    margin-top: 2.5rem;
-}
-
-.contacts__list li {
-    margin-bottom: 1.2rem;
-    font-size: 1.1rem;
-}
-
-.contacts__list a {
-    color: var(--color-accent);
-    text-decoration: none;
-    font-weight: 700;
-    transition: color 0.3s ease;
-}
-
-.contacts__list a:hover {
-    color: var(--color-secondary);
-}
-
-.contacts__map {
-    width: 100%;
-    height: 450px;
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    background-color: #e0e0e0;
-    border: 1px solid var(--color-border);
-}
-
-/* === ЭТАП 11: СТИЛИЗАЦИЯ ПОДВАЛА (FOOTER) (ВЕРСИЯ 2.0) === */
-.footer {
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-light);
-    padding: 3rem 0;
-    margin-top: 4rem;
-}
-
-.footer__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer .logo {
-    color: var(--color-bg); /* Светлый логотип в футере */
-    opacity: 0.8;
-}
-
-.footer__copy {
-    opacity: 0.6;
-}
-
-.footer__socials {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.footer__socials a {
-    color: var(--color-text-light);
-    text-decoration: none;
-    font-family: var(--font-headers);
-    font-size: 1.2rem;
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
-
-.footer__socials a:hover {
-    color: #fff;
-    transform: scale(1.1);
-    opacity: 1;
-}
-
-/* === ЭТАП 12: АДАПТИВНОСТЬ (ВЕРСИЯ 2.0) === */
-body.no-scroll { overflow: hidden; }
-
-.header__actions { display: flex; align-items: center; gap: 1.5rem; }
-.burger { display: none; width: 30px; height: 20px; position: relative; border: none; background: transparent; cursor: pointer; z-index: 1002; }
-.burger span { display: block; width: 100%; height: 2px; background-color: var(--color-text); position: absolute; left: 0; transition: all 0.3s ease; }
-.burger.active span { background-color: #fff; }
-.burger span:nth-child(1) { top: 0; }
-.burger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
-.burger span:nth-child(3) { bottom: 0; }
-.burger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
-.burger.active span:nth-child(2) { opacity: 0; }
-.burger.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
-
-@media (max-width: 1024px) {
-    .about__container, .contacts__container { grid-template-columns: 1fr; text-align: center; }
-    .about__image-wrapper { margin: 0 auto 3rem auto; max-width: 500px; }
-    .about__content, .contacts__info { max-width: 700px; margin: 0 auto; }
-    .about__quote { text-align: left; }
-    .contacts__list { text-align: left; max-width: 400px; margin: 2rem auto 0; }
-}
-
-@media (max-width: 768px) {
-    .burger { display: block; }
-    .nav { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(44, 62, 62, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem; z-index: 1001; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-100%); transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.5s, visibility 0.5s; }
-    .nav.active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
-    .nav__link { font-size: 1.8rem; color: #fff; }
-    .header__actions .header__btn { display: none; }
-    .hero__title { font-size: 3rem; }
-    .hero__subtitle { font-size: 1.2rem; }
-    .section__title { font-size: 2.2rem; }
-    .footer__container { flex-direction: column; gap: 1.5rem; }
-}
-
-/* === ЭТАП 13: АНИМАЦИИ ПОЯВЛЕНИЯ (FADE-IN) === */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.17, 0.55, 0.55, 1), transform 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
-}
-
-.fade-in.visible {
+.service-item.is-open .service-content-inner {
     opacity: 1;
     transform: translateY(0);
+    padding-bottom: 2rem;
 }
 
-/* === ЭТАП 14: ГАЛЕРЕЯ И ЛАЙТБОКС === */
 
-.gallery__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+/* Responsive Adaptation */
+@media (max-width: 768px) {
+    h1 {
+        font-size: clamp(3rem, 20vw, 12rem);
+    }
+
+    h2 {
+        font-size: clamp(2.5rem, 15vw, 10rem);
+    }
+
+    .logo-container {
+        width: 60px;
+        height: 60px;
+    }
+
+    #theme-switcher {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    #theme-switcher .sun, #theme-switcher .moon {
+        width: 15px;
+        height: 15px;
+    }
+
+    .service-title {
+        font-size: 1.2rem;
+    }
+
+    .service-price {
+        font-size: 1rem;
+    }
+
+    .service-content-inner {
+        padding-left: 1rem;
+    }
+
+    .service-pattern {
+        display: none; /* Hide pattern on mobile for more space */
+    }
 }
 
-.gallery__item {
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.gallery__item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-.gallery__item img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    display: block;
-    transition: filter 0.3s ease;
-}
-
-.gallery__item:hover img {
-    filter: brightness(1.1);
-}
-
-/* Стили для лайтбокса */
-.lightbox {
+/* Preloader */
+#preloader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 3000;
-    background-color: rgba(44, 62, 62, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
+    background-color: #1a1a1a;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 9999;
 }
 
-.lightbox.open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.lightbox__content {
-    position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
-    transform: scale(0.9);
-    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.lightbox.open .lightbox__content {
-    transform: scale(1);
-}
-
-.lightbox__image {
-    max-width: 100%;
-    max-height: 90vh;
-    border-radius: var(--border-radius-sm);
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
-}
-
-.lightbox__close {
-    position: absolute;
-    top: -40px;
-    right: -20px;
-    font-size: 3rem;
-    color: #fff;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.lightbox__close:hover {
-    transform: scale(1.2);
-}
-
-.lightbox__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+#preloader img {
+    width: 150px;
+    height: 150px;
+    color: #f0f0f0;
+    opacity: 0; /* Start hidden for fade-in animation */
 }
