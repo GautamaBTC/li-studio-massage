@@ -1,180 +1,148 @@
-// Digital Oasis - Main Script
+/**
+ * @file Главный скрипт для сайта Li-Студия.
+ * @version 3.0.0
+ */
 
-function initPreloader() {
-    const preloader = document.getElementById('preloader');
-    const preloaderLogo = preloader.querySelector('img');
+const App = {
+    data: {
+        services: [], // Cache for service data
+    },
 
-    if (!preloader || !preloaderLogo) {
-        return null;
-    }
+    init() {
+        document.addEventListener('DOMContentLoaded', () => {
+            this.initMobileMenu();
+            this.initServices();
+            this.initMap();
+        });
+    },
 
-    const tl = gsap.timeline();
-    tl.to(preloaderLogo, {
-        opacity: 1,
-        duration: 1.5,
-        ease: "power1.inOut"
-    }).to(preloaderLogo, {
-        scale: 1.05,
-        duration: 1,
-        repeat: 1,
-        yoyo: true,
-        ease: "power1.inOut"
-    }, "-=0.5");
+    initMap() {
+        const mapContainer = document.getElementById('map');
+        if (!mapContainer || typeof ymaps === 'undefined') return;
 
-    tl.to(preloader, {
-        opacity: 0,
-        duration: 1,
-        ease: "power2.inOut",
-        onComplete: () => {
-            preloader.style.display = 'none';
-        }
-    }, "+=0.5");
+        ymaps.ready(() => {
+            const coords = [61.702171, 30.688579];
+            const myMap = new ymaps.Map(mapContainer, { center: coords, zoom: 17, controls: ['zoomControl'] });
+            const myPlacemark = new ymaps.Placemark(coords,
+                { hintContent: 'Li-Студия массажного искусства', balloonContent: 'г. Сортавала, ул. Карельская, д. 11' },
+                { iconLayout: 'default#image', iconImageHref: 'assets/images/map-pin.svg', iconImageSize: [50, 50], iconImageOffset: [-25, -50] }
+            );
+            myMap.geoObjects.add(myPlacemark);
+            myMap.behaviors.disable('scrollZoom');
+        });
+    },
 
-    return tl; // Return the timeline instance
-}
+    initMobileMenu() {
+        const burger = document.querySelector('.burger');
+        const navMenu = document.querySelector('.nav');
+        if (!burger || !navMenu) return;
 
-function initLogoCompass() {
-    const logo = document.getElementById('logo-compass');
-    const sections = document.querySelectorAll('main section');
-
-    if (!logo || !sections.length) {
-        return;
-    }
-
-    const rotations = [0, 45, 90, 135, 180];
-
-    function updateLogoRotation() {
-        let closestSectionIndex = 0;
-        let minDistance = Infinity;
-
-        sections.forEach((section, index) => {
-            const rect = section.getBoundingClientRect();
-            const distance = Math.abs(rect.top + rect.height / 2 - window.innerHeight / 2);
-
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestSectionIndex = index;
-            }
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
         });
 
-        const rotationAngle = rotations[closestSectionIndex % rotations.length];
-
-        gsap.to(logo, {
-            rotation: rotationAngle,
-            duration: 0.8,
-            ease: "cubic.out"
-        });
-    }
-
-    let isThrottled = false;
-    window.addEventListener('scroll', () => {
-        if (!isThrottled) {
-            window.requestAnimationFrame(() => {
-                updateLogoRotation();
-                isThrottled = false;
+        navMenu.querySelectorAll('.nav__link').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('no-scroll');
             });
-            isThrottled = true;
-        }
-    });
-
-    updateLogoRotation();
-}
-
-
-async function initServices() {
-    const servicesSection = document.getElementById('services');
-    if (!servicesSection) return;
-
-    try {
-        const response = await fetch('services.json');
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        const services = await response.json();
-
-        const servicesContainer = document.createElement('div');
-        servicesContainer.className = 'services-accordion';
-
-        services.forEach(service => {
-            const serviceItem = document.createElement('div');
-            serviceItem.className = 'service-item';
-            serviceItem.innerHTML = `
-                <div class="service-header">
-                    <div class="service-pattern">
-                        <!-- Animated SVG will go here -->
-                    </div>
-                    <h3 class="service-title">${service.title}</h3>
-                    <span class="service-price">${service.price}</span>
-                </div>
-                <div class="service-content">
-                    <div class="service-content-inner">
-                        <p>${service.shortDescription}</p>
-                        <h4>В процедуру входит:</h4>
-                        <ul>${service.includes.map(item => `<li>${item}</li>`).join('')}</ul>
-                    </div>
-                </div>
-            `;
-            servicesContainer.appendChild(serviceItem);
         });
+    },
 
-        const heading = servicesSection.querySelector('h2');
-        if(heading) {
-            heading.insertAdjacentElement('afterend', servicesContainer);
-        } else {
-            servicesSection.appendChild(servicesContainer);
-        }
+    async initServices() {
+        const container = document.getElementById('services-container');
+        if (!container) return;
 
-        servicesContainer.addEventListener('click', (event) => {
-            const header = event.target.closest('.service-header');
-            if (!header) return;
+        try {
+            const response = await fetch('services.json');
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-            const currentItem = header.parentElement;
-            const wasOpen = currentItem.classList.contains('is-open');
+            this.data.services = await response.json();
 
-            servicesContainer.querySelectorAll('.service-item').forEach(item => {
-                item.classList.remove('is-open');
+            container.innerHTML = ''; // Clear skeleton
+            this.data.services.forEach(service => {
+                const card = document.createElement('div');
+                card.className = 'service-card';
+                card.dataset.id = service.id; // Set data-id for modal
+
+                card.innerHTML = `
+                    <h3 class="service-card__title">${service.title}</h3>
+                    <p class="service-card__desc">${service.shortDescription}</p>
+                    <p class="service-card__price">${service.price}</p>
+                `;
+                container.appendChild(card);
             });
 
-            if (!wasOpen) {
-                currentItem.classList.add('is-open');
+            // Add click listener for the modal
+            container.addEventListener('click', (e) => {
+                const card = e.target.closest('.service-card');
+                if (card && card.dataset.id) {
+                    this.showModal(card.dataset.id);
+                }
+            });
+
+        } catch (error) {
+            console.error("Не удалось загрузить данные об услугах:", error);
+            container.innerHTML = '<p>Не удалось загрузить услуги. Попробуйте обновить страницу.</p>';
+        }
+    },
+
+    showModal(serviceId) {
+        const service = this.data.services.find(s => s.id === serviceId);
+        if (!service) return;
+
+        const modalContainer = document.getElementById('modal-container');
+
+        const modalHTML = `
+            <div class="modal-overlay">
+                <div class="modal-content">
+                    <button class="modal-close">&times;</button>
+                    <h2 class="modal-service-title">${service.title}</h2>
+                    <p class="modal-service-price">${service.price}</p>
+                    <p>${service.shortDescription}</p>
+                    <h3 class="modal-service-subtitle">В процедуру входит:</h3>
+                    <ul class="modal-service-list">${service.includes.map(item => `<li>${item}</li>`).join('')}</ul>
+                    <h3 class="modal-service-subtitle">Преимущества и эффекты:</h3>
+                    <ul class="modal-service-list">${service.effects.map(item => `<li>${item}</li>`).join('')}</ul>
+                    <p><strong>Особенности:</strong> ${service.features}</p>
+                </div>
+            </div>
+        `;
+
+        modalContainer.innerHTML = modalHTML;
+        const overlay = modalContainer.querySelector('.modal-overlay');
+
+        // Use a short timeout to allow the element to be in the DOM before adding the class
+        setTimeout(() => {
+            overlay.classList.add('is-visible');
+            document.body.classList.add('no-scroll');
+        }, 10);
+
+        // Add listeners to close the modal
+        overlay.querySelector('.modal-close').addEventListener('click', () => this.closeModal());
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                this.closeModal();
             }
         });
+    },
 
-    } catch (error) {
-        console.error("Could not load services:", error);
-        servicesSection.innerHTML += '<p>Не удалось загрузить услуги.</p>';
+    closeModal() {
+        const modalContainer = document.getElementById('modal-container');
+        const overlay = modalContainer.querySelector('.modal-overlay');
+        if (!overlay) return;
+
+        overlay.classList.remove('is-visible');
+        document.body.classList.remove('no-scroll');
+
+        // Remove the modal from the DOM after the transition ends
+        setTimeout(() => {
+            modalContainer.innerHTML = '';
+        }, 300); // Should match the CSS transition duration
     }
-}
+};
 
-
-function initThemeSwitcher() {
-    const switcher = document.getElementById('theme-switcher');
-    const doc = document.documentElement;
-
-    if (!switcher) return;
-
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    doc.setAttribute('data-theme', currentTheme);
-
-    switcher.addEventListener('click', () => {
-        const newTheme = doc.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        doc.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-    });
-}
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const preloaderTimeline = initPreloader();
-    initThemeSwitcher();
-
-    // ***FIX***: Chain content initialization to the end of the preloader animation
-    if (preloaderTimeline) {
-        preloaderTimeline.eventCallback("onComplete", () => {
-            initLogoCompass();
-            initServices();
-        });
-    } else {
-        // If no preloader, init immediately
-        initLogoCompass();
-        initServices();
-    }
-});
+App.init();
