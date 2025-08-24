@@ -3,53 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Li-Студия массажного искусства</title>
 
+    <title>Li-Студия массажного искусства — Премиальный SPA в Сортавала</title>
+    <meta name="description" content="Откройте для себя мир гармонии и релакса в Li-Студии. Профессиональный массаж, SPA-процедуры и забота о каждой детали для вашего тела и души.">
+
+    <!-- SEO & Social Meta Tags -->
+    <meta property="og:title" content="Li-Студия массажного искусства — Премиальный SPA в Сортавала">
+    <meta property="og:description" content="Откройте для себя мир гармонии и релакса в Li-Студии. Профессиональный массаж, SPA-процедуры и забота о каждой детали для вашего тела и души.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/owner.webp">
+    <meta property="og:url" content="https://example.com"> <!-- Заменить на реальный домен -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Li-Студия массажного искусства — Премиальный SPA в Сортавала">
+    <meta name="twitter:description" content="Откройте для себя мир гармонии и релакса в Li-Студии. Профессиональный массаж, SPA-процедуры и забота о каждой детали для вашего тела и души.">
+    <meta name="twitter:image" content="assets/images/owner.webp">
+
+    <!-- ==================== ИСПРАВЛЕННЫЙ И ОЧИЩЕННЫЙ HEAD ==================== -->
+    <!-- Подключение шрифтов -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
+    <!-- Подключение стилей -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
+    <!-- API Яндекс.Карт (подключается до основных скриптов) -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=2c704256-39ca-4355-8a20-fe449f632a8b&lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
 
-    <div id="preloader">
-        <img src="assets/images/logo.svg" alt="Li-Студия Логотип">
-    </div>
+    <!-- ==================== ИСПРАВЛЕННАЯ ШАПКА ==================== -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="#" class="logo">Li</a>
+            <nav class="nav">
+                <a href="#about" class="nav__link">О студии</a>
+                <a href="#services" class="nav__link">Услуги</a>
+                <a href="#contacts" class="nav__link">Контакты</a>
+            </nav>
 
-    <header id="header">
-        <div class="logo-container">
-            <img src="assets/images/logo.svg" alt="Li-Студия Логотип" id="logo-compass">
+            <div class="header__actions">
+                <a href="https://wa.me/79215232545" target="_blank" class="btn header__btn">Записаться</a>
+                <button class="burger" aria-label="Открыть меню" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-        <button id="theme-switcher" aria-label="Переключить тему">
-            <span class="sun"></span>
-            <span class="moon"></span>
-        </button>
     </header>
 
     <main>
-        <section id="hero">
-            <h1>Искусство заботы</h1>
+        <section id="hero" class="hero">
+            <div class="container hero__container">
+                <h1 class="hero__title">Перезагрузка для тела и души в сердце Карелии</h1>
+                <p class="hero__subtitle">Откройте мир авторских SPA-ритуалов, где каждая процедура создана для вашей полной гармонии.</p>
+                <a href="#services" class="btn btn--primary">Выбрать свой ритуал</a>
+            </div>
         </section>
 
-        <section id="about">
-            <h2>О нас</h2>
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section__title text-center">Ваше пространство гармонии</h2>
+                <div class="about__content">
+                    <p class="section__text text-center" style="max-width: 800px; margin: 0 auto;">Li-Студия — это не просто массаж. Это ваше личное пространство для восстановления в самом сердце Сортавала. Мы верим, что забота о себе — это искусство, и создали место, где каждая деталь работает на вашу гармонию: от авторских методик и натуральной косметики до атмосферы полного спокойствия. Наша цель — не просто снять напряжение, а помочь вам обрести баланс и наполниться новой энергией.</p>
+                </div>
+            </div>
         </section>
 
-        <section id="services">
-            <h2>Ритуалы</h2>
+        <section id="services" class="section services__section">
+            <div class="container">
+                <h2 class="section__title text-center">Наши ритуалы</h2>
+                <div id="services-container">
+                    <!-- Service cards will be injected here -->
+                </div>
+            </div>
         </section>
 
-        <section id="contacts">
-            <h2>Контакты</h2>
+        <section id="contacts" class="section contacts__section">
+            <div class="container contacts__container">
+                <div class="contacts__info fade-in">
+                    <h2 class="section__title">Свяжитесь с нами</h2>
+                    <p class="section__text">Мы всегда рады ответить на ваши вопросы и помочь с выбором процедуры. Запишитесь на ритуал релаксации уже сегодня.</p>
+                    <ul class="contacts__list">
+                        <li><strong>Адрес:</strong> Россия г. Сортавала, ул. Карельская, д. 11</li>
+                        <li><strong>Телефон:</strong> <a href="tel:+79215232545">+7 (921) 523-25-45</a></li>
+                        <li><strong>Мессенджеры:</strong> <a href="https://wa.me/79215232545" target="_blank">WhatsApp</a><!-- , <a href="https://t.me/your_telegram" target="_blank">Telegram</a> --></li>
+                        <li><strong>Email:</strong> <a href="mailto:info@li-studio.ru">info@li-studio.ru</a></li>
+                        <li><strong>Режим работы:</strong> Пн-Пт с 10:00 до 20:00</li>
+                    </ul>
+                </div>
+                <div class="contacts__map fade-in" id="map"></div>
+            </div>
         </section>
     </main>
 
-    <footer id="footer">
-        <!-- Footer content will be here -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <a href="#" class="logo">Li</a>
+            <p class="footer__copy">&copy; 2025 Li-Студия. Все права защищены.</p>
+            <div class="footer__socials">
+                <a href="https://m.vk.com/club219645206" target="_blank" aria-label="VKontakte">VK</a>
+                <!-- <a href="#" target="_blank" aria-label="Instagram">IG</a> -->
+            </div>
+        </div>
     </footer>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Service Modal will be injected by JS -->
+    <div id="modal-container"></div>
+
     <script src="assets/js/main.js" defer></script>
 </body>
 </html>
