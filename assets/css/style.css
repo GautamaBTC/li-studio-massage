@@ -39,10 +39,11 @@ body {
     box-shadow: var(--shadow);
 }
 .header__container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-.logo { font-family: var(--font-headers); font-size: 2rem; font-weight: 700; color: var(--color-primary); text-decoration: none; }
-.nav { display: flex; gap: 1.5rem; }
+.logo { font-family: var(--font-headers); font-size: 2rem; font-weight: 700; color: var(--color-primary); text-decoration: none; margin-right: 1.5rem; }
+.nav { display: flex; gap: 1.5rem; flex-grow: 1; }
 .nav__link { text-decoration: none; color: var(--color-text); font-weight: 700; }
-.header__actions { display: flex; align-items: center; gap: 1rem; }
+.header__center { flex-grow: 2; text-align: center; }
+.header__right { display: flex; align-items: center; gap: 1rem; }
 .btn {
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
@@ -65,15 +66,27 @@ main { padding-top: 80px; }
 /* 4. Sections */
 .section { padding: 5rem 0; }
 .section:nth-of-type(even) { background-color: #fff; }
+
+/* Promo Section */
+.promo__section {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 2rem 0;
+}
+.promo__text {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
 .section__title { font-family: var(--font-headers); font-size: 2.8rem; text-align: center; margin-bottom: 3rem; }
 
 /* 5. Services & Reviews Grid */
-.services-grid, .reviews-grid {
+.services-grid, .reviews-grid, .certificates-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
 }
-.service-card, .review-card {
+.service-card, .review-card, .certificate-card {
     border: 1px solid var(--color-border);
     padding: 1.5rem;
     border-radius: var(--border-radius);
@@ -106,6 +119,7 @@ main { padding-top: 80px; }
 .modal-content {
     background: var(--color-white);
     padding: 2.5rem;
+    padding-bottom: 4rem; /* Added extra padding for the button */
     border-radius: var(--border-radius);
     max-width: 650px;
     width: 90%;
@@ -127,27 +141,29 @@ main { padding-top: 80px; }
 
 /* 10. Theme Switcher */
 .theme-switcher {
-    width: 40px;
-    height: 22px;
-    border-radius: 20px;
+    width: 50px;
+    height: 24px;
+    border-radius: 25px;
     border: 1px solid var(--color-primary);
-    background-color: var(--color-bg);
+    background-color: var(--color-dark-bg);
     cursor: pointer;
     position: relative;
+    transition: background-color 0.3s ease;
 }
-.theme-switcher::before { /* The toggle circle */
-    content: '';
+.theme-switcher::before { /* Sun/Moon icon */
+    content: '☀️';
     position: absolute;
-    top: 1px;
-    left: 1px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: var(--color-primary);
-    transition: transform 0.3s ease;
+    top: 2px;
+    left: 2px;
+    font-size: 16px;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+[data-theme="dark"] .theme-switcher {
+    background-color: var(--color-bg);
 }
 [data-theme="dark"] .theme-switcher::before {
-    transform: translateX(18px);
+    content: '🌙';
+    transform: translateX(26px);
 }
 
 /* 11. Dark Theme */
@@ -159,7 +175,20 @@ main { padding-top: 80px; }
 }
 [data-theme="dark"] .header.scrolled { background-color: rgba(44, 62, 80, 0.95); }
 [data-theme="dark"] .nav__link { color: var(--color-text); }
+.certificate-card {
+    text-align: center;
+}
+.certificate-card h3 {
+    font-family: var(--font-headers);
+    font-size: 2rem;
+    color: var(--color-primary);
+}
+
 [data-theme="dark"] .section:nth-of-type(even) { background-color: #34495e; }
+[data-theme="dark"] .modal-content {
+    background-color: var(--color-dark-bg);
+    color: var(--color-dark-text);
+}
 
 
 /* Burger - initially hidden */

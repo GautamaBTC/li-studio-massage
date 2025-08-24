@@ -11,7 +11,21 @@ const App = {
             this.initReviews();
             this.initMap();
             this.initThemeSwitcher();
+            this.initCertificates();
         });
+    },
+
+    initCertificates() {
+        const container = document.getElementById('certificates-container');
+        if (!container) return;
+        const values = [500, 1000, 1500, 2000, 3000, 5000];
+        container.innerHTML = values.map(value => `
+            <div class="certificate-card">
+                <h3>${value}₽</h3>
+                <p>Подарочный сертификат</p>
+                <a href="https://wa.me/79215232545?text=Хочу приобрести сертификат на ${value}₽" target="_blank" class="btn">Приобрести</a>
+            </div>
+        `).join('');
     },
 
     initThemeSwitcher() {
