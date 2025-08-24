@@ -10,11 +10,32 @@ const App = {
             this.initServices();
             this.initReviews();
             this.initMap();
+            this.initThemeSwitcher();
+        });
+    },
+
+    initThemeSwitcher() {
+        const switcher = document.getElementById('theme-switcher');
+        if (!switcher) return;
+
+        const doc = document.documentElement;
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        doc.setAttribute('data-theme', currentTheme);
+
+        switcher.addEventListener('click', () => {
+            const newTheme = doc.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            doc.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
         });
     },
 
     initMobileMenu() {
-        // ... (logic for burger menu)
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav');
+        if (!burger || !nav) return;
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('active'); // You'll need to add CSS for .nav.active
+        });
     },
 
     initStickyHeader() {
@@ -64,22 +85,28 @@ const App = {
         const service = this.data.services.find(s => s.id === serviceId);
         if (!service) return;
         const modalContainer = document.getElementById('modal-container');
-        modalContainer.innerHTML = `
+        const modalHTML = `
             <div class="modal-overlay">
                 <div class="modal-content">
                     <button class="modal-close">&times;</button>
-                    <h2>${service.title}</h2>
-                    <p>${service.price}</p>
+                    <h2 class="modal-service-title">${service.title}</h2>
+                    <p class="modal-service-price">${service.price}</p>
                     <p>${service.shortDescription}</p>
-                    <h4>В процедуру входит:</h4>
-                    <ul>${service.includes.map(item => `<li>${item}</li>`).join('')}</ul>
-                    <a href="https://wa.me/79215232545?text=Запись на: ${service.title}" class="btn btn--primary">Записаться</a>
+                    <h3 class="modal-service-subtitle">В процедуру входит:</h3>
+                    <ul class="modal-service-list">${service.includes.map(item => `<li>${item}</li>`).join('')}</ul>
+                    <a href="https://wa.me/79215232545?text=Запись на: ${service.title}" target="_blank" class="btn btn--primary" style="margin-top: 1.5rem;">Записаться</a>
                 </div>
             </div>
         `;
-        modalContainer.querySelector('.modal-overlay').addEventListener('click', e => {
+        modalContainer.innerHTML = modalHTML;
+
+        const overlay = modalContainer.querySelector('.modal-overlay');
+        setTimeout(() => overlay.classList.add('is-visible'), 10);
+
+        overlay.addEventListener('click', e => {
             if (e.target.matches('.modal-overlay, .modal-close')) {
-                modalContainer.innerHTML = '';
+                overlay.classList.remove('is-visible');
+                setTimeout(() => modalContainer.innerHTML = '', 300);
             }
         });
     },
