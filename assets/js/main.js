@@ -7,39 +7,30 @@ const App = {
         document.addEventListener('DOMContentLoaded', () => {
             this.initMobileMenu();
             this.initStickyHeader();
-            this.initServices();
+            this.initServices().then(() => {
+                this.initServiceCardParallax();
+            });
             this.initReviews();
             this.initMap();
-            this.initThemeSwitcher();
-            this.initCertificates();
         });
     },
 
-    initCertificates() {
-        const container = document.getElementById('certificates-container');
-        if (!container) return;
-        const values = [500, 1000, 1500, 2000, 3000, 5000];
-        container.innerHTML = values.map(value => `
-            <div class="certificate-card">
-                <h3>${value}₽</h3>
-                <p>Подарочный сертификат</p>
-                <a href="https://wa.me/79215232545?text=Хочу приобрести сертификат на ${value}₽" target="_blank" class="btn">Приобрести</a>
-            </div>
-        `).join('');
-    },
+    initServiceCardParallax() {
+        const cards = document.querySelectorAll('.service-card');
+        if (!cards.length) return;
 
-    initThemeSwitcher() {
-        const switcher = document.getElementById('theme-switcher');
-        if (!switcher) return;
+        window.addEventListener('scroll', () => {
+            for (const card of cards) {
+                const rect = card.getBoundingClientRect();
+                const bg = card.querySelector('.service-card__bg');
 
-        const doc = document.documentElement;
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        doc.setAttribute('data-theme', currentTheme);
-
-        switcher.addEventListener('click', () => {
-            const newTheme = doc.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            doc.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+                // Is the card in the viewport?
+                if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                    const scrollPercent = (rect.top + rect.height) / (window.innerHeight + rect.height);
+                    const yPos = (scrollPercent - 0.5) * 40; // Adjust 40 for more/less effect
+                    bg.style.transform = `translateY(${yPos}px)`;
+                }
+            }
         });
     },
 
@@ -48,7 +39,12 @@ const App = {
         const nav = document.querySelector('.nav');
         if (!burger || !nav) return;
         burger.addEventListener('click', () => {
-            nav.classList.toggle('active'); // You'll need to add CSS for .nav.active
+            nav.classList.toggle('active');
+        });
+        nav.querySelectorAll('.nav__link').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
         });
     },
 
@@ -68,9 +64,13 @@ const App = {
             this.data.services = await response.json();
             container.innerHTML = this.data.services.map(service => `
                 <div class="service-card" data-id="${service.id}">
-                    <h3>${service.title}</h3>
-                    <p>${service.shortDescription}</p>
-                    <p><strong>${service.price}</strong></p>
+                    <div class="service-card__bg"></div>
+                    <div class="service-card__content">
+                        <h3>${service.title}</h3>
+                        <p>${service.shortDescription}</p>
+                        <p><strong>${service.price}</strong></p>
+                        <span class="service-card__details">Подробнее</span>
+                    </div>
                 </div>
             `).join('');
             container.addEventListener('click', e => {
