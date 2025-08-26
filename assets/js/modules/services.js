@@ -79,6 +79,7 @@ const renderServices = (services) => {
         <div class="service-card" data-id="${service.id}">
             <div class="service-card__bg"></div>
             <div class="service-card__content">
+                <div class="service-card__icon">${service.icon_svg || ''}</div>
                 <h3>${service.title}</h3>
                 <p>${service.shortDescription}</p>
                 <p><strong>${service.price}</strong></p>
