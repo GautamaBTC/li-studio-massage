@@ -49,9 +49,17 @@ export const initTheme = () => {
 
     // 2. Add click listener for manual toggling
     themeToggle.addEventListener('click', () => {
+        // Add spinning class for animation
+        themeToggle.classList.add('is-spinning');
+
         const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         applyTheme(newTheme);
         saveTheme(newTheme);
+
+        // Remove the class after the animation completes
+        themeToggle.addEventListener('transitionend', () => {
+            themeToggle.classList.remove('is-spinning');
+        }, { once: true });
     });
 
     // 3. Listen for OS-level theme changes

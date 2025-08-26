@@ -35,25 +35,32 @@ const showModal = (serviceId) => {
                 <p>${service.shortDescription}</p>
                 <h3 class="modal-service-subtitle">В процедуру входит:</h3>
                 <ul class="modal-service-list">${service.includes.map(item => `<li>${item}</li>`).join('')}</ul>
-                <a href="https://wa.me/79215232545?text=Запись на: ${encodeURIComponent(service.title)}" target="_blank" class="btn btn--primary" style="margin-top: 1.5rem;">Записаться</a>
+                <a href="https://wa.me/79215232545?text=Запись на: ${encodeURIComponent(service.title)}" target="_blank" class="btn btn--primary">Записаться</a>
             </div>
         </div>
     `;
     modalContainer.innerHTML = modalHTML;
+    document.body.classList.add('body-no-scroll');
 
     const overlay = modalContainer.querySelector('.modal-overlay');
+
     // Use setTimeout to allow the element to be painted before adding the transition class
     setTimeout(() => {
         overlay.classList.add('is-visible');
     }, 10);
 
+    const closeModal = () => {
+        overlay.classList.remove('is-visible');
+        document.body.classList.remove('body-no-scroll');
+        // Wait for the transition to finish before removing from DOM
+        overlay.addEventListener('transitionend', () => {
+            modalContainer.innerHTML = '';
+        }, { once: true });
+    };
+
     overlay.addEventListener('click', e => {
         if (e.target.matches('.modal-overlay, .modal-close')) {
-            overlay.classList.remove('is-visible');
-            // Wait for the transition to finish before removing from DOM
-            overlay.addEventListener('transitionend', () => {
-                modalContainer.innerHTML = '';
-            }, { once: true });
+            closeModal();
         }
     });
 };
