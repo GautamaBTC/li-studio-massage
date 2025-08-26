@@ -13,6 +13,7 @@ import { initLazyLoad } from './modules/lazyload.js';
  */
 const main = () => {
     document.addEventListener('DOMContentLoaded', async () => {
+        window.scrollTo(0, 0);
         initTheme();
         initHeader();
         const servicesLoaded = await initServices();
