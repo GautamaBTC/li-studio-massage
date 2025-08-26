@@ -1,134 +1,110 @@
 [
   {
     "id": "cedar-barrel-lux",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
     "title": "Кедровая бочка «Люкс»",
     "price": "1 200 ₽",
     "shortDescription": "Комплексная процедура для глубокого расслабления, восстановления сил и оздоровления организма.",
     "includes": [ "Парение в кедровой бочке с фитосборами", "Скрабирование или пилинг тела", "Легкий массаж с нанесением крема", "Чайная церемония" ],
-    "effects": [ "Нормализация кровообращения", "Снятие хронической усталости", "Глубокое очищение организма", "Снижение выраженности целлюлита" ],
-    "features": "Для максимального эффекта используются индивидуально подобранные фитосборы, компоненты которых продолжают действовать еще несколько часов после процедуры.",
-    "finalParagraph": "Погрузитесь в атмосферу полного релакса и почувствуйте гармонию тела и души."
+    "effects": [ "Нормализация кровообращения", "Снятие хронической усталости", "Глубокое очищение организма", "Снижение выраженности целлюлита" ]
   },
   {
     "id": "cedar-barrel-light",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
     "title": "Кедровая бочка «Лайт»",
     "price": "500 ₽",
     "shortDescription": "Оздоровительная процедура для восстановления сил и снятия стресса.",
     "includes": [ "Парение в кедровой бочке с фитосборами", "Чайная церемония" ],
-    "effects": [ "Улучшение кровообращения", "Снятие усталости и стресса", "Очищение организма", "Укрепление иммунитета" ],
-    "features": "Используются натуральные фитосборы, которые оказывают мягкое, но эффективное воздействие на организм.",
-    "finalParagraph": "Идеальный выбор для тех, кто ценит гармонию и заботу о себе."
+    "effects": [ "Улучшение кровообращения", "Снятие усталости и стресса", "Очищение организма", "Укрепление иммунитета" ]
   },
   {
     "id": "thai-face-massage",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
     "title": "Тайский массаж лица",
     "price": "1 500 ₽",
     "shortDescription": "Премиальная процедура для глубокого восстановления и омоложения кожи лица.",
     "includes": [ "Массаж лица с проработкой мышц", "Воздействие на акупрессурные точки", "Лимфодренажные техники" ],
-    "effects": [ "Улучшение тонуса и эластичности кожи", "Замедление процессов старения", "Снятие отечности", "Профилактика появления морщин" ],
-    "features": "Подходит для любого типа кожи. Рекомендуется курс из 5-7 процедур для стойкого эффекта.",
-    "finalParagraph": "Подарите себе ощущение свежести и молодости с заботой о каждой детали."
+    "effects": [ "Улучшение тонуса и эластичности кожи", "Замедление процессов старения", "Снятие отечности", "Профилактика появления морщин" ]
   },
   {
     "id": "algae-power",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
     "title": "«Сила Водорослей»",
     "price": "2 000 ₽",
     "shortDescription": "Водорослевое обёртывание для восстановления, детоксикации и улучшения состояния кожи.",
     "includes": [ "Нанесение йодосодержащих водорослей", "Обёртывание тела", "Лёгкий массаж", "Завершающий уход" ],
-    "effects": [ "Мощный дренажный и антицеллюлитный эффект", "Активизация обмена веществ", "Выведение токсинов" ],
-    "features": "Рекомендуется курс из 5-8 процедур для достижения максимального результата.",
-    "finalParagraph": "Почувствуйте обновление и легкость, доверяя профессионалам."
+    "effects": [ "Мощный дренажный и антицеллюлитный эффект", "Активизация обмена веществ", "Выведение токсинов" ]
   },
   {
     "id": "chocolate-bliss",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
     "title": "«Все будет в шоколаде»",
     "price": "1 500 ₽",
     "shortDescription": "Шоколадное скрабирование и обёртывание для глубокого питания, омоложения и снятия стресса.",
     "includes": [ "Скрабирование тела с натуральным шоколадом", "Шоколадное обёртывание", "Массаж с использованием шоколадного масла" ],
-    "effects": [ "Омолаживающий и антистрессовый эффект", "Улучшение тонуса и эластичности кожи", "Стимуляция синтеза коллагена" ],
-    "features": "Рекомендуется для восстановления после стресса и для поддержания молодости кожи.",
-    "finalParagraph": "Погрузитесь в атмосферу абсолютного удовольствия и заботы о себе."
+    "effects": [ "Омолаживающий и антистрессовый эффект", "Улучшение тонуса и эластичности кожи", "Стимуляция синтеза коллагена" ]
   },
   {
     "id": "exquisite-wine",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
     "title": "«Сама Изысканность»",
     "price": "1 500 ₽",
     "shortDescription": "Винное скрабирование и обёртывание — изысканная процедура для обновления и защиты кожи.",
     "includes": [ "Скрабирование с экстрактом винограда", "Винное обёртывание", "Увлажняющий уход" ],
-    "effects": [ "Глубокое увлажнение и разглаживание кожи", "Антиоксидантная защита", "Профилактика старения" ],
-    "features": "Используются натуральные экстракты винограда и винный экстракт Каберне.",
-    "finalParagraph": "Подарите себе роскошь ухода и наслаждение уникальными ароматами."
+    "effects": [ "Глубокое увлажнение и разглаживание кожи", "Антиоксидантная защита", "Профилактика старения" ]
   },
   {
     "id": "berry-delicious",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
     "title": "«Ягодно-вкусная»",
     "price": "1 500 ₽",
     "shortDescription": "Фруктово-ягодное скрабирование и обёртывание для восстановления упругости и эластичности кожи.",
     "includes": [ "Скрабирование с экстрактами фруктов и ягод", "Обёртывание с натуральными компонентами", "Увлажняющий уход" ],
-    "effects": [ "Улучшение состояния и упругости кожи", "Восстановление водного баланса", "Очищающее и омолаживающее воздействие" ],
-    "features": "Рекомендуется для всех типов кожи, особенно в период восстановления.",
-    "finalParagraph": "Почувствуйте натуральную силу природы и заботу о каждой клеточке кожи."
+    "effects": [ "Улучшение состояния и упругости кожи", "Восстановление водного баланса", "Очищающее и омолаживающее воздействие" ]
   },
   {
     "id": "thai-oil-massage",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
     "title": "Тайский массаж на горячем масле",
     "price": "1 700 ₽",
     "shortDescription": "Глубоко расслабляющая процедура, сочетающая традиционные тайские техники и воздействие горячего масла.",
     "includes": [ "Массаж тела с использованием горячего масла", "Проработка мышц и суставов", "Завершающий уход" ],
-    "effects": [ "Глубокое расслабление мышц", "Стимуляция кровообращения", "Снятие напряжения и усталости" ],
-    "features": "Рекомендуется для снятия стресса и восстановления после физических нагрузок.",
-    "finalParagraph": "Погрузитесь в атмосферу гармонии и почувствуйте обновление всего организма."
+    "effects": [ "Глубокое расслабление мышц", "Стимуляция кровообращения", "Снятие напряжения и усталости" ]
   },
   {
     "id": "brazilian-butt",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
     "title": "Бразильская попка",
     "price": "1 300 ₽",
     "shortDescription": "Авторская процедура для моделирования и подтяжки ягодиц, направленная на создание идеальных форм.",
     "includes": [ "Массаж ягодиц", "Нанесение ананасовой маски", "Завершающий уход с кремом" ],
-    "effects": [ "Подтяжка и улучшение формы ягодиц", "Уменьшение подъягодичной складки", "Повышение упругости и тонуса кожи" ],
-    "features": "Рекомендуется курс из 5-7 процедур для стойкого результата.",
-    "finalParagraph": "Ощутите уверенность в себе и наслаждайтесь совершенством форм."
+    "effects": [ "Подтяжка и улучшение формы ягодиц", "Уменьшение подъягодичной складки", "Повышение упругости и тонуса кожи" ]
   },
   {
     "id": "modeling-massage",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
     "title": "Моделирующий антицеллюлитный массаж",
     "price": "1 300 ₽",
     "shortDescription": "Интенсивная процедура для борьбы с целлюлитом и коррекции фигуры с использованием современных техник.",
     "includes": [ "Массаж тела с лимфодренажным эффектом", "Вакуумные банки", "Использование скребка" ],
-    "effects": [ "Уменьшение проявлений целлюлита", "Снижение объёмов", "Улучшение тонуса кожи", "Активизация обменных процессов" ],
-    "features": "Рекомендуется курс из 8-10 процедур для выраженного эффекта.",
-    "finalParagraph": "Доверьтесь профессионалам и почувствуйте уверенность в своем теле."
+    "effects": [ "Уменьшение проявлений целлюлита", "Снижение объёмов", "Улучшение тонуса кожи", "Активизация обменных процессов" ]
   },
   {
     "id": "stone-therapy",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
     "title": "Стоунтерапия",
     "price": "1 500 ₽",
     "shortDescription": "Гармонизирующая процедура с использованием горячих камней для глубокого расслабления.",
     "includes": [ "Массаж тела с горячими камнями", "Проработка энергетических зон", "Завершающий уход" ],
-    "effects": [ "Глубокое расслабление", "Снятие мышечного напряжения", "Улучшение кровообращения", "Восстановление энергетического баланса" ],
-    "features": "Рекомендуется для снятия усталости и восстановления после стрессовых периодов.",
-    "finalParagraph": "Погрузитесь в атмосферу покоя и почувствуйте прилив новых сил."
+    "effects": [ "Глубокое расслабление", "Снятие мышечного напряжения", "Улучшение кровообращения", "Восстановление энергетического баланса" ]
   },
   {
     "id": "face-massage",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12 2 14 8 18 10C14 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 14 16 18 14C14 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 22C12 22 10 16 6 14C10 16 12 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 2C12 2 10 8 6 10C10 8 12 2 12 2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
     "title": "Массаж лица",
     "price": "800 ₽",
     "shortDescription": "Эффективная процедура для поддержания молодости и четкости контуров лица.",
     "includes": [ "Массаж лица", "Проработка проблемных зон", "Завершающий уход" ],
-    "effects": [ "Снятие отеков", "Улучшение контура лица", "Разглаживание морщин" ],
-    "features": "Рекомендуется регулярное проведение для поддержания стойкого эффекта.",
-    "finalParagraph": "Подарите себе свежесть и уверенность в каждом дне."
+    "effects": [ "Снятие отеков", "Улучшение контура лица", "Разглаживание морщин" ]
   }
 ]

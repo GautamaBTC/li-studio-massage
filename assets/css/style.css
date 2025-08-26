@@ -237,11 +237,11 @@ main { padding-top: var(--space-10); } /* 80px */
 .service-card__icon {
     margin-bottom: var(--space-2);
     text-align: center;
+    color: var(--color-accent-start); /* Set color for currentColor in SVG */
 }
 .service-card__icon svg {
     width: 48px;
     height: 48px;
-    stroke: var(--color-accent-start);
 }
 .service-card__content {
     position: relative; z-index: 1; background: transparent; padding: 0;
