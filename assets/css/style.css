@@ -24,11 +24,12 @@ body {
     font-family: var(--font-main);
     background-color: var(--color-bg);
     color: var(--color-text);
+    line-height: 1.7; /* Increased for better readability */
 }
 [data-theme="dark"] .contacts__map {
     filter: invert(1) hue-rotate(180deg);
 }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
 
 /* 2. Header */
 .header {
@@ -68,7 +69,7 @@ body {
 /* 3. Hero Section */
 main { padding-top: 80px; }
 .hero { display: flex; align-items: center; text-align: center; padding: 6rem 0; background-color: var(--color-dark-bg); color: var(--color-dark-text); }
-.hero__title { font-family: var(--font-headers); font-size: 3rem; margin-bottom: 1rem; }
+.hero__title { font-family: var(--font-headers); font-size: 3rem; margin-bottom: 1rem; letter-spacing: 1px; }
 .hero__subtitle { max-width: 600px; margin: 0 auto 2rem auto; opacity: 0.9; }
 .btn--primary { background-color: var(--color-primary); color: var(--color-white); }
 .btn--primary:hover { background-color: var(--color-primary-dark); border-color: var(--color-primary-dark); }
@@ -76,7 +77,7 @@ main { padding-top: 80px; }
 /* 4. Sections */
 .section { padding: 5rem 0; }
 .section:nth-of-type(even) { background-color: #fff; }
-.section__title { font-family: var(--font-headers); font-size: 2.8rem; text-align: center; margin-bottom: 3rem; }
+.section__title { font-family: var(--font-headers); font-size: 2.8rem; text-align: center; margin-bottom: 3rem; letter-spacing: 0.5px; }
 
 /* 5. Services & Reviews Grid */
 .services-grid, .reviews-grid {
@@ -154,6 +155,7 @@ main { padding-top: 80px; }
 .modal-content {
     background: var(--color-white);
     padding: 2.5rem;
+    padding-bottom: 5rem; /* More space for the button */
     border-radius: var(--border-radius);
     max-width: 650px;
     width: 90%;
@@ -172,6 +174,9 @@ main { padding-top: 80px; }
 .modal-service-price { font-size: 1.2rem; color: var(--color-primary); margin-bottom: 1.5rem; font-weight: 700; }
 .modal-service-subtitle { font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; }
 .modal-service-list { list-style-position: inside; padding-left: 0; }
+.modal-content p {
+    word-break: break-word;
+}
 
 /* Burger */
 .burger {
