@@ -234,6 +234,15 @@ main { padding-top: var(--space-10); } /* 80px */
     opacity: 0.3;
 }
 .service-card:hover .service-card__bg.lazy-loaded { opacity: 0.5; }
+.service-card__icon {
+    margin-bottom: var(--space-2);
+    text-align: center;
+}
+.service-card__icon svg {
+    width: 48px;
+    height: 48px;
+    stroke: var(--color-accent-start);
+}
 .service-card__content {
     position: relative; z-index: 1; background: transparent; padding: 0;
 }
