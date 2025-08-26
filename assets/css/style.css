@@ -37,6 +37,8 @@
 }
 
 html[data-theme="light"] {
+    --color-accent-start: #a5b4fc; /* Darker lavender for light theme */
+    --color-accent-end: #f9a8d4;   /* Darker pink for light theme */
     --color-bg: #f8fafc; /* Pure White */
     --color-text: #0f172a; /* Deep Sapphire */
     --color-text-secondary: #475569; /* Slate 600 */
@@ -59,8 +61,6 @@ html[data-theme="light"] {
 }
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
-    scroll-padding-top: var(--space-10); /* Offset for fixed header */
 }
 body {
     font-family: var(--font-main);
@@ -179,8 +179,6 @@ main { padding-top: var(--space-10); } /* 80px */
 /* 7. General Sections */
 .section {
     padding: clamp(var(--space-6), 10vw, var(--space-10)) 0;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
 }
 .section:nth-of-type(even) { background-color: var(--color-surface-1); }
 .section__title {
@@ -265,7 +263,6 @@ html[data-theme="dark"] .contacts__map { filter: invert(1) hue-rotate(180deg) br
     padding: var(--space-4);
     background-color: var(--color-surface-1);
     color: var(--color-text-secondary);
-    scroll-snap-align: start;
 }
 .footer .logo { opacity: 0.8; }
 
@@ -284,11 +281,13 @@ html[data-theme="dark"] .contacts__map { filter: invert(1) hue-rotate(180deg) br
     padding: var(--space-5); padding-bottom: var(--space-10);
     border-radius: var(--border-radius); max-width: 650px; width: 90%;
     box-shadow: var(--shadow-lg); transform: scale(0.95); transition: transform 0.3s ease;
+    max-height: 90dvh; /* Ensure modal content fits on screen */
+    overflow-y: auto; /* Allow scrolling for tall content */
 }
 .modal-overlay.is-visible .modal-content { transform: scale(1); }
 .modal-close {
-    position: absolute; top: var(--space-2); right: var(--space-2); width: 30px; height: 30px;
-    border: none; background: transparent; cursor: pointer; font-size: 1.5rem; color: var(--color-text-secondary);
+    position: absolute; top: var(--space-2); right: var(--space-2); width: 36px; height: 36px;
+    border: none; background: transparent; cursor: pointer; font-size: 1.8rem; color: var(--color-text-secondary);
     transition: transform 0.3s ease, color 0.3s ease;
 }
 .modal-close:hover {
