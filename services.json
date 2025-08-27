@@ -1,7 +1,7 @@
 [
   {
     "id": "cedar-barrel-lux",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 6h14v14H5V6zM5 6a4 4 0 0 0-4 4v2h22V10a4 4 0 0 0-4-4H5zM19 6a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M7.278 4h9.444a2 2 0 0 1 1.841 1.22c.958 2.26 1.437 4.52 1.437 6.78c0 2.26 -.479 4.52 -1.437 6.78a2 2 0 0 1 -1.841 1.22h-9.444a2 2 0 0 1 -1.841 -1.22c-.958 -2.26 -1.437 -4.52 -1.437 -6.78c0 -2.26 .479 -4.52 1.437 -6.78a2 2 0 0 1 1.841 -1.22z\" /><path d=\"M14 4c.667 2.667 1 5.333 1 8s-.333 5.333 -1 8\" /><path d=\"M10 4c-.667 2.667 -1 5.333 -1 8s.333 5.333 1 8\" /><path d=\"M4.5 16h15\" /><path d=\"M19.5 8h-15\" /></svg>",
     "title": "Кедровая бочка «Люкс»",
     "price": "1 200 ₽",
     "shortDescription": "Комплексная процедура для глубокого расслабления, восстановления сил и оздоровления организма.",
@@ -10,7 +10,7 @@
   },
   {
     "id": "cedar-barrel-light",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 6h14v14H5V6zM5 6a4 4 0 0 0-4 4v2h22V10a4 4 0 0 0-4-4H5zM19 6a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M7.278 4h9.444a2 2 0 0 1 1.841 1.22c.958 2.26 1.437 4.52 1.437 6.78c0 2.26 -.479 4.52 -1.437 6.78a2 2 0 0 1 -1.841 1.22h-9.444a2 2 0 0 1 -1.841 -1.22c-.958 -2.26 -1.437 -4.52 -1.437 -6.78c0 -2.26 .479 -4.52 1.437 -6.78a2 2 0 0 1 1.841 -1.22z\" /><path d=\"M14 4c.667 2.667 1 5.333 1 8s-.333 5.333 -1 8\" /><path d=\"M10 4c-.667 2.667 -1 5.333 -1 8s.333 5.333 1 8\" /><path d=\"M4.5 16h15\" /><path d=\"M19.5 8h-15\" /></svg>",
     "title": "Кедровая бочка «Лайт»",
     "price": "500 ₽",
     "shortDescription": "Оздоровительная процедура для восстановления сил и снятия стресса.",
@@ -19,7 +19,7 @@
   },
   {
     "id": "thai-face-massage",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9-4.03-9-9-9zM12 17c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M5 14.5h-.222c-1.535 0 -2.778 -1.12 -2.778 -2.5s1.243 -2.5 2.778 -2.5h.222\" /><path d=\"M19 14.5h.222c1.534 0 2.778 -1.12 2.778 -2.5s-1.244 -2.5 -2.778 -2.5h-.222\" /><path d=\"M9 10h6\" /><path d=\"M9 14h6\" /><path d=\"M12.55 18.843l5 -1.429a2 2 0 0 0 1.45 -1.923v-6.981a2 2 0 0 0 -1.45 -1.923l-5 -1.429a2 2 0 0 0 -1.1 0l-5 1.429a2 2 0 0 0 -1.45 1.922v6.982a2 2 0 0 0 1.45 1.923l5 1.429a2 2 0 0 0 1.1 0z\" /></svg>",
     "title": "Тайский массаж лица",
     "price": "1 500 ₽",
     "shortDescription": "Премиальная процедура для глубокого восстановления и омоложения кожи лица.",
@@ -28,7 +28,7 @@
   },
   {
     "id": "algae-power",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3 12c3-3 6-3 9 0s6 3 9 0\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M5 21c.5 -4.5 2.5 -8 7 -10\" /><path d=\"M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3z\" /></svg>",
     "title": "«Сила Водорослей»",
     "price": "2 000 ₽",
     "shortDescription": "Водорослевое обёртывание для восстановления, детоксикации и улучшения состояния кожи.",
@@ -37,7 +37,7 @@
   },
   {
     "id": "chocolate-bliss",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M17 17H7V7h10v10zM7 7H5v12h12v-2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M7.05 11.293l4.243 -4.243a2 2 0 0 1 2.828 0l2.829 2.83a2 2 0 0 1 0 2.828l-4.243 4.243a2 2 0 0 1 -2.828 0l-2.829 -2.831a2 2 0 0 1 0 -2.828z\" /><path d=\"M16.243 9.172l3.086 -.772a1.5 1.5 0 0 0 .697 -2.516l-2.216 -2.217a1.5 1.5 0 0 0 -2.44 .47l-1.248 2.913\" /><path d=\"M9.172 16.243l-.772 3.086a1.5 1.5 0 0 1 -2.516 .697l-2.217 -2.216a1.5 1.5 0 0 1 .47 -2.44l2.913 -1.248\" /></svg>",
     "title": "«Все будет в шоколаде»",
     "price": "1 500 ₽",
     "shortDescription": "Шоколадное скрабирование и обёртывание для глубокого питания, омоложения и снятия стресса.",
@@ -46,7 +46,7 @@
   },
   {
     "id": "exquisite-wine",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M8 22h8M12 17v5M8 8a4 4 0 0 1 8 0v9H8V8z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M8 21h8\" /><path d=\"M12 15v6\" /><path d=\"M12 5m-6.5 0a6.5 2 0 1 0 13 0a6.5 2 0 1 0 -13 0\" /><path d=\"M5.75 4.5c-.612 .75 -.75 2 -.75 3.5a7 7 0 0 0 14 0c0 -1.5 -.094 -2.75 -.75 -3.5\" /></svg>",
     "title": "«Сама Изысканность»",
     "price": "1 500 ₽",
     "shortDescription": "Винное скрабирование и обёртывание — изысканная процедура для обновления и защиты кожи.",
@@ -55,7 +55,7 @@
   },
   {
     "id": "berry-delicious",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C9 2 6 5 6 9c0 4 6 13 6 13s6-9 6-13c0-4-3-7-6-7z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M7.5 16.5m-3.5 0a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0\" /><path d=\"M17 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0\" /><path d=\"M9 13c.366 -2 1.866 -3.873 4.5 -5.6\" /><path d=\"M17 15c-1.333 -2.333 -2.333 -5.333 -1 -9\" /><path d=\"M5 6c3.667 -2.667 7.333 -2.667 11 0c-3.667 2.667 -7.333 2.667 -11 0\" /></svg>",
     "title": "«Ягодно-вкусная»",
     "price": "1 500 ₽",
     "shortDescription": "Фруктово-ягодное скрабирование и обёртывание для восстановления упругости и эластичности кожи.",
@@ -64,7 +64,7 @@
   },
   {
     "id": "thai-oil-massage",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 22a8 8 0 0 0 8-8c0-4.42-3.58-8-8-8S4 9.58 4 14a8 8 0 0 0 8 8zM12 4a3 3 0 0 1 3 3c0 1.66-1.34 3-3 3s-3-1.34-3-3c0-1.66 1.34-3 3-3z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546z\" /></svg>",
     "title": "Тайский массаж на горячем масле",
     "price": "1 700 ₽",
     "shortDescription": "Глубоко расслабляющая процедура, сочетающая традиционные тайские техники и воздействие горячего масла.",
@@ -73,7 +73,7 @@
   },
   {
     "id": "brazilian-butt",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M10 16v5\" /><path d=\"M14 16v5\" /><path d=\"M8 16h8l-2 -7h-4z\" /><path d=\"M5 11c1.667 -1.333 3.333 -2 5 -2\" /><path d=\"M19 11c-1.667 -1.333 -3.333 -2 -5 -2\" /><path d=\"M12 4m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\" /></svg>",
     "title": "Бразильская попка",
     "price": "1 300 ₽",
     "shortDescription": "Авторская процедура для моделирования и подтяжки ягодиц, направленная на создание идеальных форм.",
@@ -82,7 +82,7 @@
   },
   {
     "id": "modeling-massage",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M4 8v-2a2 2 0 0 1 2 -2h2\" /><path d=\"M4 16v2a2 2 0 0 0 2 2h2\" /><path d=\"M16 4h2a2 2 0 0 1 2 2v2\" /><path d=\"M16 20h2a2 2 0 0 0 2 -2v-2\" /><path d=\"M12 8m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\" /><path d=\"M10 17v-1a2 2 0 1 1 4 0v1\" /><path d=\"M8 10c.666 .666 1.334 1 2 1h4c.666 0 1.334 -.334 2 -1\" /><path d=\"M12 11v3\" /></svg>",
     "title": "Моделирующий антицеллюлитный массаж",
     "price": "1 300 ₽",
     "shortDescription": "Интенсивная процедура для борьбы с целлюлитом и коррекции фигуры с использованием современных техник.",
@@ -91,7 +91,7 @@
   },
   {
     "id": "stone-therapy",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 14s-4 0-4-4 4-4 4-4 4 0 4 4-4 4-4 4zm10 0s-4 0-4-4 4-4 4-4 4 0 4 4-4 4-4 4zM7 22s-4 0-4-4 4-4 4-4 4 0 4 4-4 4-4 4zm10 0s-4 0-4-4 4-4 4-4 4 0 4 4-4 4-4 4z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0\" /><path d=\"M12 3a4.5 4.5 0 0 0 0 9a4.5 4.5 0 0 1 0 9\" /><circle cx=\"12\" cy=\"7.5\" r=\".5\" fill=\"currentColor\" /><circle cx=\"12\" cy=\"16.5\" r=\".5\" fill=\"currentColor\" /></svg>",
     "title": "Стоунтерапия",
     "price": "1 500 ₽",
     "shortDescription": "Гармонизирующая процедура с использованием горячих камней для глубокого расслабления.",
@@ -100,7 +100,7 @@
   },
   {
     "id": "face-massage",
-    "icon_svg": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9-4.03-9-9-9zM12 17c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M4 8v-2a2 2 0 0 1 2 -2h2\" /><path d=\"M4 16v2a2 2 0 0 0 2 2h2\" /><path d=\"M16 4h2a2 2 0 0 1 2 2v2\" /><path d=\"M16 20h2a2 2 0 0 0 2 -2v-2\" /><path d=\"M9 10l.01 0\" /><path d=\"M15 10l.01 0\" /><path d=\"M9.5 15a3.5 3.5 0 0 0 5 0\" /></svg>",
     "title": "Массаж лица",
     "price": "800 ₽",
     "shortDescription": "Эффективная процедура для поддержания молодости и четкости контуров лица.",
