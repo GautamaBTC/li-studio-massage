@@ -6,18 +6,53 @@
 const initMobileMenu = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav');
-    if (!burger || !nav) return;
+    const closeButton = document.querySelector('.nav__close');
+    if (!burger || !nav || !closeButton) return;
 
-    const toggleMenu = () => {
-        document.body.classList.toggle('menu-open');
+    let isClosing = false;
+
+    const openMenu = () => {
+        document.body.classList.remove('menu-is-closing');
+        document.body.classList.add('menu-open');
     };
 
-    burger.addEventListener('click', toggleMenu);
+    const closeMenu = () => {
+        if (isClosing || !document.body.classList.contains('menu-open')) return;
+
+        isClosing = true;
+        document.body.classList.add('menu-is-closing');
+        document.body.classList.remove('menu-open');
+
+        // The link with the longest closing delay is the 3rd child in the nav element
+        const lastLink = nav.querySelector('.nav__link:nth-child(3)');
+
+        const onTransitionEnd = () => {
+            document.body.classList.remove('menu-is-closing');
+            isClosing = false;
+        };
+
+        if (lastLink) {
+            lastLink.addEventListener('transitionend', onTransitionEnd, { once: true });
+        } else {
+            // Fallback if the link isn't found for some reason
+            setTimeout(() => {
+                onTransitionEnd();
+            }, 500); // 500ms is a safe fallback
+        }
+    };
+
+    burger.addEventListener('click', () => {
+        if (document.body.classList.contains('menu-open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    closeButton.addEventListener('click', closeMenu);
 
     nav.querySelectorAll('.nav__link').forEach(link => {
-        link.addEventListener('click', () => {
-            document.body.classList.remove('menu-open');
-        });
+        link.addEventListener('click', closeMenu);
     });
 };
 
