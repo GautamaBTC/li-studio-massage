@@ -192,8 +192,8 @@ main { padding-top: var(--space-10); } /* 80px */
 .section__icon {
     display: block;
     margin: 0 auto var(--space-4);
-    width: 56px;
-    height: 56px;
+    width: 72px;
+    height: 72px;
     opacity: 0.9;
     animation: fadeIn-down 1s ease-out .2s;
     animation-fill-mode: backwards;
