@@ -370,6 +370,7 @@ html[data-theme="dark"] .contacts__map { filter: invert(1) hue-rotate(180deg) br
     .nav.active {
         opacity: 1;
         visibility: visible;
+        pointer-events: auto;
         transition: opacity 0.3s ease;
     }
     .nav__link {
@@ -387,6 +388,15 @@ html[data-theme="dark"] .contacts__map { filter: invert(1) hue-rotate(180deg) br
     .nav.active .nav__link:nth-child(2) { transition-delay: 0.3s; }
     .nav.active .nav__link:nth-child(3) { transition-delay: 0.4s; }
     .nav.active .nav__link:nth-child(4) { transition-delay: 0.5s; }
+    .nav__logo {
+        position: absolute;
+        bottom: var(--space-6);
+        opacity: 0;
+        transition: opacity 0.5s ease 0.6s;
+    }
+    .nav.active .nav__logo {
+        opacity: 1;
+    }
     .burger { display: block; }
     .contacts__container, .reviews-grid { grid-template-columns: 1fr; }
 }
