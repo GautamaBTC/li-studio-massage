@@ -313,10 +313,6 @@ section[id] {
 .contacts__messengers a:active svg {
     stroke: var(--brand-color);
 }
-.contacts__messengers a[aria-label="VKontakte"]:hover svg,
-.contacts__messengers a[aria-label="VKontakte"]:active svg {
-    fill: var(--brand-color);
-}
 .contacts__messengers a[aria-label="VKontakte"] { --brand-color: #0077FF; }
 .contacts__messengers a[aria-label="WhatsApp"] { --brand-color: #25D366; }
 .contacts__messengers a[aria-label="Telegram"] { --brand-color: #0088cc; }
@@ -402,6 +398,18 @@ body.menu-open .burger span:nth-child(3) {
     top: 10px;
     transform: rotate(-135deg);
 }
+body.menu-open .burger span:nth-child(1) {
+    top: 10px;
+    transform: rotate(135deg);
+}
+body.menu-open .burger span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+body.menu-open .burger span:nth-child(3) {
+    top: 10px;
+    transform: rotate(-135deg);
+}
 
 @media (max-width: 768px) {
     .nav {
@@ -435,22 +443,24 @@ body.menu-open .burger span:nth-child(3) {
         transform: translateY(0);
     }
 
-    /* Staggered delay for opening */
-    body.menu-open .nav > .nav__link:nth-child(3) { transition-delay: 0.1s; }
-    body.menu-open .nav > .nav__link:nth-child(4) { transition-delay: 0.2s; }
-    body.menu-open .nav > .nav__link:nth-child(5) { transition-delay: 0.3s; }
-    body.menu-open .nav > .nav__link:nth-child(6) { transition-delay: 0.4s; }
+    /* Staggered delay for opening. Note: .nav__logo is the 1st link-like element. */
+    body.menu-open .nav > a:nth-child(2) { transition-delay: 0.1s; } /* Logo */
+    body.menu-open .nav > a:nth-child(3) { transition-delay: 0.2s; } /* About */
+    body.menu-open .nav > a:nth-child(4) { transition-delay: 0.3s; } /* Services */
+    body.menu-open .nav > a:nth-child(5) { transition-delay: 0.4s; } /* Reviews */
+    body.menu-open .nav > a:nth-child(6) { transition-delay: 0.5s; } /* Contacts */
 
     /* Closing animation (reverse delay) */
-    body.menu-is-closing .nav > .nav__link {
+    body.menu-is-closing .nav > a {
         opacity: 0;
         transform: translateY(10px);
         transition: opacity 0.3s ease, transform 0.3s ease; /* Faster on close */
     }
-    body.menu-is-closing .nav > .nav__link:nth-child(3) { transition-delay: 0.3s; }
-    body.menu-is-closing .nav > .nav__link:nth-child(4) { transition-delay: 0.2s; }
-    body.menu-is-closing .nav > .nav__link:nth-child(5) { transition-delay: 0.1s; }
-    body.menu-is-closing .nav > .nav__link:nth-child(6) { transition-delay: 0s; }
+    body.menu-is-closing .nav > a:nth-child(2) { transition-delay: 0.4s; }
+    body.menu-is-closing .nav > a:nth-child(3) { transition-delay: 0.3s; }
+    body.menu-is-closing .nav > a:nth-child(4) { transition-delay: 0.2s; }
+    body.menu-is-closing .nav > a:nth-child(5) { transition-delay: 0.1s; }
+    body.menu-is-closing .nav > a:nth-child(6) { transition-delay: 0s; }
     .nav__logo {
         position: absolute;
         top: var(--space-6);
