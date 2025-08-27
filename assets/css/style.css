@@ -127,6 +127,17 @@ html[data-theme="light"] .theme-toggle .icon-moon {
     box-shadow: var(--shadow-md);
 }
 .header__container { display: flex; justify-content: space-between; align-items: center; padding: var(--space-2) var(--space-3); }
+@keyframes spin-logo {
+    0%, 71% { /* 5s wait / 7s total duration */
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+.header .logo {
+    animation: spin-logo 7s ease-in infinite;
+}
 .logo { font-family: var(--font-headers); font-size: 2rem; font-weight: 700; background: var(--color-accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
 .nav { display: flex; gap: var(--space-3); }
 .nav__link { text-decoration: none; color: var(--color-text); font-weight: 700; cursor: pointer; user-select: none; transition: color 0.3s ease; }
@@ -302,6 +313,14 @@ section[id] {
     color: var(--color-accent-end);
     transform: translateY(-2px);
 }
+.contacts__messengers a:hover svg,
+.contacts__messengers a:active svg {
+    stroke: var(--brand-color);
+}
+.contacts__messengers a[aria-label="VKontakte"] { --brand-color: #0077FF; }
+.contacts__messengers a[aria-label="WhatsApp"] { --brand-color: #25D366; }
+.contacts__messengers a[aria-label="Telegram"] { --brand-color: #0088cc; }
+.contacts__messengers a[aria-label="Instagram"] { --brand-color: #C13584; }
 .contacts__map { width: 100%; height: 400px; border-radius: var(--border-radius); background-color: var(--color-surface-1); }
 html[data-theme="light"] .contacts__map { filter: none; } /* Reset filter from old theme */
 html[data-theme="dark"] .contacts__map { filter: invert(1) hue-rotate(180deg) brightness(1.1) contrast(0.9) saturate(0.8); }
@@ -371,11 +390,26 @@ html[data-theme="dark"] .contacts__map { filter: invert(1) hue-rotate(180deg) br
 .burger span:nth-child(1) { top: 0px; }
 .burger span:nth-child(2) { top: 10px; }
 .burger span:nth-child(3) { top: 20px; }
-body.menu-open .burger span:nth-child(1) { top: 10px; transform: rotate(135deg); }
-body.menu-open .burger span:nth-child(2) { opacity: 0; left: -60px; }
-body.menu-open .burger span:nth-child(3) { top: 10px; transform: rotate(-135deg); }
-
 @media (max-width: 768px) {
+    .nav__close {
+        position: absolute;
+        top: var(--space-3);
+        right: var(--space-3);
+        background: transparent;
+        border: none;
+        color: var(--color-text);
+        font-size: 2.5rem;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s ease 0.3s, transform 0.3s ease;
+    }
+    body.menu-open .nav__close {
+        opacity: 1;
+    }
+    .nav__close:hover {
+        transform: rotate(90deg);
+        color: var(--color-accent-end);
+    }
     .nav {
         position: fixed; top: 0; left: 0;
         width: 100%; height: 100vh;
@@ -412,9 +446,9 @@ body.menu-open .burger span:nth-child(3) { top: 10px; transform: rotate(-135deg)
     body.menu-open .nav__link:nth-child(4) { transition-delay: 0.5s; }
     .nav__logo {
         position: absolute;
-        bottom: var(--space-8);
+        top: var(--space-6);
         opacity: 0;
-        transition: opacity 3s ease 0.7s;
+        transition: opacity 3s ease 1.5s;
     }
     body.menu-open .nav__logo {
         opacity: 1;
