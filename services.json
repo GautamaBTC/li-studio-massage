@@ -1,7 +1,7 @@
 [
   {
     "id": "cedar-barrel-lux",
-    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M7.278 4h9.444a2 2 0 0 1 1.841 1.22c.958 2.26 1.437 4.52 1.437 6.78c0 2.26 -.479 4.52 -1.437 6.78a2 2 0 0 1 -1.841 1.22h-9.444a2 2 0 0 1 -1.841 -1.22c-.958 -2.26 -1.437 -4.52 -1.437 -6.78c0 -2.26 .479 -4.52 1.437 -6.78a2 2 0 0 1 1.841 -1.22z\" /><path d=\"M14 4c.667 2.667 1 5.333 1 8s-.333 5.333 -1 8\" /><path d=\"M10 4c-.667 2.667 -1 5.333 -1 8s.333 5.333 1 8\" /><path d=\"M4.5 16h15\" /><path d=\"M19.5 8h-15\" /></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"56\" height=\"56\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"filter: drop-shadow(0 0 3px currentColor);\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 3h-14a3 3 0 0 0 -3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3 -3v-12a3 3 0 0 0 -3 -3z\" /><path d=\"M19 9h-14\" /><path d=\"M19 15h-14\" /><path d=\"M9 3v18\" /><path d=\"M15 3v18\" /></svg>",
     "title": "Кедровая бочка «Люкс»",
     "price": "1 200 ₽",
     "shortDescription": "Комплексная процедура для глубокого расслабления, восстановления сил и оздоровления организма.",
@@ -10,7 +10,7 @@
   },
   {
     "id": "cedar-barrel-light",
-    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M7.278 4h9.444a2 2 0 0 1 1.841 1.22c.958 2.26 1.437 4.52 1.437 6.78c0 2.26 -.479 4.52 -1.437 6.78a2 2 0 0 1 -1.841 1.22h-9.444a2 2 0 0 1 -1.841 -1.22c-.958 -2.26 -1.437 -4.52 -1.437 -6.78c0 -2.26 .479 -4.52 1.437 -6.78a2 2 0 0 1 1.841 -1.22z\" /><path d=\"M14 4c.667 2.667 1 5.333 1 8s-.333 5.333 -1 8\" /><path d=\"M10 4c-.667 2.667 -1 5.333 -1 8s.333 5.333 1 8\" /><path d=\"M4.5 16h15\" /><path d=\"M19.5 8h-15\" /></svg>",
+    "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M7.278 4h9.444a2 2 0 0 1 1.841 1.22c.958 2.26 1.437 4.52 1.437 6.78c0 2.26 -.479 4.52 -1.437 6.78a2 2 0 0 1 -1.841 1.22h-9.444a2 2 0 0 1 -1.841 -1.22c-.958 -2.26 -1.437 -4.52 -1.437 -6.78c0 -2.26 .479 4.52 1.437 -6.78a2 2 0 0 1 1.841 -1.22z\" /><path d=\"M4.5 16h15\" /><path d=\"M19.5 8h-15\" /></svg>",
     "title": "Кедровая бочка «Лайт»",
     "price": "500 ₽",
     "shortDescription": "Оздоровительная процедура для восстановления сил и снятия стресса.",
