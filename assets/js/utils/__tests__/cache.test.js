@@ -8,6 +8,19 @@ describe('fetchWithCache', () => {
     const CACHE_KEY = 'test-cache';
     const MOCK_DATA = { message: 'success' };
     const TTL = 24 * 60 * 60 * 1000;
+    const MOCK_TIMESTAMP = 1678886400000; // A fixed, predictable timestamp
+
+    let dateSpy;
+
+    beforeAll(() => {
+        // Mock Date.now() to control timestamps
+        dateSpy = jest.spyOn(Date, 'now').mockImplementation(() => MOCK_TIMESTAMP);
+    });
+
+    afterAll(() => {
+        // Restore the original Date.now()
+        dateSpy.mockRestore();
+    });
 
     beforeEach(() => {
         fetch.mockClear();
@@ -29,7 +42,8 @@ describe('fetchWithCache', () => {
         await fetchWithCache(URL, CACHE_KEY);
         const cached = JSON.parse(localStorage.getItem(CACHE_KEY));
         expect(cached.data).toEqual(MOCK_DATA);
-        expect(cached.timestamp).toBeCloseTo(Date.now());
+        // Check against the mock timestamp for a reliable test
+        expect(cached.timestamp).toBe(MOCK_TIMESTAMP);
     });
 
     test('should return data from cache if it is fresh', async () => {
@@ -45,7 +59,7 @@ describe('fetchWithCache', () => {
 
     test('should fetch from network if cache is stale', async () => {
         const staleData = {
-            timestamp: Date.now() - TTL - 1000, // Older than 24 hours
+            timestamp: MOCK_TIMESTAMP - TTL - 1000, // Older than 24 hours
             data: { message: 'stale' }
         };
         localStorage.setItem(CACHE_KEY, JSON.stringify(staleData));

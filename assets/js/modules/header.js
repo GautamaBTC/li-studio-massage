@@ -14,8 +14,8 @@ const initMobileMenu = () => {
 
     burger.addEventListener('click', toggleMenu);
 
-    nav.querySelectorAll('.nav__link, .nav__close').forEach(element => {
-        element.addEventListener('click', () => {
+    nav.querySelectorAll('.nav__link').forEach(link => {
+        link.addEventListener('click', () => {
             document.body.classList.remove('menu-open');
         });
     });
