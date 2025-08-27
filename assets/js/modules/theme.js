@@ -43,9 +43,8 @@ export const initTheme = () => {
     const themeToggle = document.getElementById('theme-toggle');
     if (!themeToggle) return;
 
-    // 1. Set initial theme on page load
-    const currentTheme = getPreferredTheme();
-    applyTheme(currentTheme);
+    // 1. Set initial theme on page load - force light theme as per user request
+    applyTheme('light');
 
     // 2. Add click listener for manual toggling
     themeToggle.addEventListener('click', () => {
