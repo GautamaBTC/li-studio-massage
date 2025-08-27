@@ -108,7 +108,7 @@ export const initServices = async () => {
     if (!container) return false;
 
     try {
-        const servicesData = await fetchWithCache('services.json', 'services-cache-v2');
+        const servicesData = await fetchWithCache('services.json', 'services-cache-v3');
         renderServices(servicesData);
         return true; // Indicate success
     } catch (error) {

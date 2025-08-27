@@ -8,14 +8,15 @@ const initMobileMenu = () => {
     const nav = document.querySelector('.nav');
     if (!burger || !nav) return;
 
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        // This will be fixed in the bug fixing step
-    });
+    const toggleMenu = () => {
+        document.body.classList.toggle('menu-open');
+    };
+
+    burger.addEventListener('click', toggleMenu);
 
     nav.querySelectorAll('.nav__link').forEach(link => {
         link.addEventListener('click', () => {
-            nav.classList.remove('active');
+            document.body.classList.remove('menu-open');
         });
     });
 };
