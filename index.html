@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&family=Playfair+Display:wght@700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css?v=1.0.1">
+    <link rel="stylesheet" href="assets/css/style.css?v=1.1.0">
     <script src="https://api-maps.yandex.ru/2.1/?apikey=2c704256-39ca-4355-8a20-fe449f632a8b&lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
@@ -76,7 +76,22 @@
                     <ul class="contacts__list">
                         <li><strong>Адрес:</strong> Россия г. Сортавала, ул. Карельская, д. 11</li>
                         <li><strong>Телефон:</strong> <a href="tel:+79215232545">+7 (921) 523-25-45</a></li>
-                        <li><strong>Мессенджеры:</strong> <a href="https://wa.me/79215232545" target="_blank">WhatsApp</a></li>
+                        <li>
+                            <div class="contacts__messengers">
+                                <a href="https://m.vk.com/club219645206" target="_blank" aria-label="VKontakte">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 11.5c0 2.5 -2.5 4.5 -5 4.5h-1v-9h1c2.5 0 5 2 5 4.5z" /><path d="M14 11.5c0 -2.5 2.5 -4.5 5 -4.5h1v9h-1c-2.5 0 -5 -2 -5 -4.5z" /></svg>
+                                </a>
+                                <a href="https://wa.me/79215232545" target="_blank" aria-label="WhatsApp">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9z" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg>
+                                </a>
+                                <a href="https://t.me/79215232545" target="_blank" aria-label="Telegram">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg>
+                                </a>
+                                <a href="#" target="_blank" aria-label="Instagram">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37a4 4 0 1 1 -8 0a4 4 0 0 1 8 0z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
+                                </a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div class="contacts__map" id="map"></div>
@@ -92,6 +107,6 @@
     </footer>
 
     <div id="modal-container"></div>
-    <script src="assets/js/app.js" type="module"></script>
+    <script src="assets/js/app.js?v=1.1.0" type="module"></script>
 </body>
 </html>
