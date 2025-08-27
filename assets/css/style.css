@@ -258,6 +258,10 @@ main { padding-top: var(--space-10); } /* 80px */
     margin-bottom: var(--space-2);
     text-align: center;
     color: var(--color-accent-start); /* Set color for currentColor in SVG */
+    transition: transform 0.3s ease-in-out;
+}
+.service-card:hover .service-card__icon {
+    transform: translateY(-4px);
 }
 .service-card__icon svg {
     /* The width and height are now set on the inline SVG in services.json */
@@ -351,9 +355,9 @@ html[data-theme="dark"] .contacts__map { filter: invert(1) hue-rotate(180deg) br
 .burger span:nth-child(1) { top: 0px; }
 .burger span:nth-child(2) { top: 10px; }
 .burger span:nth-child(3) { top: 20px; }
-.nav.active + .header__actions .burger span:nth-child(1) { top: 10px; transform: rotate(135deg); }
-.nav.active + .header__actions .burger span:nth-child(2) { opacity: 0; left: -60px; }
-.nav.active + .header__actions .burger span:nth-child(3) { top: 10px; transform: rotate(-135deg); }
+.nav.active ~ .header__actions .burger span:nth-child(1) { top: 10px; transform: rotate(135deg); }
+.nav.active ~ .header__actions .burger span:nth-child(2) { opacity: 0; left: -60px; }
+.nav.active ~ .header__actions .burger span:nth-child(3) { top: 10px; transform: rotate(-135deg); }
 
 @media (max-width: 768px) {
     .nav {
