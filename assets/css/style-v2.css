@@ -429,16 +429,31 @@ body.menu-open .burger span:nth-child(3) {
         font-size: 2rem;
         opacity: 0;
         transform: translateY(10px);
-        transition: opacity 0.5s ease, transform 0.5s ease;
+        transition: opacity 0.4s ease, transform 0.4s ease;
     }
     body.menu-open .nav__link {
         opacity: 1;
         transform: translateY(0);
     }
-    body.menu-open .nav__link:nth-child(1) { transition-delay: 0.2s; }
-    body.menu-open .nav__link:nth-child(2) { transition-delay: 0.3s; }
-    body.menu-open .nav__link:nth-child(3) { transition-delay: 0.4s; }
-    body.menu-open .nav__link:nth-child(4) { transition-delay: 0.5s; }
+
+    /* Staggered delay for opening. Note: .nav__logo is the 1st link-like element. */
+    body.menu-open .nav > a:nth-child(2) { transition-delay: 0.1s; } /* Logo */
+    body.menu-open .nav > a:nth-child(3) { transition-delay: 0.2s; } /* About */
+    body.menu-open .nav > a:nth-child(4) { transition-delay: 0.3s; } /* Services */
+    body.menu-open .nav > a:nth-child(5) { transition-delay: 0.4s; } /* Reviews */
+    body.menu-open .nav > a:nth-child(6) { transition-delay: 0.5s; } /* Contacts */
+
+    /* Closing animation (reverse delay) */
+    body.menu-is-closing .nav > a {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Faster on close */
+    }
+    body.menu-is-closing .nav > a:nth-child(2) { transition-delay: 0.4s; }
+    body.menu-is-closing .nav > a:nth-child(3) { transition-delay: 0.3s; }
+    body.menu-is-closing .nav > a:nth-child(4) { transition-delay: 0.2s; }
+    body.menu-is-closing .nav > a:nth-child(5) { transition-delay: 0.1s; }
+    body.menu-is-closing .nav > a:nth-child(6) { transition-delay: 0s; }
     .nav__logo {
         position: absolute;
         top: var(--space-6);
@@ -450,46 +465,4 @@ body.menu-open .burger span:nth-child(3) {
     }
     .burger { display: block; }
     .contacts__container, .reviews-grid { grid-template-columns: 1fr; }
-
-    /* New styles for the separate close button */
-    .nav-close {
-        position: fixed;
-        top: calc(var(--space-2) + 8px); /* Align with burger's visual center */
-        right: var(--space-3);
-        width: 30px;
-        height: 30px;
-        z-index: 1600; /* Above the nav menu */
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        opacity: 0;
-        transform: scale(0.5) rotate(-180deg);
-        pointer-events: none;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        color: var(--color-text);
-    }
-
-    .nav-close.is-visible {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-        pointer-events: auto;
-        transition-delay: 0.6s; /* Delay to appear after links */
-    }
-
-    .nav-close svg line {
-        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    }
-
-    .nav-close.is-dissolving {
-        transform: scale(0);
-        opacity: 0;
-    }
-
-    .nav-close.is-dissolving svg line:nth-child(1) {
-        transform: translate(15px, -5px) rotate(20deg);
-    }
-
-    .nav-close.is-dissolving svg line:nth-child(2) {
-        transform: translate(-15px, 5px) rotate(-20deg);
-    }
 }
