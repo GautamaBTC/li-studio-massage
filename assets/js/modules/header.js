@@ -6,40 +6,59 @@
 const initMobileMenu = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav');
-    if (!burger || !nav) return;
+    const closeBtn = document.querySelector('.nav-close');
+    if (!burger || !nav || !closeBtn) return;
 
     let isClosing = false;
+
+    const openMenu = () => {
+        document.body.classList.remove('menu-is-closing');
+        document.body.classList.add('menu-open');
+        burger.style.opacity = '0';
+        burger.style.pointerEvents = 'none';
+
+        const lastLink = nav.querySelector('a:nth-child(6)');
+        if (lastLink) {
+            lastLink.addEventListener('transitionend', (e) => {
+                if (e.target === lastLink && document.body.classList.contains('menu-open')) {
+                    closeBtn.classList.add('is-visible');
+                }
+            }, { once: true });
+        }
+    };
 
     const closeMenu = () => {
         if (isClosing || !document.body.classList.contains('menu-open')) return;
 
         isClosing = true;
+        closeBtn.classList.add('is-dissolving');
         document.body.classList.add('menu-is-closing');
         document.body.classList.remove('menu-open');
 
-        // The link with the longest closing delay is the logo.
-        const lastLink = nav.querySelector('a:nth-child(2)');
+        const lastMenuLink = nav.querySelector('a:nth-child(2)');
 
         const onTransitionEnd = () => {
             document.body.classList.remove('menu-is-closing');
+            burger.style.opacity = '1';
+            burger.style.pointerEvents = 'auto';
+            closeBtn.classList.remove('is-visible', 'is-dissolving');
             isClosing = false;
         };
 
-        if (lastLink) {
-            lastLink.addEventListener('transitionend', onTransitionEnd, { once: true });
+        if (lastMenuLink) {
+            lastMenuLink.addEventListener('transitionend', onTransitionEnd, { once: true });
         } else {
-            // Fallback
-            setTimeout(onTransitionEnd, 500);
+            setTimeout(onTransitionEnd, 800);
         }
     };
 
     burger.addEventListener('click', () => {
-        if (document.body.classList.contains('menu-open')) {
-            closeMenu();
-        } else {
-            document.body.classList.add('menu-open');
+        if (!document.body.classList.contains('menu-open')) {
+            openMenu();
         }
     });
+
+    closeBtn.addEventListener('click', closeMenu);
 
     nav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', closeMenu);
