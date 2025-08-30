@@ -14,6 +14,13 @@
     --color-accent-text: #1e40af; /* A dark blue for text on gradient buttons */
     --color-white: #fff;
 
+    /* Skin Texture */
+    --skin-texture-opacity: 0.03;
+    --skin-texture-dark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><path fill="%23000000" fill-opacity="0.02" d="M150 0 L75 200 L225 200 Z M300 100 L225 300 L375 300 Z M0 100 L75 300 L225 300 Z"/></svg>');
+    --skin-texture-light: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><path fill="%23000000" fill-opacity="0.01" d="M150 0 L75 200 L225 200 Z M300 100 L225 300 L375 300 Z M0 100 L75 300 L225 300 Z"/></svg>');
+    --skin-texture: var(--skin-texture-dark);
+    --color-bg-gradient-end: var(--color-surface-1);
+
     /* Typography */
     --font-main: 'Manrope', sans-serif;
     --font-headers: 'Playfair Display', serif;
@@ -51,6 +58,8 @@ html[data-theme="light"] {
     --color-surface-1: #ffffff;
     --color-border: #e2e8f0; /* Gentle Pearlescent */
     --color-accent-text: #1e293b; /* Darker text for light theme buttons */
+    --skin-texture: var(--skin-texture-light);
+    --color-bg-gradient-end: var(--color-border);
 
     /* Shadows - Light Theme */
     --shadow-md: 0 4px 6px -1px rgb(15 23 42 / 0.08), 0 2px 4px -2px rgb(15 23 42 / 0.08);
@@ -71,6 +80,7 @@ html {
 body {
     font-family: var(--font-main);
     background-color: var(--color-bg);
+    background-image: var(--skin-texture), linear-gradient(to bottom, var(--color-bg), var(--color-bg-gradient-end));
     color: var(--color-text);
     font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); /* Fluid font size */
     line-height: 1.7;
