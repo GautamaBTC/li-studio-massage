@@ -15,7 +15,6 @@
     --color-white: #fff;
 
     /* Skin Texture */
-    --skin-texture-opacity: 0.03;
     --skin-texture-dark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><path fill="%23000000" fill-opacity="0.02" d="M150 0 L75 200 L225 200 Z M300 100 L225 300 L375 300 Z M0 100 L75 300 L225 300 Z"/></svg>');
     --skin-texture-light: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><path fill="%23000000" fill-opacity="0.01" d="M150 0 L75 200 L225 200 Z M300 100 L225 300 L375 300 Z M0 100 L75 300 L225 300 Z"/></svg>');
     --skin-texture: var(--skin-texture-dark);
@@ -80,11 +79,24 @@ html {
 body {
     font-family: var(--font-main);
     background-color: var(--color-bg);
-    background-image: var(--skin-texture), linear-gradient(to bottom, var(--color-bg), var(--color-bg-gradient-end));
     color: var(--color-text);
     font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); /* Fluid font size */
     line-height: 1.7;
     transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--skin-texture), linear-gradient(to bottom, var(--color-bg), var(--color-bg-gradient-end));
+    background-color: var(--color-bg);
+    z-index: -1;
 }
 
 .body-no-scroll {
@@ -255,15 +267,27 @@ section[id] {
     border: 1px solid var(--color-border);
     padding: var(--space-3);
     border-radius: var(--border-radius);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: var(--shadow-md);
 }
-.review-card { color: var(--color-text-secondary); }
+.review-card {
+    color: var(--color-text-secondary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 .review-card strong { color: var(--color-text); }
 .service-card {
     cursor: pointer; position: relative; overflow: hidden; min-height: 300px;
     display: flex; flex-direction: column; justify-content: flex-end;
     view-timeline-name: --service-card-timeline; /* Define timeline name */
+
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+    will-change: transform, opacity;
+}
+.service-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--color-accent-start); }
 .service-card__bg {
