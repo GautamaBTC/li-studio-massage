@@ -5,6 +5,7 @@ import { initReviews } from './modules/reviews.js';
 import { initMap } from './modules/map.js';
 import { initAnimations } from './modules/animations.js';
 import { initLazyLoad } from './modules/lazyload.js';
+import { initLottieIcons } from './modules/lottie.js';
 
 /**
  * The main entry point for the application.
@@ -24,6 +25,7 @@ const main = () => {
         }
         initReviews();
         initMap();
+        initLottieIcons();
     });
 };
 

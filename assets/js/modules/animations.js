@@ -12,22 +12,26 @@ const initStaggeredAnimation = (selector, delayStep = 150) => {
     const elements = document.querySelectorAll(selector);
     if (elements.length === 0) return;
 
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                obs.unobserve(entry.target); // Animate only once
-            }
+    // A short delay ensures that the browser has finished painting the newly added
+    // elements, making them reliably detectable by the IntersectionObserver on page load.
+    setTimeout(() => {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, {
+            threshold: 0.1, // Trigger when 10% of the element is visible
         });
-    }, {
-        threshold: 0.1, // Trigger when 10% of the element is visible
-    });
 
-    elements.forEach((el, index) => {
-        // Apply staggered delay. User requested 0.1-0.2s, so 150ms is a good middle ground.
-        el.style.transitionDelay = `${index * delayStep}ms`;
-        observer.observe(el);
-    });
+        elements.forEach((el, index) => {
+            // Apply staggered delay. User requested 0.1-0.2s, so 150ms is a good middle ground.
+            el.style.transitionDelay = `${index * delayStep}ms`;
+            observer.observe(el);
+        });
+    }, 100);
 };
 
 /**
