@@ -22,7 +22,9 @@ const initMobileMenu = () => {
         document.body.classList.add('menu-is-closing');
         document.body.classList.remove('menu-open');
 
-        const lastLink = nav.querySelector('a:nth-child(2)'); // The logo has the longest delay
+        // The logo (first link) has the longest delay on closing. We wait for its
+        // transition to end before cleaning up the classes.
+        const lastLink = nav.querySelector('a:nth-of-type(1)');
 
         const onTransitionEnd = () => {
             document.body.classList.remove('menu-is-closing');
