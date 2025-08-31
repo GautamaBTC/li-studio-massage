@@ -417,6 +417,7 @@ html[data-theme="dark"] .contacts__map { filter: invert(1) hue-rotate(180deg) br
 .burger {
     display: none; width: 30px; height: 24px; position: relative;
     cursor: pointer; background: transparent; border: none;
+    z-index: 1600; /* Ensure burger/close icon is on top of the nav menu */
 }
 .burger span {
     display: block; position: absolute; height: 2px; width: 100%;
@@ -437,10 +438,6 @@ body.menu-open .burger span:nth-child(2) {
 body.menu-open .burger span:nth-child(3) {
     top: 10px;
     transform: rotate(-135deg);
-}
-/* Hide the main header logo when the mobile menu is open to prevent duplicates */
-body.menu-open .header__container > .logo {
-    display: none;
 }
 
 @media (max-width: 768px) {
@@ -494,7 +491,6 @@ body.menu-open .header__container > .logo {
     body.menu-is-closing .nav > a:nth-child(5) { transition-delay: 0.1s; }
     body.menu-is-closing .nav > a:nth-child(6) { transition-delay: 0s; }
     .nav__logo {
-        display: block; /* Show mobile logo */
         position: absolute;
         top: var(--space-6);
         opacity: 0;
@@ -505,4 +501,12 @@ body.menu-open .header__container > .logo {
     }
     .burger { display: block; }
     .contacts__container, .reviews-grid { grid-template-columns: 1fr; }
+
+    /* --- Logo visibility for mobile --- */
+    .header__container > .logo {
+        display: none; /* Hide main logo on mobile */
+    }
+    .nav__logo {
+        display: block; /* Show the logo that is inside the nav panel */
+    }
 }
