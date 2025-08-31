@@ -12,9 +12,10 @@ const initStaggeredAnimation = (selector, delayStep = 150) => {
     const elements = document.querySelectorAll(selector);
     if (elements.length === 0) return;
 
-    // A short delay ensures that the browser has finished painting the newly added
-    // elements, making them reliably detectable by the IntersectionObserver on page load.
-    setTimeout(() => {
+    // Using requestAnimationFrame ensures that we initialize the observer after the
+    // browser has completed its current painting cycle. This is a more robust
+    // way to handle potential race conditions than a fixed setTimeout.
+    requestAnimationFrame(() => {
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -31,7 +32,7 @@ const initStaggeredAnimation = (selector, delayStep = 150) => {
             el.style.transitionDelay = `${index * delayStep}ms`;
             observer.observe(el);
         });
-    }, 100);
+    });
 };
 
 /**
