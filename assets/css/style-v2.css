@@ -441,6 +441,9 @@ body.menu-open .burger span:nth-child(3) {
 }
 
 @media (max-width: 768px) {
+    .header__actions {
+        margin-left: auto; /* Push actions to the right on mobile */
+    }
     .nav {
         position: fixed; top: 0; left: 0;
         width: 100%; height: 100vh;
