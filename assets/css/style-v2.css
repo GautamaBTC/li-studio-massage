@@ -266,50 +266,16 @@ section[id] {
     }
 }
 
-.about__container {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    align-items: center;
-    gap: var(--space-8);
+.about__image-wrapper {
+    margin-top: var(--space-6);
 }
 
 .about__photo {
     width: 100%;
-    max-width: 400px;
+    max-width: 320px; /* A bit smaller to fit nicely */
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-lg);
     object-fit: cover;
-}
-
-.about__text-content {
-    text-align: left;
-}
-
-.about__text-content .section__icon,
-.about__text-content .section__title {
-    margin-left: 0;
-    margin-right: 0;
-    text-align: left;
-}
-
-@media (max-width: 768px) {
-    .about__container {
-        grid-template-columns: 1fr;
-    }
-    .about__image-wrapper {
-        display: flex;
-        justify-content: center;
-        margin-bottom: var(--space-4);
-    }
-    .about__text-content {
-        text-align: center;
-    }
-    .about__text-content .section__icon,
-    .about__text-content .section__title {
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
 }
 
 
