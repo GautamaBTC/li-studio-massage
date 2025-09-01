@@ -272,7 +272,7 @@ section[id] {
 
 .about__photo {
     width: 100%;
-    max-width: 320px; /* A bit smaller to fit nicely */
+    max-width: 800px; /* Match width of text block above */
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-lg);
     object-fit: cover;
