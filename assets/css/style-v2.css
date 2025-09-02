@@ -268,6 +268,8 @@ section[id] {
 
 .about__image-wrapper {
     margin-top: var(--space-6);
+    display: flex;
+    justify-content: center;
 }
 
 .about__photo {
