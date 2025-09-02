@@ -7,13 +7,16 @@
     <meta name="description" content="Откройте для себя мир гармонии и релакса в Li-Студии.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&family=Montserrat:wght@700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Noto+Serif+Display:wght@700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style-v2.css">
     <script src="https://api-maps.yandex.ru/2.1/?apikey=2c704256-39ca-4355-8a20-fe449f632a8b&lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
     <header class="header">
         <div class="container header__container">
+            <!-- Mobile-only button, positioned by flexbox in the container -->
+            <a href="https://wa.me/79215232545" target="_blank" class="btn header__btn header__btn--mobile">Записаться</a>
+
             <nav class="nav">
                 <a href="#hero" class="logo nav__logo">Li</a>
                 <a href="#hero" class="nav__link">Главная</a>
@@ -23,7 +26,8 @@
                 <a href="#contacts" class="nav__link">Контакты</a>
             </nav>
             <div class="header__actions">
-                <a href="https://wa.me/79215232545" target="_blank" class="btn header__btn">Записаться</a>
+                <!-- Desktop-only button -->
+                <a href="https://wa.me/79215232545" target="_blank" class="btn header__btn header__btn--desktop">Записаться</a>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">
                     <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                     <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -37,8 +41,8 @@
         <section id="hero" class="hero">
             <div class="container hero__container">
                 <a href="#" class="logo hero__logo">Li</a>
-                <h1 class="hero__title">Перезагрузка для тела и души в сердце Карелии</h1>
-                <p class="hero__subtitle">Откройте мир авторских SPA-ритуалов, где каждая процедура создана для вашей полной гармонии.</p>
+                <h1 class="hero__title">Перезагрузка<br>для тела и души<br>в сердце Карелии</h1>
+                <p class="hero__subtitle">Откройте для себя мир авторских SPA-ритуалов,<br>где каждая процедура — это путь к внутреннему равновесию.<br>Созданные с любовью и глубоким пониманием энергии природы,<br>они помогут вам восстановить силы, отпустить напряжение<br>и вернуться к себе.</p>
                 <a href="#services" class="btn btn--primary">Выбрать свой ритуал</a>
             </div>
         </section>

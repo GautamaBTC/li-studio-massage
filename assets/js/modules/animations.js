@@ -36,8 +36,38 @@ const initStaggeredAnimation = (selector, delayStep = 150) => {
 };
 
 /**
+ * Initializes an alternating slide-in animation for elements as they enter the viewport.
+ * @param {string} selector - The CSS selector for the elements to animate.
+ */
+const initAlternatingAnimation = (selector) => {
+    const elements = document.querySelectorAll(selector);
+    if (elements.length === 0) return;
+
+    elements.forEach((el, index) => {
+        if (index % 2 === 0) {
+            el.classList.add('slide-in-right');
+        } else {
+            el.classList.add('slide-in-left');
+        }
+    });
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
+};
+
+
+/**
  * Initializes all animations for the site.
  */
 export const initAnimations = () => {
     initStaggeredAnimation('.service-card');
+    initAlternatingAnimation('.review-card');
 };
