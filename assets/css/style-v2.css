@@ -21,8 +21,8 @@
     --color-bg-gradient-end: var(--color-surface-1);
 
     /* Typography */
-    --font-main: 'Manrope', sans-serif;
-    --font-headers: 'Montserrat', sans-serif;
+    --font-main: 'Raleway', sans-serif;
+    --font-headers: 'Noto Serif Display', serif;
     --font-mono: 'JetBrains Mono', monospace;
     --border-radius: 12px; /* Slightly larger for a more modern feel */
 
@@ -176,6 +176,7 @@ html[data-theme="light"] .theme-toggle .icon-moon {
 .nav__link { text-decoration: none; color: var(--color-text); font-weight: 700; cursor: pointer; user-select: none; transition: color 0.3s ease; }
 .nav__link:hover { color: var(--color-accent-end); }
 .nav__logo { display: none; } /* Hide mobile logo on desktop */
+.header__btn--mobile { display: none; } /* Hide mobile button on desktop */
 .header__actions { display: flex; align-items: center; gap: var(--space-2); }
 
 
@@ -214,9 +215,9 @@ html[data-theme="light"] .theme-toggle .icon-moon {
 main { padding-top: var(--space-10); } /* 80px */
 .hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(var(--space-8), 12vw, var(--space-12)) 0; background-color: transparent; } /* BG is now body */
 .hero__logo {
-    font-size: 5.5rem; /* Slightly smaller */
-    margin-bottom: var(--space-2);
-    margin-top: -1.5rem; /* Raise the logo a bit higher */
+    font-size: 4.4rem; /* 20% smaller */
+    margin-bottom: var(--space-1); /* Reduced bottom margin */
+    margin-top: -1rem; /* Reduced top margin */
     animation: pulsate 3s ease-in-out infinite, glow 3s ease-in-out infinite;
 }
 .hero__title {
@@ -299,9 +300,59 @@ section[id] {
 }
 .review-card {
     color: var(--color-text-secondary);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, var(--color-accent-start), var(--color-accent-end));
+    position: relative;
+    padding-top: var(--space-5);
+}
+
+.review-card::before {
+    content: url('data:image/svg+xml;utf8,<svg width="48" height="48" viewBox="0 0 24 24" fill="var(--color-border)" xmlns="http://www.w3.org/2000/svg"><path d="M9.98438 17.5H4.48438V12.5H6.48438C7.03125 10.4531 8.4375 8.53125 9.98438 7.5V12.5H11.9844V17.5H9.98438ZM19.9844 17.5H14.4844V12.5H16.4844C17.0312 10.4531 18.4375 8.53125 19.9844 7.5V12.5H21.9844V17.5H19.9844Z"/></svg>');
+    position: absolute;
+    top: var(--space-2);
+    left: var(--space-3);
+    opacity: 0.2;
+    transform: scale(1.5);
 }
 .review-card strong { color: var(--color-text); }
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.review-card.slide-in-left,
+.review-card.slide-in-right {
+    opacity: 0; /* Initial state before animation */
+}
+
+.review-card.is-visible.slide-in-left {
+    animation: slide-in-left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.review-card.is-visible.slide-in-right {
+    animation: slide-in-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
 .service-card {
     cursor: pointer; position: relative; overflow: hidden; min-height: 300px;
     display: flex; flex-direction: column; justify-content: flex-end;
@@ -468,8 +519,18 @@ body.menu-open .burger span:nth-child(3) {
 }
 
 @media (max-width: 768px) {
+    .header__container {
+        justify-content: space-between;
+    }
     .header__actions {
-        margin-left: auto; /* Push actions to the right on mobile */
+        gap: var(--space-1);
+    }
+    .header__btn--desktop, .nav {
+        display: none;
+    }
+    .header__btn--mobile {
+        display: inline-block;
+        padding: var(--space-1) var(--space-3); /* A bit smaller to fit */
     }
     .nav {
         position: fixed; top: 0; left: 0;
