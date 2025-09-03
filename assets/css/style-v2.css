@@ -176,7 +176,6 @@ html[data-theme="light"] .theme-toggle .icon-moon {
 .nav__link { text-decoration: none; color: var(--color-text); font-weight: 700; cursor: pointer; user-select: none; transition: color 0.3s ease; }
 .nav__link:hover { color: var(--color-accent-end); }
 .nav__logo { display: none; } /* Hide mobile logo on desktop */
-.header__btn--mobile { display: none; } /* Hide mobile button on desktop */
 .header__actions { display: flex; align-items: center; gap: var(--space-2); }
 
 
@@ -212,7 +211,7 @@ html[data-theme="light"] .theme-toggle .icon-moon {
 
 
 /* 6. Hero Section */
-main { padding-top: var(--space-10); } /* 80px */
+main { padding-top: var(--space-5); } /* 40px - Reduced by half */
 .hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(var(--space-8), 12vw, var(--space-12)) 0; background-color: transparent; } /* BG is now body */
 .hero__logo {
     font-size: 4.4rem; /* 20% smaller */
@@ -519,18 +518,15 @@ body.menu-open .burger span:nth-child(3) {
 }
 
 @media (max-width: 768px) {
-    .header__container {
-        justify-content: space-between;
+    .header__container > .nav {
+        display: none; /* Hide desktop nav links */
     }
     .header__actions {
-        gap: var(--space-1);
+        width: 100%;
+        justify-content: space-between;
     }
-    .header__btn--desktop, .nav {
-        display: none;
-    }
-    .header__btn--mobile {
-        display: inline-block;
-        padding: var(--space-1) var(--space-3); /* A bit smaller to fit */
+    .header__btn {
+        padding: 0.6rem 1.8rem; /* Slightly larger */
     }
     .nav {
         position: fixed; top: 0; left: 0;
