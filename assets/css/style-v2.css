@@ -724,6 +724,12 @@ body.menu-open .burger span:nth-child(3) {
     body.menu-is-closing .nav > a:nth-of-type(4) { transition-delay: 0.2s; } /* Услуги */
     body.menu-is-closing .nav > a:nth-of-type(5) { transition-delay: 0.1s; } /* Отзывы */
     body.menu-is-closing .nav > a:nth-of-type(6) { transition-delay: 0s; }   /* Контакты */
+
+    /* Theme Toggle Visibility */
+    #theme-toggle-mobile {
+        display: none; /* Hide mobile toggle by default */
+    }
+
     .nav__logo {
         position: absolute;
         top: var(--space-6);
@@ -742,5 +748,17 @@ body.menu-open .burger span:nth-child(3) {
     }
     .nav__logo {
         display: block; /* Show the logo that is inside the nav panel */
+    }
+
+    /* --- Theme toggle visibility for mobile --- */
+    #theme-toggle-desktop {
+        display: none; /* Hide desktop toggle on mobile */
+    }
+    #theme-toggle-mobile {
+        display: flex; /* Show mobile toggle in the nav panel */
+        align-items: center;
+        justify-content: center;
+        order: -1; /* Place it before the links */
+        margin-bottom: var(--space-6);
     }
 }

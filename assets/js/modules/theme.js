@@ -40,28 +40,37 @@ const getPreferredTheme = () => {
  * - Listens for changes in OS theme preference.
  */
 export const initTheme = () => {
-    const themeToggle = document.getElementById('theme-toggle');
-    if (!themeToggle) return;
+    const desktopToggle = document.getElementById('theme-toggle-desktop');
+    const mobileToggle = document.getElementById('theme-toggle-mobile');
+    const toggles = [desktopToggle, mobileToggle].filter(Boolean); // Filter out nulls
 
-    // 1. Set initial theme on page load - force light theme as per user request
-    applyTheme('light');
+    if (toggles.length === 0) return;
 
-    // 2. Add click listener for manual toggling
-    themeToggle.addEventListener('click', () => {
+    // 1. Set initial theme on page load
+    applyTheme(getPreferredTheme());
+
+    // 2. Create a shared handler for the click event
+    const handleThemeToggle = (e) => {
+        const button = e.currentTarget;
         // Add spinning class for animation
-        themeToggle.classList.add('is-spinning');
+        button.classList.add('is-spinning');
 
         const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         applyTheme(newTheme);
         saveTheme(newTheme);
 
         // Remove the class after the animation completes
-        themeToggle.addEventListener('transitionend', () => {
-            themeToggle.classList.remove('is-spinning');
+        button.addEventListener('transitionend', () => {
+            button.classList.remove('is-spinning');
         }, { once: true });
+    };
+
+    // 3. Add click listener to all available toggles
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', handleThemeToggle);
     });
 
-    // 3. Listen for OS-level theme changes
+    // 4. Listen for OS-level theme changes
     // This will only apply if the user has NOT manually overridden the theme.
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
         const isThemeSaved = localStorage.getItem(THEME_STORAGE_KEY);
